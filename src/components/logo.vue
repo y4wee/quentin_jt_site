@@ -30,25 +30,25 @@ export default {
     tl.delay(1)
 
     // barre typ animation
-    tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.5})
+    tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.6})
     tl.to('.LogoLetterTyp', {width: "25px", ease: "back",  left: "10px", duration: 0.3, onComplete: function() {
       document.querySelector('.LogoLetterTyp').classList.add("active")
-    }}, ">")
+    }})
     
     // apparition des lettres 
-    tl.to('.l1', {display: "block", ease: "none", duration: 0.9, delay: 0.8})
-    tl.to('.l2', {display: "block", ease: "none", duration: 0.9}, "-=0.3")
-    tl.to('.l3', {display: "block", ease: "none", duration: 0.9}, "-=0.7")
-    tl.to('.l4', {display: "block", ease: "none", duration: 0.9}, "-=0.6")
-    tl.to('.l5', {display: "block", ease: "none", duration: 0.9}, "-=0.7")
-    tl.to('.l6', {display: "block", ease: "none", duration: 0.9}, "-=0.7")
-    tl.to('.l7', {display: "block", ease: "none", duration: 0.9}, "-=0.2")
-    tl.to('.l8', {display: "block", ease: "none", duration: 0.9}, "-=0.7")
+    tl.to('.l1', {display: "block", ease: "none", duration: 0.8, delay: 0.8})
+    tl.to('.l2', {display: "block", ease: "none", duration: 0.1})
+    tl.to('.l3', {display: "block", ease: "none", duration: 0.2})
+    tl.to('.l4', {display: "block", ease: "none", duration: 0.1})
+    tl.to('.l5', {display: "block", ease: "none", duration: 0.1})
+    tl.to('.l6', {display: "block", ease: "none", duration: 0.7})
+    tl.to('.l7', {display: "block", ease: "none", duration: 0.1})
+    tl.to('.l8', {display: "block", ease: "none", duration: 0.8})
 
     // disaprition barre typ
     tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.3, onComplete: function() {
       document.querySelector('.LogoLetterTyp').classList.remove("active")
-    }}, "-=0.6")
+    }})
     
     if(this.$store.state.timelineLogo === true) {
       tl.pause();
