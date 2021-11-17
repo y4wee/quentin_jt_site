@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     cursorOff: true,
+    timelineLogo: false,
   },
 
   mutations: {
@@ -10,7 +11,7 @@ export default createStore({
 
   actions: {
   },
-  
+
   modules: {
   }
 })
