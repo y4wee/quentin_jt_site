@@ -6,11 +6,6 @@
     <Logo />
   </header>
 
-  <div class="scrollCall"></div>
-  <div class="main">
-
-  </div>
-
 </template>
 
 <script>
@@ -53,22 +48,6 @@ body {
 header {
   height: 15%;
   width: 100%;
-}
-.cursor {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  top: calc(50vh - 41px);
-  left: calc(50vw - 41px);
-  width: 30px;
-  height: 30px;
-  background-color: rgb(210, 210 , 210);
-  border: solid 2px rgb(210, 210 , 210);
-  border-radius: 50%;
-  mix-blend-mode: difference;
-  z-index: 10000;
-  pointer-events: none;
 }
 
 </style>
