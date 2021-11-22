@@ -1,6 +1,6 @@
 <template>
 
-    <div class="Cursor" @click.once="turnCursorOn()"></div>
+    <div class="Cursor"></div>
 
 </template>
 
@@ -16,20 +16,25 @@ export default {
         }
     },
     mounted: function() {
+        // event pour cursor souris 
         window.addEventListener('mousemove', this.cursorMove)
+        // applique event hover pour chaque link du site et modifit le cursor
+        document.querySelectorAll('.link').forEach(link => {
+            link.addEventListener('mouseenter', this.cursorLinkOn)
+            link.addEventListener('mouseleave', this.cursorLinkOff)
+        })
     },
     methods: {
-        turnCursorOn: function() {
-
-            var tl = gsap.timeline()
-
-            tl.to
-            //this.$store.commit('cursorOn', true)
-        },
         cursorMove: function(e) {
-            if(this.$store.state.cursor) {
-                gsap.to('.Cursor', {top: e.y, left: e.x, transform: "translate(-50%, -50%)", cursor:"none", duration: 0})
-            }
+            gsap.to('.Cursor', {top: e.y, left: e.x, transform: "translate(-50%, -50%)", duration: 0})
+        },
+        cursorLinkOn: function() {
+            console.log("link ON")
+            gsap.to('.Cursor', {width: "500px",height: "500px",backgroundColor: "transparent",borderColor: "#f556e2", mixBlendMode: "normal", duration: 0.3})
+        },
+        cursorLinkOff: function() {
+            console.log("link OFF")
+            gsap.to('.Cursor', {width: "30px",height: "30px",backgroundColor: "rgb(210, 210 , 210)",borderColor: "rgb(210, 210 , 210)", mixBlendMode: "difference", duration: 0.3})
         }
     },
     computed: {
@@ -49,12 +54,13 @@ export default {
         position: absolute;
         top: calc(50vh - 41px);
         left: calc(50vw - 41px);
-        width: 80px;
-        height: 80px;
+        width: 30px;
+        height: 30px;
+        background-color: rgb(210, 210 , 210);
         border: solid 2px rgb(210, 210 , 210);
         border-radius: 50%;
-        cursor: pointer;
         mix-blend-mode: difference;
-        opacity: 0;
+        z-index: 10000;
+        pointer-events: none;
     }
 </style>

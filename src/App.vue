@@ -1,5 +1,4 @@
 <template>
-  
   <Cursor />
 
   <header>
@@ -10,33 +9,22 @@
   <div class="scrollCall"></div>
   <div class="main">
 
-    <div class="blocAnim">
-      <div class="ball">
-        <div class="ballShown"></div>
-        <router-view v-slot="{ Component }">
-          <transition name="route" mode="out-in">
-            <component :is="Component"></component>
-          </transition>
-        </router-view>
-      </div>
-    </div>
-
   </div>
 
 </template>
 
 <script>
 import Logo from './components/logo'
-import Cursor from './components/cursor'
 import Start from './components/button-start'
+import Cursor from './components/cursor.vue';
 
 export default {
   name: 'App',
   components: {
     Start,
-    Cursor,
     Logo,
-  }
+    Cursor
+  },
 }
 </script>
 
@@ -52,6 +40,8 @@ export default {
   width: 100%;
   height: 100%;
   background-color: white;
+  overflow: hidden;
+  cursor: none;
 }
 body {
   width: 100vw;
@@ -64,25 +54,21 @@ header {
   height: 15%;
   width: 100%;
 }
-.blocAnim {
-  display: none;
-}
-.scrollCall {
-  display: none;
+.cursor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  height: 100vh;
-  border: 1px solid darken($color: rgb(96, 96 , 96), $amount: 15%);
-  top: 0;
-  left: 50vw;
-}
-
-// Partie ball
-.ball {
-  width: 200px;
-  height: 200px;
-  overflow: hidden;
+  top: calc(50vh - 41px);
+  left: calc(50vw - 41px);
+  width: 30px;
+  height: 30px;
+  background-color: rgb(210, 210 , 210);
+  border: solid 2px rgb(210, 210 , 210);
   border-radius: 50%;
-  box-shadow: 0 0 5px 0 cyan;
+  mix-blend-mode: difference;
+  z-index: 10000;
+  pointer-events: none;
 }
 
 </style>

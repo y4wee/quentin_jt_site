@@ -29,12 +29,12 @@ export default {
   methods: {
     // active l'animation logo si click sur bouton start
     logoAnimation: function() {
-      if(!this.$store.state.timelineLogo && this.$store.state.cursor) {
+      if(!this.$store.state.timelineLogo && this.$store.state.start) {
         this.$store.commit('timelineLogoOn', true)
 
         var tl = gsap.timeline()
 
-        tl.delay(3)
+        tl.delay(0.55)
 
         // barre typ animation
         tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.6})
@@ -43,13 +43,13 @@ export default {
         }})
         
         // apparition des lettres 
-        tl.to('.l1', {display: "block", ease: "none", duration: 0.5, delay: 0.8})
-        tl.to('.l2', {display: "block", ease: "none", duration: 0.18})
-        tl.to('.l3', {display: "block", ease: "none", duration: 0.18})
-        tl.to('.l4', {display: "block", ease: "none", duration: 0.18})
-        tl.to('.l5', {display: "block", ease: "none", duration: 0.18})
+        tl.to('.l1', {display: "block", ease: "none", duration: 0.4, delay: 0.7})
+        tl.to('.l2', {display: "block", ease: "none", duration: 0.16})
+        tl.to('.l3', {display: "block", ease: "none", duration: 0.16})
+        tl.to('.l4', {display: "block", ease: "none", duration: 0.16})
+        tl.to('.l5', {display: "block", ease: "none", duration: 0.16})
         tl.to('.l6', {display: "block", ease: "none", duration: 0.6})
-        tl.to('.l7', {display: "block", ease: "none", duration: 0.18})
+        tl.to('.l7', {display: "block", ease: "none", duration: 0.16})
         tl.to('.l8', {display: "block", ease: "none", duration: 0.6})
 
         // disaprition barre typ
@@ -87,7 +87,8 @@ export default {
       user-select: none;
       height: 140px;
       &Each {
-        font-family: "yuji boku", serif;
+        font-family: 'M PLUS 2', sans-serif;
+        //font-family: "yuji boku", serif;
         font-size: 6em;
         color: darken($color: rgb(96, 96 , 96), $amount: 20%);
         display: none;

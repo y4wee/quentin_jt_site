@@ -1,8 +1,8 @@
 <template>
 
     <div class="Start">
-        <div class="StartButton" @click.once="turnStartOn()" >
-            Enter
+        <div class="StartButton link" @click.once="turnStartOn()">
+            Click
         </div>
         <div class="StartWarp">
             <CssWarp class="StartWarpText"/>
@@ -22,26 +22,22 @@ export default {
     components: {
         CssWarp,
     },
-    data() {
-        return {
-            hover: false,
-        }
-    },
     mounted: function() {
-        gsap.fromTo('.StartEffect',
-            {opacity:"1", transform: "scale(0.5)", borderWidth: "2px"},
-            {opacity:"0", transform: "scale(3)", borderWidth: "1px",ease: "power2.out", duration: 0.8, repeat: -1, repeatDelay: 0.5});
-
-        //gsap.fromto('.StartWarp',
-            //{transform: "rotateZ(0deg)"}, 
-            //{transform: "rotateZ(360deg)", duration: 5, repeat: -1});
+        // animation pulse anneau vert
+        let tweenEffect = gsap.fromTo('.StartEffect',
+            {opacity: "1", transform: "scale(0.5)", borderWidth: "2px"},
+            {opacity: "0", transform: "scale(3)", borderWidth: "1px",ease: "power2.out", duration: 0.8, repeat: -1, repeatDelay: 0.8});
+        // animation bouton click pulse
+        let tweenButtonPulse = gsap.fromTo('.StartButton',
+            {transform: "scale(1.2)"},
+            {transform: "scale(1)", ease: "power4.in.out", duration: 0.2, repeat: -1, repeatDelay: 1.4})
+        
+        tweenEffect.play()
+        tweenButtonPulse.play()
     },
     methods: {
         turnStartOn: function() {
-
-            var tl = gsap.timeline()
-
-            tl.to('.StartWarp', {transform: "scale(1)", duration: 0.3, ease: "power2.out"})
+            gsap.to('.Start', {transform: "scale(0)", ease: "back.in", duration: 0.55, repeat: 0,})
             this.$store.commit('startOn', true)
         },
     },
@@ -56,36 +52,41 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
     .Start {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        top: calc(50vh - 150px);
+        left: calc(50vw - 150px);
+        z-index: 10;
+        user-select: none;
         &Button {
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             position: absolute;
-            top: calc(50vh - 41px);
-            left: calc(50vw - 41px);
             width: 80px;
             height: 80px;
-            font-size: 1.2em;
+            font-size: 1.3em;
+            color: darken($color: rgb(96, 96 , 96), $amount: 20%);
             border: solid 2px darken($color: rgb(96, 96 , 96), $amount: 20%);
             border-radius: 50%;
             cursor: pointer;
-            z-index: 10;
             background-color: white;
+            z-index: 10;
         }
         &Warp {
             position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
-            top: calc(50vh - 150px);
-            left: calc(50vw - 150px);
             border: solid 2px darken($color: rgb(96, 96 , 96), $amount: 20%);
             border-radius: 50%;
             background-color: white;
-            z-index: 6;
             transform-origin: center;
-            transform: scale(0);
             &Text {
                 transform-origin: center;
                 animation: rotate360 10s infinite linear
@@ -96,19 +97,19 @@ export default {
                 width: 240px;
                 height: 240px;
                 border-radius: 50%;
-                background-color: rgb(163, 169 , 164);
+                background: radial-gradient(circle, rgba(216,216,216,1) 0%, rgba(252,251,251,1) 100%);
+
+                //background-color: rgb(163, 169 , 164);
+                //border: solid 2px darken($color: rgb(96, 96 , 96), $amount: 20%);
             }
         }
         &Effect {
             position: absolute;
-            top: calc(50vh - 41px);
-            left: calc(50vw - 41px);
             width: 80px;
             height: 80px;
             border: solid 2px rgb(86, 245 , 105);
             border-radius: 50%;
             transform-origin: center;
-            z-index: 6;
         }
     }
     @keyframes rotate360 {
