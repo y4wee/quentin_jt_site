@@ -3,6 +3,7 @@
   <Cursor />
 
   <header>
+    <Start />
     <Logo />
   </header>
 
@@ -27,12 +28,14 @@
 <script>
 import Logo from './components/logo'
 import Cursor from './components/cursor'
+import Start from './components/button-start'
 
 export default {
   name: 'App',
   components: {
+    Start,
+    Cursor,
     Logo,
-    Cursor
   }
 }
 </script>
@@ -42,7 +45,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100;200;300;400;500;600;700;800;900&family=Yuji+Boku&display=swap');
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'M PLUS 2', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -75,7 +78,6 @@ header {
 
 // Partie ball
 .ball {
-  z-index: 1;
   width: 200px;
   height: 200px;
   overflow: hidden;

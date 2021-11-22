@@ -24,41 +24,47 @@ import { mapState } from 'vuex';
 export default {
   name: 'Logo',
   mounted: function() {
+    window.addEventListener('click', this.logoAnimation)
+  },
+  methods: {
+    // active l'animation logo si click sur bouton start
+    logoAnimation: function() {
+      if(!this.$store.state.timelineLogo && this.$store.state.cursor) {
+        this.$store.commit('timelineLogoOn', true)
 
-    var tl = gsap.timeline()
+        var tl = gsap.timeline()
 
-    tl.delay(1)
+        tl.delay(3)
 
-    // barre typ animation
-    tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.6})
-    tl.to('.LogoLetterTyp', {width: "25px", ease: "back",  left: "10px", duration: 0.3, onComplete: function() {
-      document.querySelector('.LogoLetterTyp').classList.add("active")
-    }})
-    
-    // apparition des lettres 
-    tl.to('.l1', {display: "block", ease: "none", duration: 0.8, delay: 0.8})
-    tl.to('.l2', {display: "block", ease: "none", duration: 0.1})
-    tl.to('.l3', {display: "block", ease: "none", duration: 0.2})
-    tl.to('.l4', {display: "block", ease: "none", duration: 0.1})
-    tl.to('.l5', {display: "block", ease: "none", duration: 0.1})
-    tl.to('.l6', {display: "block", ease: "none", duration: 0.7})
-    tl.to('.l7', {display: "block", ease: "none", duration: 0.1})
-    tl.to('.l8', {display: "block", ease: "none", duration: 0.8})
+        // barre typ animation
+        tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.6})
+        tl.to('.LogoLetterTyp', {width: "25px", ease: "back",  left: "10px", duration: 0.3, onComplete: function() {
+          document.querySelector('.LogoLetterTyp').classList.add("active")
+        }})
+        
+        // apparition des lettres 
+        tl.to('.l1', {display: "block", ease: "none", duration: 0.5, delay: 0.8})
+        tl.to('.l2', {display: "block", ease: "none", duration: 0.18})
+        tl.to('.l3', {display: "block", ease: "none", duration: 0.18})
+        tl.to('.l4', {display: "block", ease: "none", duration: 0.18})
+        tl.to('.l5', {display: "block", ease: "none", duration: 0.18})
+        tl.to('.l6', {display: "block", ease: "none", duration: 0.6})
+        tl.to('.l7', {display: "block", ease: "none", duration: 0.18})
+        tl.to('.l8', {display: "block", ease: "none", duration: 0.6})
 
-    // disaprition barre typ
-    tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.3, onComplete: function() {
-      document.querySelector('.LogoLetterTyp').classList.remove("active")
-    }})
-    
-    if(this.$store.state.timelineLogo === true) {
-      tl.pause();
-    } else {
-      tl.play();
+        // disaprition barre typ
+        tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.3, onComplete: function() {
+          document.querySelector('.LogoLetterTyp').classList.remove("active")
+        }})
+      } else {
+        return null;
+      }
     }
   },
   computed: {
         ...mapState({
-            timelineLogo: 'timelineLogo'
+            timelineLogo: 'timelineLogo',
+            cursor: 'cursor'
         }),
     },
 }
@@ -90,7 +96,7 @@ export default {
         position: relative;
         top: calc(50vh - 60px);
         height: 100vh;
-        width: 3px;
+        width: 2px;
         border-radius: 3px;
         background-color: darken($color: rgb(96, 96 , 96), $amount: 20%);
         &.active {
