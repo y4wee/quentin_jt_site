@@ -1,10 +1,15 @@
 <template>
+  <!-- composant cursor -->
   <Cursor />
+  <!-- composant boutton start -->
+  <Start />
 
   <header>
-    <Start />
+    <!-- composant logo Yawee.dev -->
     <Logo />
   </header>
+
+  <SectionPresentation />
 
 </template>
 
@@ -12,19 +17,23 @@
 import Logo from './components/logo'
 import Start from './components/button-start'
 import Cursor from './components/cursor.vue';
+import SectionPresentation from './components/section-presentation.vue';
 
 export default {
   name: 'App',
   components: {
     Start,
     Logo,
-    Cursor
-  },
+    Cursor,
+    SectionPresentation
+},
 }
 </script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@100;200;300;400;500;600;700;800;900&family=Yuji+Boku&display=swap');
+// variables sass
+$mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
 
 #app {
   font-family: 'M PLUS 2', sans-serif;
@@ -45,8 +54,12 @@ body {
   overflow: hidden;
 }
 header {
-  height: 15%;
+  position: fixed;
+  height: 140px;
   width: 100%;
+  display: flex;
+  transform: translateY(-100%);
+  border-bottom: solid 1px $mainColor;
 }
 
 </style>

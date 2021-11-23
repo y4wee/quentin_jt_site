@@ -65,22 +65,21 @@ export default {
       this.$store.commit('headerOn', true);
       gsap.to('header', {height: "100px", transform: "translateY(0)", ease: "power3",duration: 0.3})
       gsap.to('.Logo', {top: "-30px",scale: 0.5, ease: "power3",duration: 0})
-      console.log("ok")
     }
   },
-  computed: {
-        ...mapState({
-            timelineLogo: 'timelineLogo',
-            cursor: 'cursor'
-        }),
-    },
   watch: {
     timelineLogo(newValue) {
       if(newValue === true) {
         this.logoAnimation()
       }
     }
-  }
+  },
+  computed: {
+      ...mapState({
+          timelineLogo: 'timelineLogo',
+          cursor: 'cursor'
+      }),
+  },
 }
 </script>
 
@@ -108,6 +107,14 @@ export default {
         font-size: 5em;
         color: darken($color: rgb(96, 96 , 96), $amount: 20%);
         display: none;
+        &.l2 {
+          font-weight: bold;
+          color: rgb(86, 245 , 105);
+        }
+        &.l6 {
+          transform-origin: center;
+          transform: rotateY(180deg);
+        }
       }
       &Typ {
         position: relative;
