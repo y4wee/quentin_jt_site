@@ -29,11 +29,9 @@ export default {
             gsap.to('.Cursor', {top: e.y, left: e.x, xPercent:-50, yPercent:-50, duration: 0})
         },
         cursorLinkOn: function() {
-            console.log("link ON")
             gsap.to('.Cursor', {width: "500px",height: "500px",backgroundColor: "transparent",borderColor: "#f556e2", mixBlendMode: "normal", duration: 0.3})
         },
         cursorLinkOff: function() {
-            console.log("link OFF")
             gsap.to('.Cursor', {width: "30px",height: "30px",backgroundColor: "rgb(210, 210 , 210)",borderColor: "rgb(210, 210 , 210)", mixBlendMode: "difference", duration: 0.3})
         }
     },

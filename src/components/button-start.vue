@@ -24,16 +24,13 @@ export default {
     },
     mounted: function() {
         // animation pulse anneau vert
-        let tweenEffect = gsap.fromTo('.StartEffect',
+        gsap.fromTo('.StartEffect',
             {opacity: "1", transform: "scale(0.5)", borderWidth: "2px"},
             {opacity: "0", transform: "scale(3)", borderWidth: "1px",ease: "power2.out", duration: 0.8, repeat: -1, repeatDelay: 0.8});
         // animation bouton click pulse
-        let tweenButtonPulse = gsap.fromTo('.StartButton',
+        gsap.fromTo('.StartButton',
             {transform: "scale(1.2)"},
             {transform: "scale(1)", ease: "power4.in.out", duration: 0.2, repeat: -1, repeatDelay: 1.4})
-        
-        tweenEffect.play()
-        tweenButtonPulse.play()
     },
     methods: {
         turnStartOn: function() {
@@ -43,6 +40,7 @@ export default {
                 gsap.to('.Start', {display: "none"})
             }})
             this.$store.commit('startOn', true)
+            this.$store.commit('timelineLogoOn', true)
         },
     },
     computed: {

@@ -58,15 +58,13 @@ export default {
         tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.2, onComplete: function() {
           document.querySelector('.LogoLetterTyp').classList.remove("active")
         }})
-        tl.to('.Logo', {opacity: 0, ease: "power3",duration: 0.3, onComplete: function() {
-          //apparition header
-          this.testLog()
-          gsap.to('header', {height: "100px", transform: "translateY(0)", ease: "power3",duration: 0.3})
-          gsap.to('.Logo', {top: "-30px",scale: 0.5, ease: "power3",duration: 0})
-        }})
+        tl.to('.Logo', {opacity: 0, ease: "power3",duration: 0.3, onComplete: this.turnHeaderOn})
         tl.to('.Logo', {opacity: 1, duration: 0.3}, "=+0.3")
     },
-    testLog: function() {
+    turnHeaderOn: function() {
+      this.$store.commit('headerOn', true);
+      gsap.to('header', {height: "100px", transform: "translateY(0)", ease: "power3",duration: 0.3})
+      gsap.to('.Logo', {top: "-30px",scale: 0.5, ease: "power3",duration: 0})
       console.log("ok")
     }
   },
@@ -78,7 +76,6 @@ export default {
     },
   watch: {
     timelineLogo(newValue) {
-      console.log(newValue)
       if(newValue === true) {
         this.logoAnimation()
       }
