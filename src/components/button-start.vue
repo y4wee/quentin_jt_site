@@ -60,13 +60,14 @@ export default {
         justify-content: center;
         align-items: center;
         position: absolute;
-        width: 300px;
-        height: 300px;
+        width: 304px;
+        height: 304px;
         border-radius: 50%;
-        top: calc(50vh - 150px);
-        left: calc(50vw - 150px);
+        top: calc(50vh - 152px);
+        left: calc(50vw - 152px);
         z-index: 10;
         user-select: none;
+        overflow: hidden;
         &Button {
             display: flex;
             justify-content: center;
