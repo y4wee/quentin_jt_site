@@ -37,7 +37,11 @@ export default {
     },
     methods: {
         turnStartOn: function() {
-            gsap.to('.Start', {transform: "scale(0)", ease: "back.in", duration: 0.55, repeat: 0,})
+            gsap.to('.Start', {transform: "scale(0)", ease: "back.in", duration: 0.5, repeat: 0, onComplete: function() {
+                gsap.killTweensOf(".StartEffect");
+                gsap.killTweensOf(".StartButton");
+                gsap.to('.Start', {display: "none"})
+            }})
             this.$store.commit('startOn', true)
         },
     },

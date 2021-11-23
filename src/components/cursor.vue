@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         cursorMove: function(e) {
-            gsap.to('.Cursor', {top: e.y, left: e.x, transform: "translate(-50%, -50%)", duration: 0})
+            gsap.to('.Cursor', {top: e.y, left: e.x, xPercent:-50, yPercent:-50, duration: 0})
         },
         cursorLinkOn: function() {
             console.log("link ON")

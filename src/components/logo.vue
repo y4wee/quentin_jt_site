@@ -8,8 +8,12 @@
       <span class="LogoLetterEach l4">w</span>
       <span class="LogoLetterEach l5">e</span>
       <span class="LogoLetterEach l6">e</span>
-      <span class="LogoLetterEach l7">&nbsp; /</span>
-      <span class="LogoLetterEach l8">></span>
+      <span class="LogoLetterEach l7">.</span>
+      <span class="LogoLetterEach l8">d</span>
+      <span class="LogoLetterEach l9">e</span>
+      <span class="LogoLetterEach l10">v</span>
+      <span class="LogoLetterEach l11">&nbsp; /</span>
+      <span class="LogoLetterEach l12">></span>
 
       <div class="LogoLetterTyp"></div>
 
@@ -34,11 +38,11 @@ export default {
 
         var tl = gsap.timeline()
 
-        tl.delay(0.55)
+        tl.delay(0.5)
 
         // barre typ animation
-        tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.6})
-        tl.to('.LogoLetterTyp', {width: "25px", ease: "back",  left: "10px", duration: 0.3, onComplete: function() {
+        tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.55})
+        tl.to('.LogoLetterTyp', {width: "25px", ease: "back",  left: "10px", duration: 0.25, onComplete: function() {
           document.querySelector('.LogoLetterTyp').classList.add("active")
         }})
         
@@ -48,9 +52,13 @@ export default {
         tl.to('.l3', {display: "block", ease: "none", duration: 0.16})
         tl.to('.l4', {display: "block", ease: "none", duration: 0.16})
         tl.to('.l5', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l6', {display: "block", ease: "none", duration: 0.6})
+        tl.to('.l6', {display: "block", ease: "none", duration: 0.16})
         tl.to('.l7', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l8', {display: "block", ease: "none", duration: 0.6})
+        tl.to('.l8', {display: "block", ease: "none", duration: 0.16})
+        tl.to('.l9', {display: "block", ease: "none", duration: 0.16})
+        tl.to('.l10', {display: "block", ease: "none", duration: 0.6})
+        tl.to('.l11', {display: "block", ease: "none", duration: 0.16})
+        tl.to('.l12', {display: "block", ease: "none", duration: 0.6})
 
         // disaprition barre typ
         tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.3, onComplete: function() {
