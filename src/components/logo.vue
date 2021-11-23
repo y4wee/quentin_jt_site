@@ -41,29 +41,36 @@ export default {
         tl.delay(0.5)
 
         // barre typ animation
-        tl.to('.LogoLetterTyp', {height: "45px", top: "-27px", ease: "elastic", duration: 0.55})
-        tl.to('.LogoLetterTyp', {width: "25px", ease: "back",  left: "10px", duration: 0.25, onComplete: function() {
+        tl.to('.LogoLetterTyp', {height: "40px", top: "-20px", ease: "elastic", duration: 0.55})
+        tl.to('.LogoLetterTyp', {width: "20px", ease: "back",  left: "10px", duration: 0.25, onComplete: function() {
           document.querySelector('.LogoLetterTyp').classList.add("active")
         }})
         
         // apparition des lettres 
-        tl.to('.l1', {display: "block", ease: "none", duration: 0.4, delay: 0.7})
-        tl.to('.l2', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l3', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l4', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l5', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l6', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l7', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l8', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l9', {display: "block", ease: "none", duration: 0.16})
-        tl.to('.l10', {display: "block", ease: "none", duration: 0.6})
-        tl.to('.l11', {display: "block", ease: "none", duration: 0.16})
+        tl.to('.l1', {display: "block", ease: "none", duration: 0.4, delay: 0.4})
+        tl.to('.l2', {display: "block", ease: "none", duration: 0.15})
+        tl.to('.l3', {display: "block", ease: "none", duration: 0.15})
+        tl.to('.l4', {display: "block", ease: "none", duration: 0.15})
+        tl.to('.l5', {display: "block", ease: "none", duration: 0.15})
+        tl.to('.l6', {display: "block", ease: "none", duration: 0.2})
+        tl.to('.l7', {display: "block", ease: "none", duration: 0.2})
+        tl.to('.l8', {display: "block", ease: "none", duration: 0.15})
+        tl.to('.l9', {display: "block", ease: "none", duration: 0.15})
+        tl.to('.l10', {display: "block", ease: "none", duration: 0.4})
+        tl.to('.l11', {display: "block", ease: "none", duration: 0.14})
         tl.to('.l12', {display: "block", ease: "none", duration: 0.6})
 
-        // disaprition barre typ
-        tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.3, onComplete: function() {
+        // disparition barre typ et logo
+        tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.2, onComplete: function() {
           document.querySelector('.LogoLetterTyp').classList.remove("active")
         }})
+        tl.to('.Logo', {opacity: 0, ease: "power3",duration: 0.3, onComplete: function() {
+          //apparition header
+          gsap.to('header', {height: "100px", transform: "translateY(0)", ease: "power3",duration: 0.3})
+          gsap.to('.Logo', {top: "-30px",scale: 0.5, ease: "power3",duration: 0})
+        }})
+        tl.to('.Logo', {opacity: 1, duration: 0.3}, "=+0.3")
+        
       } else {
         return null;
       }
@@ -75,6 +82,9 @@ export default {
             cursor: 'cursor'
         }),
     },
+  watch: {
+    
+  }
 }
 </script>
 
@@ -82,13 +92,15 @@ export default {
 <style scoped lang="scss">
   .Logo {
     position: relative;
-    top: calc(50vh - 80px);
+    top: calc(50vh + 60px);
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     height: 140px;
-    transform-origin: left;
+    transform-origin: center;
     &Letter {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: flex-end;
@@ -97,7 +109,7 @@ export default {
       &Each {
         font-family: 'M PLUS 2', sans-serif;
         //font-family: "yuji boku", serif;
-        font-size: 6em;
+        font-size: 5em;
         color: darken($color: rgb(96, 96 , 96), $amount: 20%);
         display: none;
       }
