@@ -27,15 +27,9 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'Logo',
-  mounted: function() {
-    window.addEventListener('click', this.logoAnimation)
-  },
   methods: {
     // active l'animation logo si click sur bouton start
     logoAnimation: function() {
-      if(!this.$store.state.timelineLogo && this.$store.state.start) {
-        this.$store.commit('timelineLogoOn', true)
-
         var tl = gsap.timeline()
 
         tl.delay(0.5)
@@ -66,14 +60,14 @@ export default {
         }})
         tl.to('.Logo', {opacity: 0, ease: "power3",duration: 0.3, onComplete: function() {
           //apparition header
+          this.testLog()
           gsap.to('header', {height: "100px", transform: "translateY(0)", ease: "power3",duration: 0.3})
           gsap.to('.Logo', {top: "-30px",scale: 0.5, ease: "power3",duration: 0})
         }})
         tl.to('.Logo', {opacity: 1, duration: 0.3}, "=+0.3")
-        
-      } else {
-        return null;
-      }
+    },
+    testLog: function() {
+      console.log("ok")
     }
   },
   computed: {
@@ -83,7 +77,12 @@ export default {
         }),
     },
   watch: {
-    
+    timelineLogo(newValue) {
+      console.log(newValue)
+      if(newValue === true) {
+        this.logoAnimation()
+      }
+    }
   }
 }
 </script>
