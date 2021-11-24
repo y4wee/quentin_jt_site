@@ -45,6 +45,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
+$greenColor: rgb(86, 245 , 105);
+$purpleColor: #f556e2;
+$greyColor: rgb(216, 216 , 216);
     .Cursor {
         display: flex;
         justify-content: center;
