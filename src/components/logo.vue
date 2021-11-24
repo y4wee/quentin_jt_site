@@ -35,7 +35,7 @@ export default {
         tl.delay(0.5)
 
         // barre typ animation
-        tl.to('.LogoLetterTyp', {height: "40px", top: "-20px", ease: "elastic", duration: 0.55})
+        tl.to('.LogoLetterTyp', {height: "40px", top: "-15px", backgroundColor: "black", ease: "elastic", duration: 0.55})
         tl.to('.LogoLetterTyp', {width: "20px", ease: "back",  left: "10px", duration: 0.25, onComplete: function() {
           document.querySelector('.LogoLetterTyp').classList.add("active")
         }})
@@ -52,19 +52,30 @@ export default {
         tl.to('.l9', {display: "block", ease: "none", duration: 0.15})
         tl.to('.l10', {display: "block", ease: "none", duration: 0.4})
         tl.to('.l11', {display: "block", ease: "none", duration: 0.14})
-        tl.to('.l12', {display: "block", ease: "none", duration: 0.6})
+        tl.to('.l12', {display: "block", ease: "none", duration: 0.4})
+        
+        tl.to('.l10', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l9', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l8', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l7', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l6', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l5', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l4', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l3', {display: "none", ease: "none", duration: 0.014})
+        tl.to('.l2', {color: "rgb(86, 245 , 105)", fontWeight: "bold", ease: "slow", duration: 0.4})
 
         // disparition barre typ et logo
         tl.to('.LogoLetterTyp', {opacity: "0", ease: "power3",duration: 0.2, onComplete: function() {
-          document.querySelector('.LogoLetterTyp').classList.remove("active")
+          document.querySelector('.LogoLetterTyp').classList.remove("active");
+          gsap.to('.LogoLetterTyp', {display: "none"});
         }})
         tl.to('.Logo', {opacity: 0, ease: "power3",duration: 0.3, onComplete: this.turnHeaderOn})
         tl.to('.Logo', {opacity: 1, duration: 0.3}, "=+0.3")
     },
     turnHeaderOn: function() {
       this.$store.commit('headerOn', true);
-      gsap.to('header', {height: "100px", transform: "translateY(0)", ease: "power3",duration: 0.3})
-      gsap.to('.Logo', {top: "-30px",scale: 0.5, ease: "power3",duration: 0})
+      gsap.to('header', {transform: "translateY(-75%)", ease: "power3",duration: 0.3})
+      gsap.to('.Logo', {top: "26%",scale: 0.6, ease: "power3",duration: 0})
     }
   },
   watch: {
@@ -85,9 +96,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
+$greenColor: rgb(86, 245 , 105);
+$purpleColor: #f556e2;
+$greyColor: rgb(216, 216 , 216);
   .Logo {
     position: relative;
-    top: calc(50vh + 60px);
+    top: calc(50vh + 142px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,15 +117,10 @@ export default {
       user-select: none;
       height: 140px;
       &Each {
-        font-family: 'M PLUS 2', sans-serif;
-        //font-family: "yuji boku", serif;
+        font-family: 'Luthon Southard', serif;
         font-size: 5em;
-        color: darken($color: rgb(96, 96 , 96), $amount: 20%);
+        color: black;
         display: none;
-        &.l2 {
-          font-weight: bold;
-          color: rgb(86, 245 , 105);
-        }
         &.l6 {
           transform-origin: center;
           transform: rotateY(180deg);
