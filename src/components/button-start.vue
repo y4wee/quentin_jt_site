@@ -79,7 +79,7 @@ $greyColor: rgb(216, 216 , 216);
             height: 80px;
             font-size: 1.3em;
             color: darken($color: rgb(96, 96 , 96), $amount: 20%);
-            border: solid 2px darken($color: rgb(96, 96 , 96), $amount: 20%);
+            border: solid 1px darken($color: rgb(96, 96 , 96), $amount: 20%);
             border-radius: 50%;
             cursor: pointer;
             background-color: white;

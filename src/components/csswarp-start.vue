@@ -22,7 +22,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-    #warped {position: relative; display: block; width:300px; height:300px;color: darken($color: rgb(96, 96 , 96), $amount: 20%);}
+    #warped {position: relative; display: block; width:300px; height:300px;color: black;}
 
     #warped>span[class^=w]:nth-of-type(n+0){display:block; position:absolute;
     -moz-transform-origin:50% 100%; -webkit-transform-origin:50% 100%; -o-transform-origin:50%
