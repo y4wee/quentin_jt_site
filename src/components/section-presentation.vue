@@ -45,7 +45,7 @@ export default {
             // pallette de couleur dispo
             const colors = ["#D8D8D8", "#56F569", "#A3A9A4", "#606060", "#f556e2"];
             // nombre de balls en background
-            const numBalls = 20;
+            const numBalls = 25;
             // boucle creation des balls
             for (let i = 0; i < numBalls; i++) {
                 let ball = document.createElement("div");
@@ -108,9 +108,10 @@ $mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
 $mainColorDiff: rgb(210, 210, 210);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: #f556e2;
-$greyColor: rgb(216, 216 , 216);
+$greyColor1: rgb(163, 169 , 164);
+$greyColor2: rgb(216, 216 , 216);
     .Presentation {
-        position: relative;
+        position: fixed;
         width: 100%;
         height: 100vh;
         top: 0;
@@ -127,6 +128,7 @@ $greyColor: rgb(216, 216 , 216);
                 font-size: 8vw;
                 color: $mainColor;
                 z-index: 2;
+                user-select: none;
                 // developpeur
                 &.w1 {
                     transform: translateX(-150%);
@@ -154,6 +156,7 @@ $greyColor: rgb(216, 216 , 216);
             bottom: 30px;
             opacity: 0;
             transform: translateY(-20px);
+            user-select: none;
             // text scroll
             &Text {
                 font-size: 2em;

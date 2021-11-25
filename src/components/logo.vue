@@ -27,9 +27,16 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'Logo',
+  mounted: function() {
+    this.tlHover = gsap.timeline({
+      paused: true,
+    })
+    .to('.word1', {width: "222.11px", ease: "expo.inOut", duration: 0.4}) 
+    .to('.l5, .l4, .l3, .l2', {opacity: 1, ease: "slow", duration: 0.5},'-=0.2')
+  },
   methods: {
     // active l'animation logo si click sur bouton start
-    logoAnimation: function() {
+    logoAnimationOn: function() {
         var tl = gsap.timeline()
 
         tl.delay(0.5)
@@ -67,19 +74,39 @@ export default {
       this.$store.commit('headerOn', true);
       gsap.to('header', {transform: "translateY(0)", ease: "power3",duration: 0.3})
       gsap.to('.Logo', {top: "0",scale: 0.6, ease: "power3",duration: 0})
+    },
+    logoHover: function(value) {
+      if(value === true) {
+        console.log("play with true")
+        this.tlHover.pause()
+        this.tlHover.play()
+      } 
+      else if(value === false) {
+        console.log("play back with false")
+        this.tlHover.pause()
+        this.tlHover.reverse()
+        
+      } else {
+        return false
+      }
     }
   },
   watch: {
     timelineLogo(newValue) {
       if(newValue === true) {
-        this.logoAnimation()
+        this.logoAnimationOn()
       }
+    },
+    headerHover(newValue) {
+      this.logoHover(newValue);
     }
   },
   computed: {
       ...mapState({
           timelineLogo: 'timelineLogo',
-          cursor: 'cursor'
+          cursor: 'cursor',
+          header: 'header',
+          headerHover: 'headerHover'
       }),
   },
 }
@@ -88,9 +115,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
+$mainColorDiff: rgb(210, 210, 210);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: #f556e2;
-$greyColor: rgb(216, 216 , 216);
+$greyColor1: rgb(163, 169 , 164);
+$greyColor2: rgb(216, 216 , 216);
   .Logo {
     position: relative;
     top: calc(50vh + 13px);

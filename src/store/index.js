@@ -5,6 +5,7 @@ export default createStore({
     start: false,
     timelineLogo: false,
     header: false,
+    headerHover: false,
     sectionPresentation: false,
   },
 
@@ -17,6 +18,10 @@ export default createStore({
     },
     headerOn: function(state, data) {
       state.header = data;
+    },
+    headerHoverState: function(state, data) {
+      state.headerHover = data;
+      console.log(`header state: ${state.headerHover}`)
     },
   },
 

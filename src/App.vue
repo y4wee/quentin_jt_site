@@ -4,7 +4,10 @@
   <!-- composant boutton start -->
   <Start />
 
-  <header>
+  <header 
+    @mouseenter="this.$store.state.header ? $store.commit('headerHoverState', true) : null" 
+    @mouseleave="this.$store.state.header ? $store.commit('headerHoverState', false) : null" 
+  >
     <!-- composant logo Yawee.dev -->
     <Logo />
   </header>
@@ -14,6 +17,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import Logo from './components/logo'
 import Start from './components/button-start'
 import Cursor from './components/cursor.vue';
@@ -26,7 +31,12 @@ export default {
     Logo,
     Cursor,
     SectionPresentation
-},
+  },
+  computed: {
+      ...mapState({
+          headerHover: 'headerHover',
+      }),
+  },
 }
 </script>
 
@@ -41,9 +51,11 @@ export default {
 }
 // variables sass
 $mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
+$mainColorDiff: rgb(210, 210, 210);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: #f556e2;
-$greyColor: rgb(216, 216 , 216);
+$greyColor1: rgb(163, 169 , 164);
+$greyColor2: rgb(216, 216 , 216);
 
 #app {
   font-family: 'M PLUS 2', sans-serif;
@@ -51,10 +63,11 @@ $greyColor: rgb(216, 216 , 216);
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   width: 100%;
-  height: auto;
+  height: 100vh;
   background-color: white;
   overflow: hidden;
   cursor: none;
+  // transform: scale(0.8);
 }
 body {
   width: 100vw;
@@ -65,13 +78,25 @@ body {
 }
 header {
   position: fixed;
-  height: 100px;
-  width: 100%;
   display: flex;
-  transform: translateY(-100%);
-  border-bottom: solid 1px $mainColor;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  transform: translateY(-110%);
+  box-shadow: 0 0 5px 0 $greyColor2;
   background-color: white;
   z-index: 5;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 4px;
+    left: -15%;
+    width: 10%;
+    border: solid 1px transparent;
+    box-shadow: 0 8px 5px 0px $greenColor;
+    z-index: 4;
+  }
 }
 
 </style>
