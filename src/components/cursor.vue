@@ -1,6 +1,10 @@
 <template>
 
-    <div class="Cursor"></div>
+    <div class="Cursor">
+        <div class="CursorPointer"></div>
+
+        <div class="CursorBackground"></div>
+    </div>
 
 </template>
 
@@ -17,7 +21,9 @@ export default {
     },
     mounted: function() {
         // event pour cursor souris 
-        window.addEventListener('mousemove', this.cursorMove)
+        document.querySelector('#app').addEventListener('mousemove', this.cursorMove)
+        // cursor trail
+        // document.querySelector('#app').addEventListener('mousemove', this.cursorTrail)
         // applique event hover pour chaque link du site et modifit le cursor
         document.querySelectorAll('.link').forEach(link => {
             link.addEventListener('mouseenter', this.cursorLinkOn)
@@ -26,13 +32,13 @@ export default {
     },
     methods: {
         cursorMove: function(e) {
-            gsap.to('.Cursor', {top: e.y, left: e.x, xPercent:-50, yPercent:-50, duration: 0})
+            gsap.to('.CursorPointer', {top: e.y, left: e.x, xPercent:-50, yPercent:-50, duration: 0})
         },
         cursorLinkOn: function() {
-            gsap.to('.Cursor', {width: "500px",height: "500px",backgroundColor: "transparent",borderColor: "#f556e2", mixBlendMode: "normal", duration: 0.3})
+            gsap.to('.CursorPointer', {width: "500px",height: "500px",backgroundColor: "transparent",borderColor: "#f556e2", mixBlendMode: "normal", duration: 0.3})
         },
         cursorLinkOff: function() {
-            gsap.to('.Cursor', {width: "30px",height: "30px",backgroundColor: "rgb(210, 210 , 210)",borderColor: "rgb(210, 210 , 210)", mixBlendMode: "difference", duration: 0.3})
+            gsap.to('.CursorPointer', {width: "25px",height: "25px",backgroundColor: "white",borderColor: "white", mixBlendMode: "difference", duration: 0.3})
         }
     },
     computed: {
@@ -50,19 +56,28 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: #f556e2;
 $greyColor: rgb(216, 216 , 216);
     .Cursor {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        top: calc(50vh - 41px);
-        left: calc(50vw - 41px);
-        width: 30px;
-        height: 30px;
-        background-color: rgb(210, 210 , 210);
-        border: solid 2px rgb(210, 210 , 210);
-        border-radius: 50%;
-        mix-blend-mode: difference;
-        z-index: 10000;
-        pointer-events: none;
+        &Pointer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: solid 2px white;
+            border-radius: 50%;
+            mix-blend-mode: difference;
+            z-index: 10000;
+            pointer-events: none;
+        }
+        &Background {
+            position: absolute;
+            z-index: 100;
+            height: 100vh;
+            width: 100vw;
+            pointer-events: none;
+            mix-blend-mode: difference;
+            // background-color: rgb(210, 210 , 210);
+        }
     }
 </style>
