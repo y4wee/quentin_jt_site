@@ -1,6 +1,6 @@
 <template>
 
-    <div class="Presentation" v-show="displayOn">
+    <div class="Presentation sectionPin">
         <section class="PresentationDev">
             <h2 class="PresentationDevWord w1">Développeur</h2>
             <h2 class="PresentationDevWord w2">Web</h2>
@@ -18,34 +18,38 @@
 <script>
 import { gsap } from "gsap";
 import { mapState } from 'vuex';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
     name: 'SectionPresentation',
-    data() {
-        return {
-            displayOn: false,
-        }
+    mounted: function() {
+        gsap.registerPlugin(ScrollTrigger);
+        this.$store.commit('sectionPresentationOn', true)
+        
     },
     methods: {
+        // animation presentation On
         presentationDevOn: function() {
             var tl = gsap.timeline()
 
             tl.delay(0.3)
 
-            tl.to('.w1', {transform: "translateX(0)",ease: "slow", duration: 0.3})
-            tl.to('.w2', {transform: "translateX(0)",ease: "power4.in", duration: 0.6}, "=-0.5")
-            tl.to('.w3', {transform: "translateX(0)",ease: "slow", duration: 0.3}, "=-0.3")
+            tl.from('.w1', {xPercent: -200,ease: "back.out", duration: 0.5})
+            tl.from('.w3', {xPercent: -300,ease: "back.out", duration: 0.5}, "=-0.5")
+            tl.from('.w2', {xPercent: 800,ease: "back.out", duration: 0.5}, "=-0.5")
 
-            tl.to('.PresentationScroll', {opacity: 1, transform: "translateY(0)", duration: 0.3, onComplete: function() {
-                document.querySelector('.fa-chevron-down').classList.add("active")
+            tl.to('.fa-chevron-down', {opacity: 1, transform: "translatex(0)" ,duration: 0.3, onComplete: function() {
+                document.querySelector('.fa-chevron-down').classList.add("active");
             }})
+            tl.to('.PresentationScrollText',
+                {opacity: 1, transform: "translatex(0)", duration: 0.3, onComplete: this.presentationScroll}, "-=0.3")
         },
+        // fonction pour particules en background
         presentationParticles: function() {
-            console.log("sent")
             // pallette de couleur dispo
             const colors = ["#D8D8D8", "#56F569", "#A3A9A4", "#606060", "#f556e2"];
-            // nombre de balls en background
-            const numBalls = 25;
+
+            const numBalls = 20;
             // boucle creation des balls
             for (let i = 0; i < numBalls; i++) {
                 let ball = document.createElement("div");
@@ -54,18 +58,18 @@ export default {
                 // animation gsap rendu des balls
                 gsap.fromTo(ball, {
                     position: "absolute",
-                    width: "70px",
-                    height: "70px",
+                    width: "60px",
+                    height: "60px",
                     borderRadius: "50%",
                     left: `${Math.floor(Math.random() * 100)}vw`,
                     top: `${Math.floor(Math.random() * 100)}vh`,
                     transform: "scale(0)",
                     backgroundColor: colors[Math.floor(Math.random() * colors.length)],
                     mixBlendMode: "difference",
-                    opacity: 0
+                    opacity: 0,
                 }, {
                     transform: `scale(${Math.random()})`,
-                    opacity: 0.7,
+                    opacity: 0.5,
                     duration: 0.5,
                     ease: "sine.inOut",
                     delay: `${(Math.random() + 0.2) * 2}`
@@ -84,19 +88,45 @@ export default {
                 })
                 document.querySelector('.Presentation').append(ball);
             }
-        }
+        },
+        presentationScroll: function() {
+            console.log("scroll ok")
+            gsap.utils.toArray(".sectionPin").forEach(section => {
+                ScrollTrigger.create({
+                    trigger: section,
+                    pin: true,
+                    pinSpacing: false,
+                    start: "top top",
+                })
+            })
+            gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".PresentationDev",
+                    start: "top top",
+                    end: "top top",
+                    toggleActions: "play none reverse none",
+                    markers: true,
+                }
+            })
+            .to('.w1', {xPercent: -200, ease: "back.in", duration: 0.5})
+            .to('.w3', {xPercent: -300, ease: "back.in", duration: 0.5}, "-=0.5")
+            .to('.w2', {xPercent: 800, ease: "back.in", duration: 0.5}, "-=0.5")
+            .to('.PresentationScroll', {opacity: 0, ease: "power4.out", duration: 0.3}, "-=0.2")
+            
+        },
     },
     watch: {
-        header(newValue) {
-            if(newValue === true)
-            this.displayOn = true;
-            this.presentationDevOn();
-            this.presentationParticles();
+        sectionPresentation(newValue) {
+            console.log("watch ok")
+            if(newValue === true) {
+                this.presentationDevOn();
+                this.presentationParticles();
+            }
         }
     },
     computed: {
         ...mapState({
-            header: 'header',
+            sectionPresentation: 'sectionPresentation',
         }),
     },
 }
@@ -111,17 +141,18 @@ $purpleColor: #f556e2;
 $greyColor1: rgb(163, 169 , 164);
 $greyColor2: rgb(216, 216 , 216);
     .Presentation {
-        position: fixed;
-        width: 100%;
+        
+        width: 100vw;
         height: 100vh;
-        top: 0;
+        overflow: hidden;
         // partie text Dev web junior
         &Dev {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-top: 200px;
             width: 50%;
+            position: relative;
+            top: 200px;
             &Word {
                 font-family: 'Luthon Southard', serif;
                 margin: 0 0 0 2%;
@@ -129,19 +160,10 @@ $greyColor2: rgb(216, 216 , 216);
                 color: $mainColor;
                 z-index: 2;
                 user-select: none;
-                // developpeur
-                &.w1 {
-                    transform: translateX(-150%);
-                }
                 //web
                 &.w2 {
                     margin-left: 17%;
-                    transform: translateX(650%);
                     color: black;
-                }
-                //junior
-                &.w3 {
-                    transform: translateX(-150%);
                 }
             }
         }
@@ -154,18 +176,21 @@ $greyColor2: rgb(216, 216 , 216);
             width: 250px;
             left: calc(50% - 125px);
             bottom: 30px;
-            opacity: 0;
-            transform: translateY(-20px);
+            z-index: 2;
             user-select: none;
             // text scroll
             &Text {
                 font-size: 2em;
                 color: black;
+                transform: translateX(-50px);
+                opacity: 0;
             }
             // icon scroll
             & .fas {
+                transform: translateX(50px);
                 font-size: 3em;
                 color: $greenColor;
+                opacity: 0;
                 &.active {
                     animation: chevronMove 0.55s infinite alternate ease-in-out;
                 }

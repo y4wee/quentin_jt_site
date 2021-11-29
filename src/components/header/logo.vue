@@ -77,15 +77,12 @@ export default {
     },
     logoHover: function(value) {
       if(value === true) {
-        console.log("play with true")
         this.tlHover.pause()
         this.tlHover.play()
       } 
       else if(value === false) {
-        console.log("play back with false")
         this.tlHover.pause()
         this.tlHover.reverse()
-        
       } else {
         return false
       }
@@ -140,16 +137,11 @@ $greyColor2: rgb(216, 216 , 216);
       &Letter {
         font-family: 'Luthon Southard', serif;
         font-size: 5em;
-        color: black;
         display: none;
-        &.l6 {
-          transform-origin: center;
-          transform: rotateY(180deg);
-        }
       }
       &.word1 {
         overflow: hidden;
-        width: auto;
+        color: $mainColor;
       }
     }
     &Typ {

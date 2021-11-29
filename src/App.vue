@@ -12,17 +12,25 @@
     <Logo />
   </header>
 
-  <SectionPresentation />
+  <div class="main" v-if="$store.state.header" >
+    <SectionPresentation />
+
+    <SectionCompetence />
+  </div>
+
 
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Logo from './components/logo'
-import Start from './components/button-start'
-import Cursor from './components/cursor.vue';
-import SectionPresentation from './components/section-presentation.vue';
+import Logo from './components/header/logo.vue';
+import Start from './components/app/button-start';
+import Cursor from './components/app/cursor.vue';
+import SectionPresentation from './components/main/section-presentation.vue';
+import SectionCompetence from './components/main/section-competence.vue';
 
 export default {
   name: 'App',
@@ -30,11 +38,25 @@ export default {
     Start,
     Logo,
     Cursor,
-    SectionPresentation
+    SectionPresentation,
+    SectionCompetence
+  },
+  mounted: function() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // gsap.utils.toArray(".sectionPin").forEach(section => {
+    //   ScrollTrigger.create({
+    //     trigger: section,
+    //     pin: true,
+    //     pinSpacing: false,
+    //     start: "top top",
+    //   })
+    // })
   },
   computed: {
       ...mapState({
           headerHover: 'headerHover',
+          header: 'header'
       }),
   },
 }
@@ -62,22 +84,24 @@ $greyColor2: rgb(216, 216 , 216);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: white;
-  overflow: hidden;
-  cursor: none;
+  // max-width: 100vw;
+  // overflow: hidden;
+  // cursor: none;
   // transform: scale(0.8);
 }
 body {
   width: 100vw;
-  height: auto;
+  // max-width: 100vw;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 header {
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,16 +111,13 @@ header {
   box-shadow: 0 0 5px 0 $greyColor2;
   background-color: white;
   z-index: 5;
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 4px;
-    left: -15%;
-    width: 10%;
-    border: solid 1px transparent;
-    box-shadow: 0 8px 5px 0px $greenColor;
-    z-index: 4;
-  }
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: auto;
+  // overflow-x: hidden;
 }
 
 </style>

@@ -21,7 +21,9 @@ export default createStore({
     },
     headerHoverState: function(state, data) {
       state.headerHover = data;
-      console.log(`header state: ${state.headerHover}`)
+    },
+    sectionPresentationOn: function(state, data) {
+      state.sectionPresentation = data;
     },
   },
 
