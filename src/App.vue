@@ -13,6 +13,8 @@
   </header>
 
   <div class="main" v-if="$store.state.header" >
+    <SectionAccueil />
+
     <SectionPresentation />
 
     <SectionCompetence />
@@ -29,8 +31,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Logo from './components/header/logo.vue';
 import Start from './components/app/button-start';
 import Cursor from './components/app/cursor.vue';
+import SectionAccueil from './components/main/section-accueil.vue';
 import SectionPresentation from './components/main/section-presentation.vue';
 import SectionCompetence from './components/main/section-competence.vue';
+
 
 export default {
   name: 'App',
@@ -38,20 +42,13 @@ export default {
     Start,
     Logo,
     Cursor,
-    SectionPresentation,
-    SectionCompetence
-  },
+    SectionCompetence,
+    SectionAccueil,
+    SectionPresentation
+},
   mounted: function() {
     gsap.registerPlugin(ScrollTrigger);
 
-    // gsap.utils.toArray(".sectionPin").forEach(section => {
-    //   ScrollTrigger.create({
-    //     trigger: section,
-    //     pin: true,
-    //     pinSpacing: false,
-    //     start: "top top",
-    //   })
-    // })
   },
   computed: {
       ...mapState({
@@ -85,7 +82,7 @@ $greyColor2: rgb(216, 216 , 216);
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   min-height: 100vh;
-  background-color: white;
+  background-color: rgb(233, 237, 240);
   // max-width: 100vw;
   // overflow: hidden;
   // cursor: none;
@@ -115,7 +112,7 @@ header {
 .main {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: rgb(233, 237, 240);
   height: auto;
   // overflow-x: hidden;
 }
