@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { VueLoop } from 'vue-loop'
+// import { VueLoop } from 'vue-loop'
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Draggable } from "gsap/ScrollTrigger";
@@ -54,8 +54,8 @@ import { Draggable } from "gsap/ScrollTrigger";
 export default {
     name: 'Carrousel',
     components: {
-        VueLoop,
-    }
+        // VueLoop,
+    },
     mounted: function() {
         gsap.registerPlugin(ScrollTrigger, Draggable);
 
