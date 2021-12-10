@@ -99,7 +99,7 @@ $greyColor: rgb(216, 216 , 216);
             transform-origin: center;
             mix-blend-mode: difference;
             &Scale {
-                border: solid 1px rgb(86, 245 , 105);
+                border: solid 1px $greenColor;
                 width: 500px;
                 height: 500px;
                 border-radius: 50%;

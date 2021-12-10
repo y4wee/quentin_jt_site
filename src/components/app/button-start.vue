@@ -57,6 +57,8 @@ $mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: #f556e2;
 $greyColor: rgb(216, 216 , 216);
+$shadowLight: white;
+$shadowDark: rgb(172, 177, 184);
     .Start {
         display: flex;
         justify-content: center;
@@ -69,7 +71,7 @@ $greyColor: rgb(216, 216 , 216);
         left: calc(50vw - 152px);
         z-index: 10;
         user-select: none;
-        overflow: hidden;
+        // overflow: hidden;
         &Button {
             display: flex;
             justify-content: center;
@@ -79,10 +81,12 @@ $greyColor: rgb(216, 216 , 216);
             height: 80px;
             font-size: 1.3em;
             color: darken($color: rgb(96, 96 , 96), $amount: 20%);
-            border: solid 1px darken($color: rgb(96, 96 , 96), $amount: 20%);
+            // border: solid 1px darken($color: rgb(96, 96 , 96), $amount: 20%);
+            box-shadow: -12px -12px 20px 0 $shadowLight,
+                        12px 12px 20px 0 $shadowDark;
             border-radius: 50%;
             cursor: pointer;
-            background-color: white;
+            background-color: rgb(233, 237, 240);
             z-index: 10;
         }
         &Warp {
@@ -104,10 +108,10 @@ $greyColor: rgb(216, 216 , 216);
                 width: 240px;
                 height: 240px;
                 border-radius: 50%;
-                background: radial-gradient(circle, rgba(216,216,216,1) 0%, rgba(252,251,251,1) 100%);
+                // background: radial-gradient(circle, rgba(216,216,216,1) 0%, rgba(252,251,251,1) 100%);
 
-                //background-color: rgb(163, 169 , 164);
-                //border: solid 2px darken($color: rgb(96, 96 , 96), $amount: 20%);
+                background-color: rgb(233, 237, 240);
+                border: solid 2px darken($color: rgb(96, 96 , 96), $amount: 20%);
             }
         }
         &Effect {

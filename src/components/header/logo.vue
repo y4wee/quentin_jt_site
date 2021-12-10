@@ -150,7 +150,7 @@ $greyColor2: rgb(216, 216 , 216);
       height: 100vh;
       width: 2px;
       border-radius: 3px;
-      background-color: darken($color: rgb(96, 96 , 96), $amount: 20%);
+      background-color: $mainColor;
       &.active {
         animation: cursorTyping 0.25s 0.1s infinite alternate-reverse linear;
       }

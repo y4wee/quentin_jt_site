@@ -6,7 +6,7 @@ export default createStore({
     timelineLogo: false,
     header: false,
     headerHover: false,
-    sectionPresentation: false,
+    sectionAccueil: false,
   },
 
   mutations: {
@@ -22,8 +22,8 @@ export default createStore({
     headerHoverState: function(state, data) {
       state.headerHover = data;
     },
-    sectionPresentationOn: function(state, data) {
-      state.sectionPresentation = data;
+    sectionAccueilOn: function(state, data) {
+      state.sectionAccueil = data;
     },
   },
 
