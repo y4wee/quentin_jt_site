@@ -7,18 +7,18 @@
       <div class="homeWords4">Junior</div>
     </div>
     <div class="homeNav">
-      <Carrousel />
+      <Carousel />
     </div>
   </div>
 </template>
 
 <script>
-import Carrousel from "../components/home/carrousel.vue";
+import Carousel from "../components/home/carousel.vue";
 
 export default {
     name: "Home",
     components: { 
-      Carrousel, 
+      Carousel, 
     },
 }
 </script>
@@ -81,10 +81,6 @@ $testColorGray: rgb(61, 61, 61);
     // transform: rotateZ(45deg) translate(40%, -10%);
     // transform: rotateZ(45deg) translate(85%, -30%);
     // transform: translate(50%, -15%);
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
     border: solid 5px $testColorBeige;
   }
 }
