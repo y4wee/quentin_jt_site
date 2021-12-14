@@ -24,7 +24,7 @@ export default {
     mounted: function() {
       let tl = gsap.timeline();
         
-        tl.from('.homeNav', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
+        tl.from('.home', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
         tl.from('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.out'}, '-=0.4')
         tl.from('.homeWords', {scale: 0.75, duration: 0.3}, '-=0.15')
     },
