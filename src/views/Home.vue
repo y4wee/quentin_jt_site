@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
 import Carousel from "../components/home/carousel.vue";
 
 export default {
@@ -20,18 +21,21 @@ export default {
     components: { 
       Carousel, 
     },
+    mounted: function() {
+      let tl = gsap.timeline();
+        
+        tl.from('.homeNav', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
+        tl.from('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.out'}, '-=0.4')
+        tl.from('.homeWords', {scale: 0.75, duration: 0.3}, '-=0.15')
+    },
 }
 </script>
 
 <style scoped lang="scss">
-$mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
-$mainColorDiff: rgb(210, 210, 210);
+$mainColor: rgb(28, 32, 32);
+$secondColor: rgb(233, 222, 190);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: #f556e2;
-$grayColor1: rgb(163, 169 , 164);
-$grayColor2: rgb(216, 216 , 216);
-$testColorBeige: rgb(233, 222, 190);
-$testColorBlue: rgb(28, 32, 32);
 $testColorGray: rgb(61, 61, 61);
 
 .home {
@@ -49,7 +53,7 @@ $testColorGray: rgb(61, 61, 61);
     font-family: 'Ultra';
     margin: 0 0 0 5%;
     font-size: 2.4rem;
-    color: $testColorBeige;
+    color: $secondColor;
     &1 {
       margin-top: 120px;
     }
@@ -78,7 +82,7 @@ $testColorGray: rgb(61, 61, 61);
     height: 300vh;
     width: 35vw;
     min-width: 350px;
-    background: $testColorBeige;
+    background: $secondColor;
     transform-origin: bottom right;
     transform: rotateZ(45deg) translateY(53%);
     // border: solid 2px $testColorBeige;

@@ -14,15 +14,6 @@
 
   <router-view></router-view>
 
-  <!-- <div class="main" v-if="$store.state.header" >
-    <SectionAccueil />
-
-    <SectionPresentation />
-
-    <SectionCompetence />
-  </div> -->
-
-
 </template>
 
 <script>
@@ -42,10 +33,23 @@ export default {
   name: 'App',
   components: {
     Cursor,
-},
+  },
+  data() {
+    return {
+      transitionFrom: 'fromHome'
+    }
+  },
+  // watch: {
+  //   '$route' (to) {
+  //     if(to.name === 'Home') {
+  //       this.transitionFrom = 'fromOther'
+  //     } else {
+  //       this.transitionFrom = 'fromHome'
+  //     }
+  //   }
+  // },
   mounted: function() {
     gsap.registerPlugin(ScrollTrigger);
-
   },
   computed: {
       ...mapState({
@@ -78,7 +82,6 @@ $testColorGray: rgb(61, 61, 61);
   height: 100vh;
   width: 100vw;
   min-width: 360px;
-  
   overflow: hidden;
 }
 body {
@@ -100,9 +103,7 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  // box-shadow: 0 0 5px 0 $grayColor2;
-  // background-color: white;
-  z-index: 5;
+  z-index: 20;
 }
 .logo {
   display: flex;
@@ -120,6 +121,13 @@ header {
     color: $greenColor;
     transform: rotateZ(-20deg) translate(30%, -45%);
   }
+}
+// transition router
+.animate__fadeIn {
+  animation-duration: 0.5s;
+}
+.animate__fadeOutRight {
+  animation-duration: 0.5s;
 }
 //animation background effect 
 @keyframes noiseTranslation {

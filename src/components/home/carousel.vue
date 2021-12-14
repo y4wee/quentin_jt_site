@@ -20,7 +20,7 @@
                          }"></div>
 
                     </div>
-                    <router-link :to="link.hash" :class="'linkText text'+ index" :style="{ color: link.color }">{{ link.text }}</router-link>
+                    <div :class="'linkText '+ link.hash" :style="{ color: link.color }" @click="transitionTo(link.hash)">{{ link.text }}</div>
                 </div>
             </div>
         </flickity>
@@ -54,17 +54,17 @@ export default {
             links: [
                 {
                     text: 'About me',
-                    hash: '/about',
+                    hash: 'about',
                     color: 'rgb(86, 245 , 105)',
                 },
                 {
                     text: 'My work',
-                    hash: '/work',
+                    hash: 'work',
                     color: '#f556e2',
                 },
                 {
                     text: 'Contact me',
-                    hash: '/contact',
+                    hash: 'contact',
                     color: 'rgb(28, 32, 32)',
                 }
             ],
@@ -109,6 +109,17 @@ export default {
             gsap.to(`.link${this.currentIndex}`, {
                 scale: 0.4,
                 duration: 0.2,
+            })
+        },
+        transitionTo: function(hash) {
+            let tl = gsap.timeline();
+
+            tl.to('.homeWords', {scale: 0.75, duration: 0.3})
+            tl.to('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.15')
+            tl.to('.homeNav', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.4')
+
+            tl.then(() => {
+                this.$router.push(hash);
             })
         }
     },
