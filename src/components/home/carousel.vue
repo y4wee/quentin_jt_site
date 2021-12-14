@@ -42,14 +42,12 @@ export default {
             flickityOptions: {
                 cellAlign: 'center',
                 initialIndex: 0,
-                prevNextButtons: true,
+                prevNextButtons: false,
                 wrapAround: true,
                 on: {
                     change: this.flickityChange,
                     ready: this.flickityReady,
-                    select: this.flickitySelect,
                     settle: this.flickitySettle,
-                    scroll: this.flickityScroll,
                     dragStart: this.flickityDragStart,
                 }
             },
@@ -84,23 +82,22 @@ export default {
     },
     methods: {
         reloadSize: function() {
-            this.key++
+            this.key++;
+            this.currentIndex = 0;
         },
-        flickityChange: function(index) {
-            console.log('change ON'+ index)
+        flickityChange: function() {
+            gsap.to(`.link${this.currentIndex}`, {
+                scale: 0.4,
+                duration: 0,
+            })
         },
         flickityReady: function() {
-            console.log('Ready ON')
             gsap.to(`.link${this.currentIndex}`, {
                 scale: 1,
                 duration: 0,
             })
         },
-        flickitySelect: function(index) {
-            console.log(index)
-        },
         flickitySettle: function(index) {
-            console.log('Settle ON' + index)
             this.currentIndex = index
             gsap.to(`.link${index}`, {
                 scale: 1,
@@ -108,11 +105,7 @@ export default {
 
             })
         },
-        flickityScroll: function() {
-            // console.log(progress)
-        },
         flickityDragStart: function() {
-            console.log('draged')
             gsap.to(`.link${this.currentIndex}`, {
                 scale: 0.4,
                 duration: 0.2,
