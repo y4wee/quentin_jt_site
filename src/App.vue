@@ -111,7 +111,7 @@ header {
   &Firstname {
     font-family: 'Ultra';
     font-size: 2rem;
-    color: $testColorBeige;
+    color: rgb(233, 222, 190);
   }
   &Name {
     position: relative;
@@ -121,6 +121,7 @@ header {
     transform: rotateZ(-20deg) translate(30%, -45%);
   }
 }
+//animation background effect 
 @keyframes noiseTranslation {
   0% {
     background-position: 0 0;

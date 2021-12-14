@@ -30,7 +30,7 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: #f556e2;
 $grayColor1: rgb(163, 169 , 164);
 $grayColor2: rgb(216, 216 , 216);
-$testColorBeige: rgb(236, 233, 225);
+$testColorBeige: rgb(233, 222, 190);
 $testColorBlue: rgb(28, 32, 32);
 $testColorGray: rgb(61, 61, 61);
 
@@ -72,16 +72,17 @@ $testColorGray: rgb(61, 61, 61);
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    height: 300%;
-    width: 40%;
+    justify-content: center;
+    bottom: 15%;
+    right: 0;
+    height: 300vh;
+    width: 35vw;
     min-width: 350px;
-    background: #F2B66D;
-    transform-origin: center;
-    // transform: rotateZ(45deg) translate(40%, -10%);
-    // transform: rotateZ(45deg) translate(85%, -30%);
-    // transform: translate(50%, -15%);
-    border: solid 5px $testColorBeige;
+    background: $testColorBeige;
+    transform-origin: bottom right;
+    transform: rotateZ(45deg) translateY(53%);
+    // border: solid 2px $testColorBeige;
+    box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7), -5px 0 10px 0 rgba(0, 0, 0, 0.7);
   }
 }
 
