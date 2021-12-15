@@ -2,7 +2,7 @@
 
     <div class="social" >
         <div :class="'socialLink ' + link.name" v-for="link in socialLinks" :key="link">
-            <div :class="'socialLinkGear ' + link.rotate"></div>
+            <a :href="link.hash" target="_blank" :class="'socialLinkGear ' + link.rotate"></a>
             <div class="socialLinkText">
                 <i :class="link.class"></i>
             </div>
@@ -44,6 +44,7 @@ export default {
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
+$gearColor: white;
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
@@ -70,7 +71,7 @@ $testColorGray: rgb(61, 61, 61);
         justify-content: center;
         width: 50px;
         height: 50px;
-        background: $secondColor;
+        background: $gearColor;
         border-radius: 50%;
         &.right {
             transform: rotateZ(30deg);
@@ -86,9 +87,9 @@ $testColorGray: rgb(61, 61, 61);
             position: absolute;
             width: 64px;
             height: 64px;
-            background: linear-gradient(0deg,transparent 39%,$secondColor 39%,$secondColor 61%, transparent 61%),
-            linear-gradient(60deg,transparent 42%,$secondColor 42%,$secondColor 58%, transparent 58%),
-            linear-gradient(120deg,transparent 42%,$secondColor 42%,$secondColor 58%, transparent 58%);
+            background: linear-gradient(0deg,transparent 39%,$gearColor 39%,$gearColor 61%, transparent 61%),
+            linear-gradient(60deg,transparent 42%,$gearColor 42%,$gearColor 58%, transparent 58%),
+            linear-gradient(120deg,transparent 42%,$gearColor 42%,$gearColor 58%, transparent 58%);
             border-radius: 50%;
         }
         &::after {
@@ -96,7 +97,7 @@ $testColorGray: rgb(61, 61, 61);
             position: absolute;
             width: 42px;
             height: 42px;
-            background: $secondColor;
+            background: $gearColor;
             border-radius: 50%;
         }
     }
@@ -109,6 +110,7 @@ $testColorGray: rgb(61, 61, 61);
         font-size: 2rem;
         user-select: none;
         color: black;
+        pointer-events: none;
     }
 }
 @keyframes gearRotateRight {

@@ -40,7 +40,7 @@ export default {
             // console.log(e)
             // console.log("screenY" + e.screenY)
             // console.log("clientY" + e.clientY)
-            gsap.to('.CursorPointer', {transform: `translate3d(calc(-50% + ${e.x}px), calc(-50% + ${e.y}px), 0px)`, duration: 0})
+            gsap.to('.CursorPointer', {transform: `translate3d(calc(-50% + ${e.x}px), calc(-50% + ${e.y}px), 0px)`, duration: 0.4})
             gsap.to('.CursorBis', {transform: `translate3d(calc(-50% + ${e.x}px), calc(-50% + ${e.y}px), 0px)`, duration: 0})
         },
         cursorLinkOn: function() {

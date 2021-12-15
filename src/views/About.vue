@@ -62,7 +62,6 @@ $testColorGray: rgb(61, 61, 61);
     position: relative;
     height: 100vh;
     width: 100vw;
-    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: flex-end;

@@ -35,6 +35,7 @@ export default {
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
+$gearColor: rgb(233, 222, 190);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
@@ -48,6 +49,7 @@ $testColorGray: rgb(61, 61, 61);
     width: 65px;
     top: 5px;
     right: 5%;
+    cursor: pointer;
     &Gear {
         position: absolute;
         display: flex;
@@ -55,7 +57,7 @@ $testColorGray: rgb(61, 61, 61);
         justify-content: center;
         width: 50px;
         height: 50px;
-        background: $secondColor;
+        background: $gearColor;
         border-radius: 50%;
         animation: gearRotate 2s infinite linear;
         &::before {
@@ -63,9 +65,9 @@ $testColorGray: rgb(61, 61, 61);
             position: absolute;
             width: 65px;
             height: 65px;
-            background: linear-gradient(0deg,transparent 39%,$secondColor 39%,$secondColor 61%, transparent 61%),
-            linear-gradient(60deg,transparent 42%,$secondColor 42%,$secondColor 58%, transparent 58%),
-            linear-gradient(120deg,transparent 42%,$secondColor 42%,$secondColor 58%, transparent 58%);
+            background: linear-gradient(0deg,transparent 39%,$gearColor 39%,$gearColor 61%, transparent 61%),
+            linear-gradient(60deg,transparent 42%,$gearColor 42%,$gearColor 58%, transparent 58%),
+            linear-gradient(120deg,transparent 42%,$gearColor 42%,$gearColor 58%, transparent 58%);
             border-radius: 50%;
         }
         &::after {
