@@ -7,7 +7,9 @@
             :color="color" 
             />
         </div>
-        <div class="workMain"></div>
+        <div class="workMain">
+            <div class="inProgress"> Work <br/> in <br/> progress </div>
+        </div>
     </div>
 
 </template>
@@ -58,21 +60,35 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
-    .work {
-        position: relative;
-        height: 100vh;
-        width: 100vw;
-        z-index: 10;
+.work {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    &Main {
         display: flex;
         justify-content: center;
-        align-items: flex-end;
-        &Main {
-            width: 90%;
-            height: 90%;
-            max-width: 1400px;
-            background-color: $secondColor;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-        }
+        width: 90%;
+        height: 90%;
+        max-width: 1400px;
+        background-color: $secondColor;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
     }
+}
+.inProgress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 30%;
+    transform-origin: center;
+    transform: rotateZ(-20deg);
+    font-family: 'Corinthia';
+    font-size: 4rem;
+    font-weight: bold;
+    color: $orangeColor;
+}
 </style>
