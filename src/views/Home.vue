@@ -53,13 +53,16 @@ $testColorGray: rgb(61, 61, 61);
     align-items: flex-start;
     font-family: 'Ultra';
     margin: 0 0 0 5%;
-    font-size: 2.4rem;
+    // font-size: 2.4rem;
+    font-size: 10vw;
     color: $secondColor;
     &1 {
       margin-top: 120px;
+      z-index: 2;
     }
     &2 {
       margin: 15px 0 15px 47px;
+      z-index: 2;
     }
     &3 {
       z-index: 2;
@@ -67,9 +70,9 @@ $testColorGray: rgb(61, 61, 61);
     &4 {
       position: relative;
       font-family: 'Corinthia';
-      font-size: 8rem;
-      color: rgba(242, 116, 5, 0.4);
-      transform: rotateZ(-20deg) translate(15%, -40%);
+      font-size: 15vw;
+      color: rgba(242, 116, 5, 0.7);
+      transform: rotateZ(0deg) translate(40%, -50%);
     }
   }
   &Nav {

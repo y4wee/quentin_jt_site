@@ -87,7 +87,7 @@ $testColorGray: rgb(61, 61, 61);
     transform-origin: center;
     transform: rotateZ(-20deg);
     font-family: 'Corinthia';
-    font-size: 4rem;
+    font-size: 10vh;
     font-weight: bold;
     color: $orangeColor;
 }
