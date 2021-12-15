@@ -15,9 +15,6 @@ import { gsap } from "gsap";
 export default {
     name: 'ButtonBack',
     props: ['name', 'color'],
-    mounted: function() {
-        console.log(this.name)
-    },
     methods: {
         backToHome: function() {
             let tl = gsap.timeline()

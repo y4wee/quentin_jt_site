@@ -12,7 +12,6 @@ export default createStore({
   mutations: {
     activeIndex: function(state, data) {
       state.carouselIndex = data;
-      console.log(state.carouselIndex)
     },
     timelineLogoOn: function(state, data) {
       state.timelineLogo = data;

@@ -5,7 +5,7 @@
     <!-- @mouseenter="this.$store.state.header ? $store.commit('headerHoverState', true) : null"  -->
     <!-- @mouseleave="this.$store.state.header ? $store.commit('headerHoverState', false) : null"  -->
   <header>
-    <!-- composant logo Yawee.dev -->
+    <!-- composant logo -->
     <div class="logo">
       <span class="logoFirstname">Quentin.</span>
       <span class="logoName">Jt</span>
@@ -14,6 +14,9 @@
 
   <router-view></router-view>
 
+  <footer>
+    <SocialLink />
+  </footer>
 </template>
 
 <script>
@@ -21,31 +24,19 @@ import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// import Logo from './components/header/logo.vue';
-// import Start from './components/app/button-start';
 import Cursor from './components/app/cursor.vue';
-// import SectionAccueil from './components/main/section-accueil.vue';
-// import SectionPresentation from './components/main/section-presentation.vue';
-// import SectionCompetence from './components/main/section-competence.vue';
+import SocialLink from './components/footer/social-link.vue';
 
 
 export default {
   name: 'App',
   components: {
     Cursor,
-  },
-  data() {
-    return {
-      transitionFrom: 'fromHome'
-    }
-  },
-  // watch: {
-  //   '$route' (to) {
-  //     if(to.name === 'Home') {
-  //       this.transitionFrom = 'fromOther'
-  //     } else {
-  //       this.transitionFrom = 'fromHome'
-  //     }
+    SocialLink
+},
+  // data() {
+  //   return {
+  //     transitionFrom: 'fromHome'
   //   }
   // },
   mounted: function() {
@@ -119,12 +110,12 @@ header {
     transform: rotateZ(-20deg) translate(30%, -45%);
   }
 }
-// transition router
-.animate__fadeIn {
-  animation-duration: 0.5s;
-}
-.animate__fadeOutRight {
-  animation-duration: 0.5s;
+footer {
+  position: fixed;
+  bottom: -14.5px;
+  left: 0;
+  display: flex;
+  mix-blend-mode: difference;
 }
 //animation background effect 
 @keyframes noiseTranslation {
