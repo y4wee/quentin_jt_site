@@ -64,14 +64,11 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Anton&family=Corinthia:wght@400;700&family=Limelight&family=Lobster&family=M+PLUS+2:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Ultra&display=swap');
 
 // variables sass
-$mainColor: darken($color: rgb(96, 96 , 96), $amount: 20%);
-$mainColorDiff: rgb(210, 210, 210);
+$mainColor: rgb(28, 32, 32);
+$secondColor: rgb(233, 222, 190);
 $greenColor: rgb(86, 245 , 105);
-$purpleColor: #f556e2;
-$grayColor1: rgb(163, 169 , 164);
-$grayColor2: rgb(216, 216 , 216);
-$testColorBeige: rgb(236, 233, 225);
-$testColorBlue: rgb(28, 32, 32);
+$purpleColor: rgb(245, 86, 226);
+$orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
 
 #app {
@@ -89,7 +86,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: $testColorBlue;
+  background: $mainColor;
   background-image: url('./assets/images/noisebackground.png');
   background-repeat: repeat;
   background-position: 0 0;
@@ -112,7 +109,7 @@ header {
   &Firstname {
     font-family: 'Ultra';
     font-size: 2rem;
-    color: rgb(233, 222, 190);
+    color: $secondColor;
   }
   &Name {
     position: relative;

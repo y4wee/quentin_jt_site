@@ -35,7 +35,8 @@ export default {
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
 $greenColor: rgb(86, 245 , 105);
-$purpleColor: #f556e2;
+$purpleColor: rgb(245, 86, 226);
+$orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
 
 .home {
@@ -67,7 +68,7 @@ $testColorGray: rgb(61, 61, 61);
       position: relative;
       font-family: 'Corinthia';
       font-size: 8rem;
-      color: rgba(245, 86, 226, 0.2);
+      color: rgba(242, 116, 5, 0.4);
       transform: rotateZ(-20deg) translate(15%, -40%);
     }
   }

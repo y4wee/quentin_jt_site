@@ -20,7 +20,14 @@
                          }"></div>
 
                     </div>
-                    <div :class="'linkText '+ link.hash" :style="{ color: link.color }" @click="transitionTo(link.hash)">{{ link.text }}</div>
+                    <div 
+                    :class="'linkText '+ link.hash" 
+                    @click="transitionTo(link.hash)" 
+                    :style="{
+                        height: height - 12 + 'px',
+                        width: height - 12 + 'px',
+                        backgroundColor: link.color
+                    }"> {{ link.text }} </div>
                 </div>
             </div>
         </flickity>
@@ -29,6 +36,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import Flickity from 'vue-flickity'
 
@@ -55,24 +63,26 @@ export default {
                 {
                     text: 'About me',
                     hash: 'about',
-                    color: 'rgb(86, 245 , 105)',
+                    color: 'rgba(86, 245 , 105, 0.7)',
                 },
                 {
                     text: 'My work',
                     hash: 'work',
-                    color: '#f556e2',
+                    color: 'rgba(242, 116, 5, 0.6)',
                 },
                 {
                     text: 'Contact me',
                     hash: 'contact',
-                    color: 'rgb(28, 32, 32)',
+                    color: 'rgba(245, 86, 226, 0.6)',
                 }
             ],
             gears: 20,
             height: 375,
             key: 0,
-            currentIndex: 0,
         }
+    },
+    created: function() {
+        this.flickityOptions.initialIndex = this.$store.state.carouselIndex;
     },
     mounted: function() {
         window.addEventListener('resize', () => {
@@ -83,22 +93,22 @@ export default {
     methods: {
         reloadSize: function() {
             this.key++;
-            this.currentIndex = 0;
+            this.flickityOptions.initialIndex = this.$store.state.carouselIndex;
         },
         flickityChange: function() {
-            gsap.to(`.link${this.currentIndex}`, {
+            gsap.to(`.link${this.$store.state.carouselIndex}`, {
                 scale: 0.4,
                 duration: 0,
             })
         },
         flickityReady: function() {
-            gsap.to(`.link${this.currentIndex}`, {
+            gsap.to(`.link${this.$store.state.carouselIndex}`, {
                 scale: 1,
                 duration: 0,
             })
         },
         flickitySettle: function(index) {
-            this.currentIndex = index
+            this.$store.commit('activeIndex', index);
             gsap.to(`.link${index}`, {
                 scale: 1,
                 duration: 0.2,
@@ -106,7 +116,7 @@ export default {
             })
         },
         flickityDragStart: function() {
-            gsap.to(`.link${this.currentIndex}`, {
+            gsap.to(`.link${this.$store.state.carouselIndex}`, {
                 scale: 0.4,
                 duration: 0.2,
             })
@@ -124,6 +134,9 @@ export default {
         }
     },
     computed: {
+        ...mapState({
+            carouselIndex: 'carouselIndex',
+        }),
         gearAngle(){
             return 180 / this.gears
         }
@@ -136,7 +149,8 @@ export default {
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
 $greenColor: rgb(86, 245 , 105);
-$purpleColor: #f556e2;
+$purpleColor: rgb(245, 86, 226);
+$orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
 a {
     text-decoration: none;
@@ -177,6 +191,8 @@ a {
         transform: rotateZ(45deg);
         font-family: 'Ultra';
         font-size: 2rem;
+        color: $mainColor;
+        border-radius: 50%;
     }
 }
 .flickity {

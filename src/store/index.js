@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    start: false,
+    carouselIndex: 0,
     timelineLogo: false,
     header: false,
     headerHover: false,
@@ -10,8 +10,9 @@ export default createStore({
   },
 
   mutations: {
-    startOn: function(state, data) {
-      state.start = data;
+    activeIndex: function(state, data) {
+      state.carouselIndex = data;
+      console.log(state.carouselIndex)
     },
     timelineLogoOn: function(state, data) {
       state.timelineLogo = data;
