@@ -23,13 +23,13 @@ export default {
                     name: 'github',
                     class: 'fab fa-github',
                     hash: 'https://github.com/y4wee',
-                    rotate: 'right',
+                    rotate: 'left',
                 },
                 {
                     name: 'linkedIn',
                     class: 'fab fa-linkedin-in',
                     hash: 'https://www.linkedin.com/in/quentin-jambert-4488ab209/',
-                    rotate: 'left',
+                    rotate: 'right',
                 }
             ]
         }
@@ -74,12 +74,11 @@ $testColorGray: rgb(61, 61, 61);
         background: $gearColor;
         border-radius: 50%;
         &.right {
-            transform: rotateZ(30deg);
-            animation: gearRotateRight 2s infinite linear;
+            animation: gearRotateLeft 2s infinite linear;
             // animation-play-state: paused;
         }
         &.left {
-            animation: gearRotateLeft 2s infinite linear;
+            animation: gearRotateRight 2s infinite linear;
             // animation-play-state: paused;
         }
         &::before {
@@ -113,7 +112,7 @@ $testColorGray: rgb(61, 61, 61);
         pointer-events: none;
     }
 }
-@keyframes gearRotateRight {
+@keyframes gearRotateLeft {
   from { 
     transform: rotateZ(30deg);
   }
@@ -121,7 +120,7 @@ $testColorGray: rgb(61, 61, 61);
     transform: rotateZ(390deg); 
   }
 }
-@keyframes gearRotateLeft {
+@keyframes gearRotateRight {
   from { 
     transform: rotateZ(0deg);
   }
