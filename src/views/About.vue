@@ -1,7 +1,12 @@
 <template>
 
     <div class="about">
-        <div class="aboutBack" @click="backToHome()">X</div>
+        <div class="aboutBack" >
+            <ButtonBack 
+            :name="name"
+            :color="color" 
+            />
+        </div>
         <div class="aboutMain"></div>
     </div>
 
@@ -9,9 +14,19 @@
 
 <script>
 import { gsap } from "gsap";
+import ButtonBack from "../components/app/button-back.vue";
 
 export default {
     name: 'About',
+    components: {
+    ButtonBack
+    },
+    data() {
+        return {
+            name: 'about',
+            color: 'rgba(86, 245 , 105, 1)'
+        }
+    },
     mounted: function() {
         let tl = gsap.timeline()
 
@@ -43,35 +58,21 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
-    .about {
-        position: relative;
-        height: 100vh;
-        width: 100vw;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        &Back {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ultra';
-            color: $secondColor;
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            border: solid 2px $secondColor;
-            top: 10px;
-            right: 10%;
-        }
-        &Main {
-            width: 90%;
-            height: 90%;
-            max-width: 1400px;
-            background-color: $secondColor;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-        }
+.about {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    &Main {
+        width: 90%;
+        height: 90%;
+        max-width: 1400px;
+        background-color: $secondColor;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
     }
+}
 </style>

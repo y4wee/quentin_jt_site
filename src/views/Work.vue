@@ -1,7 +1,12 @@
 <template>
 
     <div class="work">
-        <div class="workBack" @click="backToHome()">X</div>
+        <div class="workBack" >
+            <ButtonBack 
+            :name="name"
+            :color="color" 
+            />
+        </div>
         <div class="workMain"></div>
     </div>
 
@@ -9,9 +14,19 @@
 
 <script>
 import { gsap } from "gsap";
+import ButtonBack from "../components/app/button-back.vue";
 
 export default {
     name: 'Work',
+    components: {
+    ButtonBack
+    },
+    data() {
+        return {
+            name: 'work',
+            color: 'rgba(242, 116, 5, 1)'
+        }
+    },
     mounted: function() {
         let tl = gsap.timeline()
 
@@ -40,7 +55,8 @@ export default {
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
 $greenColor: rgb(86, 245 , 105);
-$purpleColor: #f556e2;
+$purpleColor: rgb(245, 86, 226);
+$orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
     .work {
         position: relative;
@@ -50,20 +66,6 @@ $testColorGray: rgb(61, 61, 61);
         display: flex;
         justify-content: center;
         align-items: flex-end;
-        &Back {
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Ultra';
-            color: $secondColor;
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            border: solid 2px $secondColor;
-            top: 10px;
-            right: 10%;
-        }
         &Main {
             width: 90%;
             height: 90%;
