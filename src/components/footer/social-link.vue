@@ -30,6 +30,12 @@ export default {
                     class: 'fab fa-linkedin-in',
                     hash: 'https://www.linkedin.com/in/quentin-jambert-4488ab209/',
                     rotate: 'right',
+                },
+                {
+                    name: 'twitter',
+                    class: 'fab fa-twitter',
+                    hash:'https://twitter.com/Quentin_Jt',
+                    rotate: 'left',
                 }
             ]
         }
@@ -51,18 +57,24 @@ $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
 .social {
     display: flex;
-    flex-direction: column;
 }
 .socialLink {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 64px;
     height: 64px;
+    &.github {
+        bottom: 64px;
+    }
     &.linkedIn {
-        top: -14.5px;
+        bottom: 14.5px;
         left: 28px;
+    }
+    &.twitter {
+        bottom: 14.5px;
+        left: 85px;
     }
     &Gear {
         position: absolute;
