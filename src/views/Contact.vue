@@ -10,7 +10,7 @@
         <div class="contactMain">
             <div class="contactMainText">
                 Hey ! <br/>
-                N'hésitez pas à prendre contact avec moi, <br/>
+                N'hésitez pas à me contacter, <br/>
                 en m'envoyant un @mail,<br/> ou alors via les réseaux sociaux <br/>
                 dont les liens se situent en bas à gauche de votre écran, <br/>
                 à bientot.
