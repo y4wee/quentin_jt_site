@@ -7,7 +7,20 @@
             :color="color" 
             />
         </div>
-        <div class="contactMain"></div>
+        <div class="contactMain">
+            <div class="contactMainText">
+                Hey ! <br/>
+                N'hésitez pas à prendre contact avec moi, <br/>
+                en m'envoyant un @mail,<br/> ou alors via les réseaux sociaux <br/>
+                dont les liens se situent en bas à gauche de votre écran, <br/>
+                à bientot.
+            </div>
+            <div class="contactMainEmail">
+                <i class="fas fa-envelope"></i>
+                <span>quentin.jambert@gmail.com</span>
+            </div>
+        </div>
+        <img class="contactMainImage" src="../assets/images/portrait.png" alt="portrait">
     </div>
 
 </template>
@@ -38,6 +51,8 @@ export default {
             tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
             tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
             tl.from('.contactBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
+            tl.from('.contactMainText', {opacity: 0, xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
+            tl.from('.contactMainEmail', {opacity: 0, xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
         },
     },
 }
@@ -47,6 +62,7 @@ export default {
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
+$thirdColor: rgb(227, 223, 223);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
@@ -59,11 +75,46 @@ $testColorGray: rgb(61, 61, 61);
     justify-content: center;
     align-items: flex-end;
     &Main {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 90%;
         height: calc(100% - 75px);
-        background-color: $secondColor;
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
+        // overflow-y: scroll;
+        &Text {
+            z-index: 2;
+            background-color: $secondColor;
+            color: $mainColor;
+            margin-top: 2%;
+            border-radius: 10px;
+            font-family: 'Ultra';
+            font-size: 1.1rem;
+            padding: 5px;
+        }
+        &Email {
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 50px;
+            margin-top: 2%;
+            color: $thirdColor;
+            border-radius: 10px;
+            font-family: 'Ultra';
+            font-size: 1rem;
+            & .fas {
+                font-size: 2rem;
+                margin: 1% 0;
+                color: $purpleColor;
+            }
+        }
+        &Image {
+            position: absolute;
+            bottom: 0;
+            height: 40%;
+            
+        }
     }
 }
 @media all and (min-width: 701px) and (max-width: 1024px) {

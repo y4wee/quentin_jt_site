@@ -57,6 +57,7 @@ export default {
 // variables sass
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
+$thirdColor: rgb(227, 223, 223);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
@@ -108,7 +109,7 @@ header {
   &Firstname {
     font-family: 'Ultra';
     font-size: 2rem;
-    color: #E3DFDF;
+    color: $thirdColor;
   }
   &Name {
     position: relative;

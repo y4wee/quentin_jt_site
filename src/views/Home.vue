@@ -34,6 +34,7 @@ export default {
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
+$thirdColor: rgb(227, 223, 223);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
@@ -56,7 +57,7 @@ $testColorGray: rgb(61, 61, 61);
     user-select: none;
     // font-size: 2.4rem;
     font-size: 10vw;
-    color: #E3DFDF;
+    color: $thirdColor;
     &1 {
       margin-top: 120px;
       z-index: 2;
@@ -104,7 +105,7 @@ $testColorGray: rgb(61, 61, 61);
     min-width: 240px;
   }
   .homeWords {
-    font-size: 2rem;  
+    font-size: 2rem;
     margin: 0 0 0 8%;
     &4 {
       font-size: 4rem;

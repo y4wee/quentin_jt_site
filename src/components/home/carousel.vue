@@ -10,13 +10,13 @@
                         v-for="gear in gears" 
                         :key="gear" 
                         :style="{ 
-                            height: height + 12 + 'px',
+                            height: height + 15 + 'px',
                             transform: `rotateZ(${gearAngle * gear}deg)`
                          }"></div>
 
                         <div class="center" :style="{ 
-                            height: height - 12 + 'px',
-                            width: height - 12 + 'px',
+                            height: height - 15 + 'px',
+                            width: height - 15 + 'px',
                          }"></div>
 
                     </div>
@@ -24,8 +24,8 @@
                     :class="'linkText '+ link.hash" 
                     @click="transitionTo(link.hash)" 
                     :style="{
-                        height: height - 12 + 'px',
-                        width: height - 12 + 'px',
+                        height: height - 15 + 'px',
+                        width: height - 15 + 'px',
                         backgroundColor: link.color
                     }"> {{ link.text }} </div>
                 </div>
@@ -173,7 +173,7 @@ a {
         background-color: $mainColor;
         & .gear {
             position: absolute;
-            width: 10px;
+            width: 14px;
             transform-origin: center;
             background-color: $mainColor;
         }
