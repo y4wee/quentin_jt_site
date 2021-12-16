@@ -24,27 +24,20 @@ export default {
     data() {
         return {
             name: 'about',
-            color: 'rgba(86, 245 , 105, 1)'
+            color: 'rgba(86, 245 , 105, 1)',
         }
     },
     mounted: function() {
-        let tl = gsap.timeline()
-
-        tl.from('.about', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
-        tl.to('header', {xPercent: -20, duration: 0.5, ease: 'power4.out'}, '-=0.1')
-        tl.from('.aboutBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
+        this.arriveTransition()
     },
     methods: {
-        backToHome: function() {
+        arriveTransition: function() {
             let tl = gsap.timeline()
 
-            tl.to('.aboutBack', {opacity: 0, duration: 0.5, ease: 'power1.out'})
-            tl.to('header', {xPercent: 0, duration: 0.5, ease: 'power4.in'}, '-=0.45')   
-            tl.to('.about', {yPercent: 100, duration: 0.4, ease: 'power4.in'}, '-=0.1')
-
-            tl.then(() => {
-                this.$router.push('/')
-            })
+            tl.from('.about', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
+            tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
+            tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
+            tl.from('.aboutBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
         },
     },
 }
@@ -67,11 +60,20 @@ $testColorGray: rgb(61, 61, 61);
     align-items: flex-end;
     &Main {
         width: 90%;
-        height: 90%;
-        max-width: 1400px;
+        height: calc(100% - 75px);
         background-color: $secondColor;
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
+    }
+}
+@media all and (min-width: 701px) and (max-width: 1024px) {
+    .aboutMain {
+        width: 75%;
+    }
+}
+@media all and (min-width: 1025px) {
+    .aboutMain {
+        width: 60%;
     }
 }
 </style>

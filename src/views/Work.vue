@@ -26,27 +26,20 @@ export default {
     data() {
         return {
             name: 'work',
-            color: 'rgba(242, 116, 5, 1)'
+            color: 'rgba(242, 116, 5, 1)',
         }
     },
     mounted: function() {
-        let tl = gsap.timeline()
-
-        tl.from('.work', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
-        tl.to('header', {xPercent: -20, duration: 0.5, ease: 'power4.out'}, '-=0.1')
-        tl.from('.workBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
+        this.arriveTransition()  
     },
     methods: {
-        backToHome: function() {
+        arriveTransition: function() {
             let tl = gsap.timeline()
 
-            tl.to('.workBack', {opacity: 0, duration: 0.5, ease: 'power1.out'})
-            tl.to('header', {xPercent: 0, duration: 0.5, ease: 'power4.in'}, '-=0.45')   
-            tl.to('.work', {yPercent: 100, duration: 0.4, ease: 'power4.in'}, '-=0.1')
-
-            tl.then(() => {
-                this.$router.push('/')
-            })
+            tl.from('.work', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
+            tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
+            tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
+            tl.from('.workBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
         },
     },
 }
@@ -71,8 +64,7 @@ $testColorGray: rgb(61, 61, 61);
         display: flex;
         justify-content: center;
         width: 90%;
-        height: 90%;
-        max-width: 1400px;
+        height: calc(100% - 75px);
         background-color: $secondColor;
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
@@ -83,12 +75,22 @@ $testColorGray: rgb(61, 61, 61);
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 30%;
+    top: 20%;
     transform-origin: center;
     transform: rotateZ(-20deg);
     font-family: 'Corinthia';
-    font-size: 10vh;
+    font-size: 10vw;
     font-weight: bold;
     color: $orangeColor;
+}
+@media all and (min-width: 701px) and (max-width: 1024px) {
+    .workMain {
+        width: 75%;
+    }
+}
+@media all and (min-width: 1025px) {
+    .workMain {
+        width: 60%;
+    }
 }
 </style>

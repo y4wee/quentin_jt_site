@@ -69,8 +69,12 @@ $testColorGray: rgb(61, 61, 61);
   text-align: center;
   height: 100vh;
   width: 100vw;
-  min-width: 360px;
+  // min-width: 375px;
+  // min-height: 812px;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 body {
   width: 100vw;
@@ -86,21 +90,25 @@ body {
 header {
   position: fixed;
   top: 0;
-  left: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 100%;
+  justify-content: center;
+  // transform: translate(30%, 0%);
+  width: 90%;
   z-index: 20;
+  pointer-events: none;
 }
 .logo {
+  position: relative;
+  // top: 0;
+  // transform: translateX(calc(50vw - 85px));
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   &Firstname {
     font-family: 'Ultra';
     font-size: 2rem;
-    color: $secondColor;
+    color: #E3DFDF;
   }
   &Name {
     position: relative;
@@ -116,6 +124,16 @@ footer {
   left: 0;
   display: flex;
   mix-blend-mode: difference;
+}
+@media all and (min-width: 701px) and (max-width: 1024px) {
+  header {
+    width: 75%;
+  }
+}
+@media all and (min-width: 1025px) {
+  header {
+    width: 60%;
+  }
 }
 //animation background effect 
 @keyframes noiseTranslation {

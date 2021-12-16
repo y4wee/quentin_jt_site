@@ -24,27 +24,20 @@ export default {
     data() {
         return {
             name: 'contact',
-            color: 'rgba(245, 86, 226, 1)'
+            color: 'rgba(245, 86, 226, 1)',
         }
     },
     mounted: function() {
-        let tl = gsap.timeline()
-
-        tl.from('.contact', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
-        tl.to('header', {xPercent: -20, duration: 0.5, ease: 'power4.out'}, '-=0.1')
-        tl.from('.contactBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
+        this.arriveTransition()  
     },
     methods: {
-        backToHome: function() {
+        arriveTransition: function() {
             let tl = gsap.timeline()
 
-            tl.to('.contactBack', {opacity: 0, duration: 0.5, ease: 'power1.out'})
-            tl.to('header', {xPercent: 0, duration: 0.5, ease: 'power4.in'}, '-=0.45')   
-            tl.to('.contact', {yPercent: 100, duration: 0.4, ease: 'power4.in'}, '-=0.1')
-
-            tl.then(() => {
-                this.$router.push('/')
-            })
+            tl.from('.contact', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
+            tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
+            tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
+            tl.from('.contactBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
         },
     },
 }
@@ -58,21 +51,29 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
-    .contact {
-        position: relative;
-        height: 100vh;
-        width: 100vw;
-        z-index: 10;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        &Main {
-            width: 90%;
-            height: 90%;
-            max-width: 1400px;
-            background-color: $secondColor;
-            border-top-left-radius: 30px;
-            border-top-right-radius: 30px;
-        }
+.contact {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    &Main {
+        width: 90%;
+        height: calc(100% - 75px);
+        background-color: $secondColor;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
     }
+}
+@media all and (min-width: 701px) and (max-width: 1024px) {
+    .contactMain {
+        width: 75%;
+    }
+}
+@media all and (min-width: 1025px) {
+    .contactMain {
+        width: 60%;
+    }
+}
 </style>

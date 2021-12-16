@@ -218,4 +218,20 @@ a {
         transform: rotateZ(360deg);
     }
 }
+@media all and (min-height: 701px) and (max-height: 800px) {
+  .flickity {
+    min-height: 300px;
+  }
+  .carousel-cell {
+      transform: scale(0.6);
+  }
+}
+@media all and (max-height: 700px) {
+  .flickity {
+    min-height: 240px;
+  }
+  .carousel-cell {
+      transform: scale(0.5);
+  }
+}
 </style>

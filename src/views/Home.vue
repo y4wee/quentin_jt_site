@@ -53,9 +53,10 @@ $testColorGray: rgb(61, 61, 61);
     align-items: flex-start;
     font-family: 'Ultra';
     margin: 0 0 0 5%;
+    user-select: none;
     // font-size: 2.4rem;
     font-size: 10vw;
-    color: $secondColor;
+    color: #E3DFDF;
     &1 {
       margin-top: 120px;
       z-index: 2;
@@ -91,6 +92,31 @@ $testColorGray: rgb(61, 61, 61);
     transform: rotateZ(45deg) translateY(53%);
     // border: solid 2px $testColorBeige;
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7), -5px 0 10px 0 rgba(0, 0, 0, 0.7);
+  }
+}
+@media all and (min-height: 701px) and (max-height: 800px) {
+  .homeNav {
+    min-width: 300px;
+  }
+}
+@media all and (max-height: 700px) {
+  .homeNav {
+    min-width: 240px;
+  }
+  .homeWords {
+    font-size: 2rem;  
+    margin: 0 0 0 8%;
+    &4 {
+      font-size: 4rem;
+    }
+  }
+}
+@media all and (min-width: 701px) and (max-width: 1024px) {
+  
+}
+@media all and (min-width: 1025px) {
+  .homeWords {
+    font-size: 7.9vw;
   }
 }
 

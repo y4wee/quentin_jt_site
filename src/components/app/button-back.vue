@@ -20,7 +20,8 @@ export default {
             let tl = gsap.timeline()
 
             tl.to(`.${this.name}Back`, {opacity: 0, duration: 0.5, ease: 'power1.out'})
-            tl.to('header', {xPercent: 0, duration: 0.5, ease: 'power4.in'}, '-=0.45')   
+            tl.to('.logo', {xPercent: 0, duration: 0.5, ease: 'power4.in'}, '-=0.45')
+            tl.to('header', {xPercent: 0, duration: 0.5, ease: 'power4.in'}, '-=0.5')
             tl.to(`.${this.name}`, {yPercent: 100, duration: 0.4, ease: 'power4.in'}, '-=0.1')
 
             tl.then(() => {
@@ -87,6 +88,16 @@ $testColorGray: rgb(61, 61, 61);
         font-family: 'Ultra';
         font-size: 2rem;
         user-select: none;
+    }
+}
+@media all and (min-width: 701px) and (max-width: 1024px) {
+    .buttonBack {
+        right: 12.5%;
+    }
+}
+@media all and (min-width: 1025px) {
+    .buttonBack {
+        right: 20%;
     }
 }
 @keyframes gearRotate {
