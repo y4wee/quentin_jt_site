@@ -102,8 +102,8 @@ $testColorGray: rgb(61, 61, 61);
             margin-top: 2%;
             color: $thirdColor;
             border-radius: 10px;
-            font-family: 'Ultra';
-            font-size: 1rem;
+            font-family: 'Righteous';
+            font-size: 1.2rem;
             & .fas {
                 font-size: 2rem;
                 margin: 1% 0;

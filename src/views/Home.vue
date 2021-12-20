@@ -8,6 +8,14 @@
     </div>
     <div class="homeNav">
       <Carousel />
+
+      <div class="homeNavGrab">
+        <div class="homeNavGrabText">Grab</div>
+        <div class="homeNavGrabArrow">
+          <i class="fas fa-arrow-left"></i>
+          <i class="fas fa-arrow-right"></i>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -55,7 +63,6 @@ $testColorGray: rgb(61, 61, 61);
     font-family: 'Ultra';
     margin: 0 0 0 5%;
     user-select: none;
-    // font-size: 2.4rem;
     font-size: 10vw;
     color: $thirdColor;
     &1 {
@@ -71,10 +78,10 @@ $testColorGray: rgb(61, 61, 61);
     }
     &4 {
       position: relative;
-      font-family: 'Corinthia';
-      font-size: 15vw;
+      font-family: 'Righteous';
+      font-size: 12vw;
       color: rgba(242, 116, 5, 0.7);
-      transform: rotateZ(0deg) translate(40%, -50%);
+      transform:  translate(22%, -50%);
     }
   }
   &Nav {
@@ -91,8 +98,34 @@ $testColorGray: rgb(61, 61, 61);
     background: $secondColor;
     transform-origin: bottom right;
     transform: rotateZ(45deg) translateY(53%);
-    // border: solid 2px $testColorBeige;
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7), -5px 0 10px 0 rgba(0, 0, 0, 0.7);
+    &Grab {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      left: 10%;
+      bottom: 59%;
+      color: $orangeColor;
+      transform: rotateZ(-45deg);
+      &Text {
+        font-family: 'Righteous';
+        font-size: 1.1rem;
+      }
+      &Arrow {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 250%;
+        transform: rotateZ(-45deg);
+        & .fa-arrow-left {
+          animation: arrowLeft 0.6s infinite alternate ease-in;
+        }
+        & .fa-arrow-right {
+          animation: arrowRight 0.6s infinite alternate ease-in;
+        }
+      }
+    }
   }
 }
 @media all and (min-height: 701px) and (max-height: 800px) {
@@ -108,7 +141,7 @@ $testColorGray: rgb(61, 61, 61);
     font-size: 2rem;
     margin: 0 0 0 8%;
     &4 {
-      font-size: 4rem;
+      font-size: 2.4rem;
     }
   }
 }
@@ -118,7 +151,41 @@ $testColorGray: rgb(61, 61, 61);
 @media all and (min-width: 1025px) {
   .homeWords {
     font-size: 7.9vw;
+    &4 {
+      font-size: 9.4vw;
+    }
+  }
+}
+@media all and (min-width: 1250px) {
+  .homeNavGrab {
+    // transform: rotateZ(-45deg) translate(150%, -500%)
+  }
+}
+@media all and (min-width: 1400px) {
+  .homeNavGrab {
+    // transform: rotateZ(-45deg) translate(150%, -600%)
+  }
+}
+@media all and (min-width: 1250px) {
+  .homeNavGrab {
+    // transform: rotateZ(-45deg) translate(150%, -700%)
   }
 }
 
+@keyframes arrowRight {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(70%);
+  }
+}
+@keyframes arrowLeft {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-70%);
+  }
+}
 </style>
