@@ -17,7 +17,7 @@
             </div>
             <div class="contactMainEmail">
                 <i class="fas fa-envelope"></i>
-                <span>quentin.jambert@gmail.com</span>
+                <span>quentin.jt.dev@gmail.com</span>
             </div>
         </div>
         <img class="contactMainImage" src="../assets/images/portrait.png" alt="portrait">
@@ -91,6 +91,7 @@ $testColorGray: rgb(61, 61, 61);
             font-family: 'Ultra';
             font-size: 1.1rem;
             padding: 5px;
+            user-select: none;
         }
         &Email {
             z-index: 2;

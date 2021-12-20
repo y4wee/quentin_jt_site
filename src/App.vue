@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Anton&family=Corinthia:wght@400;700&family=Limelight&family=Lobster&family=M+PLUS+2:wght@100;200;300;400;500;600;700;800;900&family=Noto+Serif+Display:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Righteous&family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Caveat:wght@400;500;600;700&family=Limelight&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Megrim&family=Oooh+Baby&family=Righteous&family=Train+One&family=Ultra&display=swap');
 
 // variables sass
 $mainColor: rgb(28, 32, 32);
@@ -70,8 +70,6 @@ $testColorGray: rgb(61, 61, 61);
   text-align: center;
   height: 100vh;
   width: 100vw;
-  // min-width: 375px;
-  // min-height: 812px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -94,15 +92,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  // transform: translate(30%, 0%);
   width: 90%;
   z-index: 20;
   pointer-events: none;
 }
 .logo {
   position: relative;
-  // top: 0;
-  // transform: translateX(calc(50vw - 85px));
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -113,10 +108,10 @@ header {
   }
   &Name {
     position: relative;
-    font-family: 'Corinthia';
-    font-size: 3rem;
+    font-family: 'Righteous';
+    font-size: 2rem;
     color: $greenColor;
-    transform: rotateZ(-20deg) translate(30%, -45%);
+    transform: translate(5%, -55%);
   }
 }
 footer {

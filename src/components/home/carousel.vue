@@ -234,4 +234,19 @@ a {
       transform: scale(0.5);
   }
 }
+@media all and (min-width: 1250px) {
+  .carousel-cell {
+      transform: scale(0.8);
+  }
+}
+@media all and (min-width: 1400px) {
+  .carousel-cell {
+      transform: scale(0.9);
+  }
+}
+@media all and (min-width: 1550px) {
+  .carousel-cell {
+      transform: scale(1);
+  }
+}
 </style>
