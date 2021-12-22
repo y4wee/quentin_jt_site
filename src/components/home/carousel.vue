@@ -22,7 +22,7 @@
                     </div>
                     <div 
                     :class="'linkText '+ link.hash" 
-                    @click="transitionTo(link.hash)" 
+                    @click="transitionTo(link.hash, $event)" 
                     :style="{
                         height: height - 15 + 'px',
                         width: height - 15 + 'px',
@@ -121,7 +121,10 @@ export default {
                 duration: 0.2,
             })
         },
-        transitionTo: function(hash) {
+        transitionTo: function(hash, event) {
+            console.log(event)
+            
+            
             let tl = gsap.timeline();
 
             tl.to('.homeWords', {scale: 0.75, duration: 0.3})

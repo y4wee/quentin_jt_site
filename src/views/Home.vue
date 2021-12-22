@@ -1,22 +1,17 @@
 <template>
   <div class="home">
+
     <div class="homeWords">
       <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
       <div class="homeWords3">Full-stack</div>
       <div class="homeWords4">Junior</div>
     </div>
+
     <div class="homeNav">
       <Carousel />
-
-      <div class="homeNavGrab">
-        <div class="homeNavGrabText">Grab</div>
-        <div class="homeNavGrabArrow">
-          <i class="fas fa-arrow-left"></i>
-          <i class="fas fa-arrow-right"></i>
-        </div>
-      </div>
     </div>
+    
   </div>
 </template>
 
@@ -99,33 +94,6 @@ $testColorGray: rgb(61, 61, 61);
     transform-origin: bottom right;
     transform: rotateZ(45deg) translateY(53%);
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7), -5px 0 10px 0 rgba(0, 0, 0, 0.7);
-    &Grab {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      left: 10%;
-      bottom: 59%;
-      color: $orangeColor;
-      transform: rotateZ(-45deg);
-      &Text {
-        font-family: 'Righteous';
-        font-size: 1.1rem;
-      }
-      &Arrow {
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        width: 250%;
-        transform: rotateZ(-45deg);
-        & .fa-arrow-left {
-          animation: arrowLeft 0.6s infinite alternate ease-in;
-        }
-        & .fa-arrow-right {
-          animation: arrowRight 0.6s infinite alternate ease-in;
-        }
-      }
-    }
   }
 }
 @media all and (min-height: 701px) and (max-height: 800px) {
@@ -154,38 +122,6 @@ $testColorGray: rgb(61, 61, 61);
     &4 {
       font-size: 9.4vw;
     }
-  }
-}
-@media all and (min-width: 1250px) {
-  .homeNavGrab {
-    // transform: rotateZ(-45deg) translate(150%, -500%)
-  }
-}
-@media all and (min-width: 1400px) {
-  .homeNavGrab {
-    // transform: rotateZ(-45deg) translate(150%, -600%)
-  }
-}
-@media all and (min-width: 1250px) {
-  .homeNavGrab {
-    // transform: rotateZ(-45deg) translate(150%, -700%)
-  }
-}
-
-@keyframes arrowRight {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(70%);
-  }
-}
-@keyframes arrowLeft {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-70%);
   }
 }
 </style>
