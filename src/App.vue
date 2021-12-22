@@ -23,7 +23,6 @@
 import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import Cursor from './components/app/cursor.vue';
 import SocialLink from './components/footer/social-link.vue';
 
@@ -64,7 +63,6 @@ $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
 
 #app {
-  font-family: 'M PLUS 2';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

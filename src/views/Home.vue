@@ -11,7 +11,7 @@
     <div class="homeNav">
       <Carousel />
     </div>
-    
+
   </div>
 </template>
 
@@ -27,10 +27,29 @@ export default {
     mounted: function() {
       let tl = gsap.timeline();
         
-        tl.from('.home', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
-        tl.from('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.out'}, '-=0.4')
-        tl.from('.homeWords', {scale: 0.75, duration: 0.3}, '-=0.15')
+      tl.from('.home', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
+      tl.from('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.out'}, '-=0.4')
+      tl.from('.homeWords', {scale: 0.75, duration: 0.3}, '-=0.15')
+
+      this.initViewport();
+      window.addEventListener('resize', () => {
+            this.initViewport();
+        })
     },
+    methods: {
+      initViewport: function() {
+        let viewport = document.querySelector('.flickity-viewport')
+        viewport.addEventListener('mouseenter', this.cursorHoverState)
+        viewport.addEventListener('mouseleave', this.cursorHoverState)
+      },
+      cursorHoverState: function(e) {
+        if (e.type === 'mouseenter') {
+          this.$store.commit('cursorHoverState', { state: true, type: 'Grab' });
+        } else {
+          this.$store.commit('cursorHoverState', { state: false, type: '' });
+        }
+      }
+    }
 }
 </script>
 
@@ -94,6 +113,15 @@ $testColorGray: rgb(61, 61, 61);
     transform-origin: bottom right;
     transform: rotateZ(45deg) translateY(53%);
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7), -5px 0 10px 0 rgba(0, 0, 0, 0.7);
+    &Hover {
+      position: absolute;
+      z-index: 50;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
   }
 }
 @media all and (min-height: 701px) and (max-height: 800px) {

@@ -3,6 +3,10 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     carouselIndex: 0,
+    cursorHover: {
+      state: false,
+      type: ''
+    },
     timelineLogo: false,
     header: false,
     headerHover: false,
@@ -13,8 +17,8 @@ export default createStore({
     activeIndex: function(state, data) {
       state.carouselIndex = data;
     },
-    timelineLogoOn: function(state, data) {
-      state.timelineLogo = data;
+    cursorHoverState: function(state, data) {
+      state.cursorHover = data;
     },
     headerOn: function(state, data) {
       state.header = data;
