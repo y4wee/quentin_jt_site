@@ -22,7 +22,6 @@
                     </div>
                     <div 
                     :class="'linkText '+ link.hash" 
-                    @click="transitionTo(link.hash, $event)" 
                     :style="{
                         height: height - 15 + 'px',
                         width: height - 15 + 'px',
@@ -57,6 +56,7 @@ export default {
                     ready: this.flickityReady,
                     settle: this.flickitySettle,
                     dragStart: this.flickityDragStart,
+                    staticClick: this.testClick,
                 }
             },
             links: [
@@ -91,6 +91,27 @@ export default {
         
     },
     methods: {
+        testClick: function( event, pointer, cellElement, cellIndex ) {
+            let hash = this.links[cellIndex].hash;
+            let target = event.target.classList[1];
+            if ( !cellElement ) {
+                return;
+            }
+            else if(target === hash) {
+                this.$store.commit('cursorHoverState', { state: false, type: '' });
+                let tl = gsap.timeline();
+
+                tl.to('.homeWords', {scale: 0.75, duration: 0.3})
+                tl.to('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.15')
+                tl.to('.home', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.4')
+
+                tl.then(() => {
+                    this.$router.push(hash);
+                })
+            } else {
+                return;
+            }
+        },
         reloadSize: function() {
             this.key++;
             this.flickityOptions.initialIndex = this.$store.state.carouselIndex;
@@ -121,20 +142,6 @@ export default {
                 duration: 0.2,
             })
         },
-        transitionTo: function(hash, event) {
-            console.log(event)
-            
-            
-            let tl = gsap.timeline();
-
-            tl.to('.homeWords', {scale: 0.75, duration: 0.3})
-            tl.to('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.15')
-            tl.to('.home', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.4')
-
-            tl.then(() => {
-                this.$router.push(hash);
-            })
-        }
     },
     computed: {
         ...mapState({
@@ -172,7 +179,6 @@ a {
         align-items: center;
         border-radius: 50%;
         animation: rotate360 14s infinite linear;
-        // animation-play-state: paused;
         background-color: $mainColor;
         & .gear {
             position: absolute;
