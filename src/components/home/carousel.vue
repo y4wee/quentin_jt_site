@@ -56,7 +56,7 @@ export default {
                     ready: this.flickityReady,
                     settle: this.flickitySettle,
                     dragStart: this.flickityDragStart,
-                    staticClick: this.testClick,
+                    staticClick: this.clickEvent,
                 }
             },
             links: [
@@ -91,13 +91,13 @@ export default {
         
     },
     methods: {
-        testClick: function( event, pointer, cellElement, cellIndex ) {
-            let hash = this.links[cellIndex].hash;
-            let target = event.target.classList[1];
-            if ( !cellElement ) {
+        clickEvent: function( event, pointer, cellElement, cellIndex ) {
+            if ( !cellElement || cellIndex === null) {
                 return;
             }
-            else if(target === hash) {
+            let hash = this.links[cellIndex].hash;
+            let target = event.target.classList[1];
+            if(target === hash) {
                 this.$store.commit('cursorHoverState', { state: false, type: '' });
                 let tl = gsap.timeline();
 
