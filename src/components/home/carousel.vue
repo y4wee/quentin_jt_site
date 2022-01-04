@@ -113,7 +113,6 @@ export default {
             }
         },
         reloadSize: function() {
-            console.log('resize')
             this.key++;
             this.flickityOptions.initialIndex = this.$store.state.carouselIndex;
         },
