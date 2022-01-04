@@ -68,16 +68,18 @@ $secondFont: 'Righteous';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 body {
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: 0;
   padding: 0;
   background: $mainColor;
@@ -85,6 +87,7 @@ body {
   background-repeat: repeat;
   background-position: 0 0;
   animation: noiseTranslation 1s linear infinite;
+  overflow: hidden;
 }
 header {
   position: fixed;
