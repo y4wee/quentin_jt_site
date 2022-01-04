@@ -11,10 +11,11 @@
             <div class="aboutMainPresentation">
 
                 <div class="aboutMainPresentationPicture">
-                    <div class="pictureCard">
-                        <img src="../assets/images/buste0.png" alt="photo cartoon Quentin.jt">
-                        <div class="pictureCardText">Ruler</div>
-                    </div>
+                    <Card
+                    :name="bio.name"
+                    :path="bio.path"
+                    :alt="bio.alt"
+                    />
                 </div>
 
                 <div class="aboutMainPresentationText">
@@ -47,48 +48,63 @@
 <script>
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
+import Card from '../components/about/card.vue';
 
 export default {
     name: 'About',
     components: {
-    ButtonBack
+    ButtonBack,
+        Card
     },
     data() {
         return {
             name: 'about',
             color: 'rgba(86, 245 , 105, 1)',
+            bio: {
+                name: 'Ruler',
+                path: require('../assets/images/buste0.png'),
+                alt: 'image cartoon de quentin jt'
+            },
             skills: [
                 {
                     name: 'HTML',
-                    path: require('../assets/images/html.svg')
+                    path: require('../assets/images/html.svg'),
+                    alt: 'image logo HTML'
                 },
                 {
                     name: 'CSS',
-                    path: require('../assets/images/css.svg')
+                    path: require('../assets/images/css.svg'),
+                    alt: 'image logo CSS'
                 },
                 {
                     name: 'Javascript',
-                    path: require('../assets/images/javascript.svg')
+                    path: require('../assets/images/javascript.svg'),
+                    alt: 'image logo Javascript'
                 },
                 {
                     name: 'Vuejs',
-                    path: require('../assets/images/vuejs.svg')
+                    path: require('../assets/images/vuejs.svg'),
+                    alt: 'image logo Vuejs'
                 },
                 {
                     name: 'nodejs',
-                    path: require('../assets/images/nodejs.svg')
+                    path: require('../assets/images/nodejs.svg'),
+                    alt: 'image logo Nodejs'
                 },
                 {
                     name: 'NPM',
-                    path: require('../assets/images/npm.svg')
+                    path: require('../assets/images/npm.svg'),
+                    alt: 'image logo NPM'
                 },
                 {
                     name: 'MySQL',
-                    path: require('../assets/images/mysql.svg')
+                    path: require('../assets/images/mysql.svg'),
+                    alt: 'image logo MySQL'
                 },
                 {
                     name: 'MongoDB',
-                    path: require('../assets/images/mongodb.svg')
+                    path: require('../assets/images/mongodb.svg'),
+                    alt: 'image logo MongoDB'
                 },
             ]
         }
@@ -141,6 +157,7 @@ $secondFont: 'Righteous';
             border-top: 5px solid $secondColor;
             border-bottom: 5px solid $secondColor;
             overflow-y: scroll;
+            scrollbar-width: none;
             &::-webkit-scrollbar {
                 display: none;
             }
@@ -152,32 +169,6 @@ $secondFont: 'Righteous';
                 min-height: 100%;
                 width: 100%;
                 // border-bottom: 5px solid $thirdColor;
-                & .pictureCard {
-                    width: 30vh;
-                    height: 50vh;
-                    background-color: $thirdColor;
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    flex-direction: column;
-                    overflow-x: hidden;
-                    border: solid 5px $thirdColor;
-                    border-radius: 10px;
-                    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-                    // animation: float 2s ease-in-out infinite;
-                    & img {
-                        height: 88%;
-                    }
-                    &Text {
-                        display: flex;
-                        justify-content: center;
-                        align-items: flex-end;
-                        height: 12%;
-                        font-family: $secondFont;
-                        font-size: 4vh;
-                        color: $orangeColor;
-                    }
-                }
             }
             &Text {
                 min-height: 100%;
