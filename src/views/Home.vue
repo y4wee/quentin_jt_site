@@ -23,7 +23,7 @@
 
 <script>
 import { gsap } from "gsap";
-import Carousel from "../components/home/carousel.vue";
+import Carousel from "../components/home/carousel-nav.vue";
 // import HomeWord from "../components/home/home-word.vue";
 
 export default {
