@@ -94,8 +94,8 @@ $testColorGray: rgb(61, 61, 61);
   position: relative;
   display: flex;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   &Words {
     height: 100%;
     width: 100%;
