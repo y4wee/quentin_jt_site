@@ -2,20 +2,24 @@
 
     <div class="about">
         <div class="aboutBack" >
-            <ButtonBack 
+            <ButtonBack
             :name="name"
-            :color="color" 
+            :color="color"
             />
         </div>
         <div class="aboutMain">
             <div class="aboutMainPresentation">
 
-                <div class="aboutMainPresentationPhoto">
-                    <img src="../assets/images/portrait.png" alt="photo de moi">
+                <div class="aboutMainPresentationPicture">
+                    <div class="pictureCard">
+                        <img src="../assets/images/buste0.png" alt="photo cartoon Quentin.jt">
+                        <div class="pictureCardText">Ruler</div>
+                    </div>
                 </div>
+
                 <div class="aboutMainPresentationText">
                     Hey ! <br /> 
-                    je suis quentin, un développeur web français et junior dans ce domaine. <br />
+                    je suis Quentin, un développeur web français et junior dans ce domaine. <br />
                     Je me suis plongé dans ce magnifique monde qu'est la programmation il y a peu, et j'ai découvert une véritable passion.<br />
                     Je suis une personne logique et j'aime donc résoudre des problèmes et trouver les solutions les plus adaptées,<br />
                     je suis minutieux et rigoureux dans mon travail, un code propre et maintenable est un bon code pour moi !<br />
@@ -23,9 +27,10 @@
                     développeur full-stack avec une préférence pour le côté Front-end et une appétence pour l'UX/UI design.<br />
                     Je suis Adaptable et j'aime découvrir et apprendre de nouvelles technologies !
                 </div>
+
                 <div class="aboutMainPresentationSkill">
-                    <div 
-                    v-for="skill in skills" 
+                    <div
+                    v-for="skill in skills"
                     :key="skill"
                     :class="'skill ' + skill.name"
                     >
@@ -98,7 +103,6 @@ export default {
             tl.from('.about', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
             tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
             tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
-            // tl.from('.aboutMainPresentation', {height: 0, duration: 0.5, ease: 'power4.out'}, '-=0.5')
             tl.from('.aboutBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
         },
     },
@@ -114,6 +118,8 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 .about {
     position: relative;
     height: 100vh;
@@ -138,15 +144,39 @@ $testColorGray: rgb(61, 61, 61);
             &::-webkit-scrollbar {
                 display: none;
             }
-            &Photo {
+            &Picture {
+                position: relative;
                 display: flex;
                 justify-content: center;
-                align-items: flex-end;
-                height: 100%;
+                align-items: center;
+                min-height: 100%;
                 width: 100%;
-                border-bottom: 5px solid $thirdColor;
-                & img {
-                    height: 50%;
+                // border-bottom: 5px solid $thirdColor;
+                & .pictureCard {
+                    width: 30vh;
+                    height: 50vh;
+                    background-color: $thirdColor;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-direction: column;
+                    overflow-x: hidden;
+                    border: solid 5px $thirdColor;
+                    border-radius: 10px;
+                    box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+                    // animation: float 2s ease-in-out infinite;
+                    & img {
+                        height: 88%;
+                    }
+                    &Text {
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+                        height: 12%;
+                        font-family: $secondFont;
+                        font-size: 4vh;
+                        color: $orangeColor;
+                    }
                 }
             }
             &Text {
@@ -154,7 +184,7 @@ $testColorGray: rgb(61, 61, 61);
                 max-width: 600px;
                 padding: 20px 0;
                 // border-bottom: 5px solid $thirdColor;
-                font-family: 'Ultra';
+                font-family: $mainFont;
                 font-size: 1.3rem;
                 color: $thirdColor;
                 line-height: 170%;
@@ -213,5 +243,19 @@ $testColorGray: rgb(61, 61, 61);
             line-height: 170%;
         }
     }
+}
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translateY(0%);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translateY(-3%);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translateY(0%);
+	}
 }
 </style>

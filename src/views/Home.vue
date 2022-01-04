@@ -2,10 +2,16 @@
   <div class="home">
 
     <div class="homeWords">
+      <HomeWord 
+      v-for="(word, index) in words" :key="word"
+      :className="'homeWords' + index"
+      :text="word.text"
+      :animation="word.animation"
+      />
       <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
       <div class="homeWords3">Full-stack</div>
-      <div class="homeWords4">Junior</div>
+      <div class="homeWordsBis">Junior</div>
     </div>
 
     <div class="homeNav">
@@ -18,12 +24,32 @@
 <script>
 import { gsap } from "gsap";
 import Carousel from "../components/home/carousel.vue";
+import HomeWord from "../components/home/home-word.vue";
 
 export default {
     name: "Home",
-    components: { 
-      Carousel, 
-    },
+    components: {
+    Carousel,
+    HomeWord
+},
+data() {
+  return {
+    words: [
+      {
+        text: "Développeur",
+        animation: false
+      },
+      {
+        text: "Web",
+        animation: false
+      },
+      {
+        text: "Junior",
+        animation: false
+      },
+    ]
+  }
+},
     mounted: function() {
       let tl = gsap.timeline();
         
@@ -37,11 +63,13 @@ export default {
         })
     },
     methods: {
+      // hover state when resize window
       initViewport: function() {
         let viewport = document.querySelector('.flickity-viewport')
         viewport.addEventListener('mouseenter', this.cursorHoverState)
         viewport.addEventListener('mouseleave', this.cursorHoverState)
       },
+      // hover state on nav
       cursorHoverState: function(e) {
         if (e.type === 'mouseenter') {
           this.$store.commit('cursorHoverState', { state: true, type: 'Grab' });
@@ -55,11 +83,11 @@ export default {
 
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
-$secondColor: rgb(233, 222, 190);
-$thirdColor: rgb(227, 223, 223);
-$greenColor: rgb(86, 245 , 105);
-$purpleColor: rgb(245, 86, 226);
-$orangeColor: rgb(242, 116, 5);
+$secondColor: rgb(233, 222, 190); //e9debe
+$thirdColor: rgb(227, 223, 223); //e3e9e9
+$greenColor: rgb(86, 245 , 105); //56f569
+$purpleColor: rgb(245, 86, 226); //f556e2
+$orangeColor: rgb(242, 116, 5); //f27405
 $testColorGray: rgb(61, 61, 61);
 
 .home {
@@ -90,7 +118,7 @@ $testColorGray: rgb(61, 61, 61);
     &3 {
       z-index: 2;
     }
-    &4 {
+    &Bis {
       position: relative;
       font-family: 'Righteous';
       font-size: 12vw;

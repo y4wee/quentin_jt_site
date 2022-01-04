@@ -20,7 +20,7 @@
                 <span>quentin.jt.dev@gmail.com</span>
             </div>
         </div>
-        <img class="contactMainImage" src="../assets/images/portrait.png" alt="portrait">
+        <img class="contactMainImage" src="../assets/images/contact0.png" alt="portrait">
     </div>
 
 </template>
@@ -113,7 +113,7 @@ $testColorGray: rgb(61, 61, 61);
         &Image {
             position: absolute;
             bottom: 0;
-            height: 40%;
+            height: 50%;
             
         }
     }

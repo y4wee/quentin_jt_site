@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Caveat:wght@400;500;600;700&family=Limelight&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Megrim&family=Oooh+Baby&family=Righteous&family=Train+One&family=Ultra&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Ultra&display=swap');
 
 // variables sass
 $mainColor: rgb(28, 32, 32);
@@ -61,6 +61,8 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 
 #app {
   -webkit-font-smoothing: antialiased;
@@ -100,13 +102,13 @@ header {
   flex-direction: column;
   align-items: flex-start;
   &Firstname {
-    font-family: 'Ultra';
+    font-family: $mainFont;
     font-size: 2rem;
     color: $thirdColor;
   }
   &Name {
     position: relative;
-    font-family: 'Righteous';
+    font-family: $secondFont;
     font-size: 2rem;
     color: $greenColor;
     transform: translate(5%, -55%);
@@ -137,7 +139,6 @@ footer {
   10% {
       background-position: 20% -10%;
   }
-
   20% {
       background-position: -10% 20%;
   }
