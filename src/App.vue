@@ -21,8 +21,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Cursor from './components/app/cursor.vue';
 import SocialLink from './components/footer/social-link.vue';
 
@@ -39,7 +39,7 @@ export default {
   //   }
   // },
   mounted: function() {
-    gsap.registerPlugin(ScrollTrigger);
+    // gsap.registerPlugin(ScrollTrigger);
   },
   computed: {
       ...mapState({
