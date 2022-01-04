@@ -172,6 +172,9 @@ a {
     align-items: center;
     transform-origin: center;
     transform: scale(0.4);
+    height: 360px;
+    width: 360px;
+    border-radius: 50%;
     &Background {
         position: absolute;
         display: flex;
