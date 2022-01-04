@@ -11,6 +11,7 @@
     "@splidejs/splide": "^3.6.9",
     "@splidejs/vue-splide": "^0.5.15",
     "core-js": "^3.6.5",
+    "gsap": "^3.9.1",
     "vue": "^3.0.0",
     "vue-flickity": "^1.2.1",
     "vue-router": "^4.0.0-0",
