@@ -2,12 +2,12 @@
   <div class="home">
 
     <div class="homeWords">
-      <HomeWord 
+      <!-- <HomeWord 
       v-for="(word, index) in words" :key="word"
       :className="'homeWords' + index"
       :text="word.text"
       :animation="word.animation"
-      />
+      /> -->
       <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
       <div class="homeWords3">Full-stack</div>
@@ -24,13 +24,13 @@
 <script>
 import { gsap } from "gsap";
 import Carousel from "../components/home/carousel.vue";
-import HomeWord from "../components/home/home-word.vue";
+// import HomeWord from "../components/home/home-word.vue";
 
 export default {
     name: "Home",
     components: {
     Carousel,
-    HomeWord
+    // HomeWord
 },
 data() {
   return {
