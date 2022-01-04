@@ -69,8 +69,8 @@ $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
 .contact {
     position: relative;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
