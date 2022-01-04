@@ -15,6 +15,7 @@
                     :name="bio.name"
                     :path="bio.path"
                     :alt="bio.alt"
+                    :genre="bio.genre"
                     />
                 </div>
 
@@ -30,13 +31,7 @@
                 </div>
 
                 <div class="aboutMainPresentationSkill">
-                    <div
-                    v-for="skill in skills"
-                    :key="skill"
-                    :class="'skill ' + skill.name"
-                    >
-                        <img :src="skill.path" :alt="'logo ' + skill.name">
-                    </div>
+                    <CarouselCard />
                 </div>
 
             </div>
@@ -49,12 +44,14 @@
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
 import Card from '../components/about/card.vue';
+import CarouselCard from '../components/about/carousel-card.vue';
 
 export default {
     name: 'About',
     components: {
-    ButtonBack,
-        Card
+        ButtonBack,
+        Card,
+        CarouselCard
     },
     data() {
         return {
@@ -63,48 +60,57 @@ export default {
             bio: {
                 name: 'Ruler',
                 path: require('../assets/images/buste0.png'),
-                alt: 'image cartoon de quentin jt'
+                alt: 'image cartoon de quentin jt',
+                genre: 'Bio'
             },
             skills: [
                 {
                     name: 'HTML',
                     path: require('../assets/images/html.svg'),
-                    alt: 'image logo HTML'
+                    alt: 'image logo HTML',
+                    genre: 'Skill',
                 },
                 {
                     name: 'CSS',
                     path: require('../assets/images/css.svg'),
-                    alt: 'image logo CSS'
+                    alt: 'image logo CSS',
+                    genre: 'Skill',
                 },
                 {
                     name: 'Javascript',
                     path: require('../assets/images/javascript.svg'),
-                    alt: 'image logo Javascript'
+                    alt: 'image logo Javascript',
+                    genre: 'Skill',
                 },
                 {
                     name: 'Vuejs',
                     path: require('../assets/images/vuejs.svg'),
-                    alt: 'image logo Vuejs'
+                    alt: 'image logo Vuejs',
+                    genre: 'Skill',
                 },
                 {
                     name: 'nodejs',
                     path: require('../assets/images/nodejs.svg'),
-                    alt: 'image logo Nodejs'
+                    alt: 'image logo Nodejs',
+                    genre: 'Skill',
                 },
                 {
                     name: 'NPM',
                     path: require('../assets/images/npm.svg'),
-                    alt: 'image logo NPM'
+                    alt: 'image logo NPM',
+                    genre: 'Skill',
                 },
                 {
                     name: 'MySQL',
                     path: require('../assets/images/mysql.svg'),
-                    alt: 'image logo MySQL'
+                    alt: 'image logo MySQL',
+                    genre: 'Skill',
                 },
                 {
                     name: 'MongoDB',
                     path: require('../assets/images/mongodb.svg'),
-                    alt: 'image logo MongoDB'
+                    alt: 'image logo MongoDB',
+                    genre: 'Skill',
                 },
             ]
         }
@@ -182,33 +188,12 @@ $secondFont: 'Righteous';
             }
             &Skill {
                 display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
-                height: 100%;    
+                height: 100%;
                 background-color: rgba(242, 116, 5, 0.8);
                 // border: 5px solid $thirdColor;
-                & .skill {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 80px;
-                    margin: 0 5px;
-                    &.MySQL {
-                        width: 80px;
-                        border-radius: 50%;
-                        background-color: $thirdColor;
-                    }
-                    &.MongoDB {
-                        width: 80px;
-                        border-radius: 50%;
-                        background-color: $thirdColor;
-                    }
-                }
-                & img {
-                    height: 70%;
-                }
             }
         }
     }

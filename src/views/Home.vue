@@ -2,12 +2,12 @@
   <div class="home">
 
     <div class="homeWords">
-      <HomeWord 
+      <!-- <HomeWord 
       v-for="(word, index) in words" :key="word"
       :className="'homeWords' + index"
       :text="word.text"
       :animation="word.animation"
-      />
+      /> -->
       <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
       <div class="homeWords3">Full-stack</div>
@@ -15,7 +15,7 @@
     </div>
 
     <div class="homeNav">
-      <Carousel />
+      <CarouselNav />
     </div>
 
   </div>
@@ -23,14 +23,14 @@
 
 <script>
 import { gsap } from "gsap";
-import Carousel from "../components/home/carousel.vue";
-import HomeWord from "../components/home/home-word.vue";
+import CarouselNav from "../components/home/carousel-nav.vue";
+// import HomeWord from "../components/home/home-word.vue";
 
 export default {
     name: "Home",
     components: {
-    Carousel,
-    HomeWord
+    CarouselNav,
+    // HomeWord
 },
 data() {
   return {
@@ -164,7 +164,7 @@ $testColorGray: rgb(61, 61, 61);
   .homeWords {
     font-size: 2rem;
     margin: 0 0 0 8%;
-    &4 {
+    &Bis {
       font-size: 2.4rem;
     }
   }
@@ -175,7 +175,7 @@ $testColorGray: rgb(61, 61, 61);
 @media all and (min-width: 1025px) {
   .homeWords {
     font-size: 7.9vw;
-    &4 {
+    &Bis {
       font-size: 9.4vw;
     }
   }

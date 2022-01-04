@@ -1,6 +1,6 @@
 <template>
 
-    <div class="carousel">
+    <div class="carouselNav">
         <flickity class="flickity" ref="flickity" :options="flickityOptions" :key="key">
             <div class="carousel-cell" v-for="(link, index) in links" :key="link">
                 <div :class="'link link'+ index">
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </flickity>
-    </div> 
+    </div>
 
 </template>
 
@@ -124,14 +124,14 @@ export default {
         },
         flickityReady: function() {
             gsap.to(`.link${this.$store.state.carouselIndex}`, {
-                scale: 1,
+                scale: 0.7,
                 duration: 0,
             })
         },
         flickitySettle: function(index) {
             this.$store.commit('activeIndex', index);
             gsap.to(`.link${index}`, {
-                scale: 1,
+                scale: 0.7,
                 duration: 0.2,
 
             })
@@ -217,7 +217,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: scale(0.7);
+    // transform: scale(0.7);
 }
 @keyframes rotate360 {
     from {
@@ -232,7 +232,7 @@ a {
     min-height: 300px;
   }
   .carousel-cell {
-      transform: scale(0.6);
+    //   transform: scale(0.6);
   }
 }
 @media all and (max-height: 700px) {
@@ -240,22 +240,22 @@ a {
     min-height: 240px;
   }
   .carousel-cell {
-      transform: scale(0.5);
+    //   transform: scale(0.5);
   }
 }
 @media all and (min-width: 1250px) {
   .carousel-cell {
-      transform: scale(0.8);
+    //   transform: scale(0.8);
   }
 }
 @media all and (min-width: 1400px) {
   .carousel-cell {
-      transform: scale(0.9);
+    //   transform: scale(0.9);
   }
 }
 @media all and (min-width: 1550px) {
   .carousel-cell {
-      transform: scale(1);
+    //   transform: scale(1);
   }
 }
 </style>

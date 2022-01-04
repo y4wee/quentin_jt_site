@@ -1,6 +1,6 @@
 <template>
   <!-- composant cursor -->
-  <Cursor />
+  <!-- <Cursor /> -->
 
     <!-- @mouseenter="this.$store.state.header ? $store.commit('headerHoverState', true) : null"  -->
     <!-- @mouseleave="this.$store.state.header ? $store.commit('headerHoverState', false) : null"  -->
@@ -23,14 +23,14 @@
 import { mapState } from 'vuex';
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Cursor from './components/app/cursor.vue';
+// import Cursor from './components/app/cursor.vue';
 import SocialLink from './components/footer/social-link.vue';
 
 
 export default {
   name: 'App',
   components: {
-    Cursor,
+    // Cursor,
     SocialLink
 },
   // data() {
@@ -77,7 +77,7 @@ $secondFont: 'Righteous';
 }
 body {
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
   background: $mainColor;

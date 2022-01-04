@@ -1,6 +1,6 @@
 <template>
 
-    <div :class="'card card' + name">
+    <div :class="'card card' + genre">
         <img :src="path" :alt="alt">
         <div class="cardText">{{ name }}</div>
     </div>
@@ -10,7 +10,7 @@
 <script>
 export default {
     name: 'Card',
-    props: ['name', 'path', 'alt'],
+    props: ['name', 'path', 'alt', 'genre'],
 }
 </script>
 
