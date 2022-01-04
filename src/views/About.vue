@@ -31,14 +31,7 @@
                 </div>
 
                 <div class="aboutMainPresentationSkill">
-                    <Card
-                    v-for="skill in skills"
-                    :key="skill"
-                    :name="skill.name"
-                    :path="skill.path"
-                    :alt="skill.alt"
-                    :genre="skill.genre"
-                    />
+                    <CarouselCard />
                 </div>
 
             </div>
@@ -51,12 +44,14 @@
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
 import Card from '../components/about/card.vue';
+import CarouselCard from '../components/about/carousel-card.vue';
 
 export default {
     name: 'About',
     components: {
-    ButtonBack,
-        Card
+        ButtonBack,
+        Card,
+        CarouselCard
     },
     data() {
         return {
@@ -192,18 +187,13 @@ $secondFont: 'Righteous';
                 line-height: 170%;
             }
             &Skill {
-                position: relative;
                 display: flex;
-                flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
                 height: 100%;
                 background-color: rgba(242, 116, 5, 0.8);
                 // border: 5px solid $thirdColor;
-                & .cardSkill {
-                    position: absolute;
-                }
             }
         }
     }

@@ -15,7 +15,7 @@
     </div>
 
     <div class="homeNav">
-      <Carousel />
+      <CarouselNav />
     </div>
 
   </div>
@@ -23,13 +23,13 @@
 
 <script>
 import { gsap } from "gsap";
-import Carousel from "../components/home/carousel-nav.vue";
+import CarouselNav from "../components/home/carousel-nav.vue";
 // import HomeWord from "../components/home/home-word.vue";
 
 export default {
     name: "Home",
     components: {
-    Carousel,
+    CarouselNav,
     // HomeWord
 },
 data() {
@@ -164,7 +164,7 @@ $testColorGray: rgb(61, 61, 61);
   .homeWords {
     font-size: 2rem;
     margin: 0 0 0 8%;
-    &4 {
+    &Bis {
       font-size: 2.4rem;
     }
   }
@@ -175,7 +175,7 @@ $testColorGray: rgb(61, 61, 61);
 @media all and (min-width: 1025px) {
   .homeWords {
     font-size: 7.9vw;
-    &4 {
+    &Bis {
       font-size: 9.4vw;
     }
   }
