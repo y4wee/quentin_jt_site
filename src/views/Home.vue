@@ -22,62 +22,61 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import CarouselNav from "../components/home/carousel-nav.vue";
 // import HomeWord from "../components/home/home-word.vue";
 
 export default {
-    name: "Home",
-    components: {
-    CarouselNav,
-    // HomeWord
-},
-data() {
-  return {
-    words: [
-      {
-        text: "Développeur",
-        animation: false
-      },
-      {
-        text: "Web",
-        animation: false
-      },
-      {
-        text: "Junior",
-        animation: false
-      },
-    ]
-  }
-},
-    mounted: function() {
+  name: "Home",
+  components: {
+  CarouselNav,
+  // HomeWord
+  },
+  data() {
+    return {
+      words: [
+        {
+          text: "Développeur",
+          animation: false
+        },
+        {
+          text: "Web",
+          animation: false
+        },
+        {
+          text: "Junior",
+          animation: false
+        },
+      ]
+    }
+  },
+  mounted: function() {
+        
+    if(this.$store.state.buttonBack) {
+      this.animationBack();
+    } else {
+      return;
+    }
+
+  },
+  methods: {
+    animationBack: function() {
       let tl = gsap.timeline();
         
       tl.from('.home', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
       tl.from('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.out'}, '-=0.4')
       tl.from('.homeWords', {scale: 0.75, duration: 0.3}, '-=0.15')
-
-      this.initViewport();
-      window.addEventListener('resize', () => {
-            this.initViewport();
-        })
     },
-    methods: {
-      // hover state when resize window
-      initViewport: function() {
-        let viewport = document.querySelector('.flickity-viewport')
-        viewport.addEventListener('mouseenter', this.cursorHoverState)
-        viewport.addEventListener('mouseleave', this.cursorHoverState)
-      },
-      // hover state on nav
-      cursorHoverState: function(e) {
-        if (e.type === 'mouseenter') {
-          this.$store.commit('cursorHoverState', { state: true, type: 'Grab' });
-        } else {
-          this.$store.commit('cursorHoverState', { state: false, type: '' });
-        }
-      }
+  },
+  computed: {
+    ...mapState({
+        buttonBack: 'buttonBack',
+    }),
+    gearAngle(){
+        return 180 / this.gears
     }
+  }
 }
 </script>
 

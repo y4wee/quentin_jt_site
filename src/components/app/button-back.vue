@@ -17,6 +17,7 @@ export default {
     props: ['name', 'color'],
     methods: {
         backToHome: function() {
+            this.$store.commit('buttonBackState', true);
             let tl = gsap.timeline()
 
             tl.to(`.${this.name}Back`, {opacity: 0, duration: 0.5, ease: 'power1.out'})

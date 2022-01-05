@@ -3,14 +3,11 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     carouselIndex: 0,
+    buttonBack: false,
     cursorHover: {
       state: false,
       type: ''
     },
-    timelineLogo: false,
-    header: false,
-    headerHover: false,
-    sectionAccueil: false,
   },
 
   mutations: {
@@ -20,14 +17,8 @@ export default createStore({
     cursorHoverState: function(state, data) {
       state.cursorHover = data;
     },
-    headerOn: function(state, data) {
-      state.header = data;
-    },
-    headerHoverState: function(state, data) {
-      state.headerHover = data;
-    },
-    sectionAccueilOn: function(state, data) {
-      state.sectionAccueil = data;
+    buttonBackState: function(state, data) {
+      state.buttonBack = data
     },
   },
 
