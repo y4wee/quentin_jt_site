@@ -20,7 +20,7 @@
                 <span>quentin.jt.dev@gmail.com</span>
             </div>
         </div>
-        <img class="contactMainImage" src="../assets/images/contact0.png" alt="portrait">
+        <img class="contactMainImage" src="../assets/images/contact0.png" alt="portrait" loading="eager" >
     </div>
 
 </template>

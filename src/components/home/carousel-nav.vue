@@ -205,6 +205,7 @@ a {
         font-size: 2rem;
         color: $mainColor;
         border-radius: 50%;
+        z-index: 6;
     }
 }
 .flickity {
@@ -234,31 +235,19 @@ a {
   .flickity {
     min-height: 300px;
   }
-  .carousel-cell {
-    //   transform: scale(0.6);
-  }
 }
 @media all and (max-height: 700px) {
   .flickity {
     min-height: 240px;
   }
-  .carousel-cell {
-    //   transform: scale(0.5);
-  }
 }
 @media all and (min-width: 1250px) {
-  .carousel-cell {
-    //   transform: scale(0.8);
-  }
+
 }
 @media all and (min-width: 1400px) {
-  .carousel-cell {
-    //   transform: scale(0.9);
-  }
+
 }
 @media all and (min-width: 1550px) {
-  .carousel-cell {
-    //   transform: scale(1);
-  }
+
 }
 </style>
