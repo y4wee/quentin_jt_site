@@ -73,6 +73,7 @@ $secondFont: 'Righteous';
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: inherit;
 }
 body {
   position: fixed;
