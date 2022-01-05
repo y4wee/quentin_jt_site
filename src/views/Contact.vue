@@ -69,6 +69,8 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 .contact {
     position: relative;
     height: 100%;
@@ -83,15 +85,14 @@ $testColorGray: rgb(61, 61, 61);
         align-items: center;
         width: 90%;
         height: calc(100% - 75px);
-        // overflow-y: scroll;
         &Text {
             z-index: 2;
             background-color: $secondColor;
             color: $mainColor;
             margin-top: 2%;
             border-radius: 10px;
-            font-family: 'Ultra';
-            font-size: 1.1rem;
+            font-family: $mainFont;
+            font-size: 2.2vh;
             padding: 5px;
             user-select: none;
         }
@@ -104,7 +105,7 @@ $testColorGray: rgb(61, 61, 61);
             margin-top: 2%;
             color: $thirdColor;
             border-radius: 10px;
-            font-family: 'Righteous';
+            font-family: $secondFont;
             font-size: 1.2rem;
             & .fas {
                 font-size: 2rem;
@@ -116,9 +117,11 @@ $testColorGray: rgb(61, 61, 61);
             position: absolute;
             bottom: 0;
             height: 50%;
-            
         }
     }
+}
+@media all and (max-height: 550px) {
+    
 }
 @media all and (min-width: 701px) and (max-width: 1024px) {
     .contactMain {

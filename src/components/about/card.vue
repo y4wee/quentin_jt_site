@@ -1,7 +1,7 @@
 <template>
 
     <div :class="'card card' + genre">
-        <img :src="path" :alt="alt">
+        <img :src="path" :alt="alt" loading="eager" >
         <div class="cardText">{{ name }}</div>
     </div>
 
