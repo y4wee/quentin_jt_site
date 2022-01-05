@@ -189,13 +189,14 @@ a {
     height: 360px;
     width: 360px;
     border-radius: 50%;
+    z-index: 5;
     &Background {
         position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        animation: rotate360 14s infinite linear;
+        // animation: rotate360 14s infinite linear;
         background-color: $mainColor;
         z-index: 5;
         & .gear {
