@@ -89,8 +89,17 @@ export default {
     mounted: function() {
         window.addEventListener('resize', () => {
             this.reloadSize();
+        });
+        gsap.utils.toArray('.linkBackground').forEach((link) => {
+            gsap.fromTo(link, {
+                rotateZ: '0deg'
+            }, {
+                rotateZ: '360deg',
+                duration: 14,
+                ease: 'none',
+                repeat: -1
+            })
         })
-        
     },
     methods: {
         clickEvent: function( event, pointer, cellElement, cellIndex ) {
@@ -197,8 +206,8 @@ a {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        -webkit-animation: rotate360 14s infinite linear;
-        animation: rotate360 14s infinite linear;
+        // -webkit-animation: rotate360 14s infinite linear;
+        // animation: rotate360 14s infinite linear;
         background-color: $mainColor;
         z-index: 5;
         & .gear {
