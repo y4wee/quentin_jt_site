@@ -48,13 +48,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$gearColor: white;
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
-$gearColor: white;
+$thirdColor: rgb(227, 223, 223);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 .social {
     display: flex;
 }

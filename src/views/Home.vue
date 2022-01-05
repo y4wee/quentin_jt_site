@@ -83,12 +83,14 @@ data() {
 
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
-$secondColor: rgb(233, 222, 190); //e9debe
-$thirdColor: rgb(227, 223, 223); //e3e9e9
-$greenColor: rgb(86, 245 , 105); //56f569
-$purpleColor: rgb(245, 86, 226); //f556e2
-$orangeColor: rgb(242, 116, 5); //f27405
+$secondColor: rgb(233, 222, 190);
+$thirdColor: rgb(227, 223, 223);
+$greenColor: rgb(86, 245 , 105);
+$purpleColor: rgb(245, 86, 226);
+$orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 
 .home {
   position: relative;
