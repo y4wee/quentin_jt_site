@@ -91,16 +91,16 @@ export default {
         window.addEventListener('resize', () => {
             this.reloadSize();
         });
-        gsap.utils.toArray('.linkBackground').forEach((link) => {
-            gsap.fromTo(link, {
-                rotateZ: '0deg'
-            }, {
-                rotateZ: '360deg',
-                duration: 14,
-                ease: 'none',
-                repeat: -1
-            })
-        })
+        // gsap.utils.toArray('.linkBackground').forEach((link) => {
+        //     gsap.fromTo(link, {
+        //         rotateZ: '0deg'
+        //     }, {
+        //         rotateZ: '360deg',
+        //         duration: 14,
+        //         ease: 'none',
+        //         repeat: -1
+        //     })
+        // });
     },
     methods: {
         clickEvent: function( event, pointer, cellElement, cellIndex ) {
@@ -131,13 +131,19 @@ export default {
             gsap.to(`.link${this.$store.state.carouselIndex}`, {
                 scale: 0.4,
                 duration: 0,
-            })
+            });
+            gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
+                animationPlayState: 'paused'
+            });
         },
         flickityReady: function() {
             gsap.to(`.link${this.$store.state.carouselIndex}`, {
                 scale: 1,
                 duration: 0,
-            })
+            });
+            gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
+                animationPlayState: 'running'
+            });
         },
         flickitySettle: function(index) {
             this.$store.commit('activeIndex', index);
@@ -145,14 +151,20 @@ export default {
                 scale: 1,
                 duration: 0.2,
                 ease: 'power2.out'
-            })
+            });
+            gsap.to(`.link${index} .linkBackground`, {
+                animationPlayState: 'running'
+            });
         },
         flickityDragStart: function() {
             gsap.to(`.link${this.$store.state.carouselIndex}`, {
                 scale: 0.4,
                 duration: 0.2,
                 ease: 'power2.out'
-            })
+            });
+            gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
+                animationPlayState: 'paused'
+            });
         },
     },
     computed: {
@@ -205,8 +217,9 @@ a {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        // -webkit-animation: rotate360 14s infinite linear;
-        // animation: rotate360 14s infinite linear;
+        -webkit-animation: rotate360 14s infinite linear;
+        animation: rotate360 14s infinite linear;
+        animation-play-state: paused;
         background-color: $mainColor;
         & .gear {
             position: absolute;
