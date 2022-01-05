@@ -47,6 +47,8 @@ export default {
         arriveTransition: function() {
             let tl = gsap.timeline()
 
+            tl.delay(0.3)
+
             tl.from('.contact', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
             tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
             tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
