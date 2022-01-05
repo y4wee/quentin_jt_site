@@ -134,13 +134,14 @@ export default {
             gsap.to(`.link${index}`, {
                 scale: 1,
                 duration: 0.2,
-
+                ease: 'power2.out'
             })
         },
         flickityDragStart: function() {
             gsap.to(`.link${this.$store.state.carouselIndex}`, {
                 scale: 0.4,
                 duration: 0.2,
+                ease: 'power2.out'
             })
         },
     },
@@ -196,7 +197,8 @@ a {
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        // animation: rotate360 14s infinite linear;
+        -webkit-animation: rotate360 14s infinite linear;
+        animation: rotate360 14s infinite linear;
         background-color: $mainColor;
         z-index: 5;
         & .gear {
@@ -237,6 +239,14 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@-webkit-keyframes rotate360 {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
 }
 @keyframes rotate360 {
     from {

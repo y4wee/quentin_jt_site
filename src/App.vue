@@ -87,6 +87,7 @@ body {
   background-repeat: repeat;
   background-position: 0 0;
   animation: noiseTranslation 1s linear infinite;
+  -webkit-animation: noiseTranslation 1s linear infinite;
   overflow: hidden;
 }
 header {
@@ -134,7 +135,42 @@ footer {
     width: 60%;
   }
 }
-//animation background effect 
+//animation background effect
+@-webkit-keyframes noiseTranslation {
+  0% {
+    background-position: 0 0;
+  }
+  10% {
+      background-position: 20% -10%;
+  }
+  20% {
+      background-position: -10% 20%;
+  }
+  30% {
+      background-position: 20% -10%;
+  }
+  40% {
+      background-position: -10% 20%;
+  }
+  50% {
+      background-position: 20% -10%;
+  }
+  60% {
+      background-position: -10% 20%;
+  }
+  70% {
+      background-position: 20% -10%;
+  }
+  80% {
+      background-position: -10% 20%;
+  }
+  90% {
+      background-position: 20% -10%;
+  }
+  100% {
+      background-position: 0 0;
+  }
+} 
 @keyframes noiseTranslation {
   0% {
     background-position: 0 0;

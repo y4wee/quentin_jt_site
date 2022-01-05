@@ -89,12 +89,12 @@ $secondFont: 'Righteous';
         background: $gearColor;
         border-radius: 50%;
         &.right {
+            -webkit-animation: gearRotateLeft 2s infinite linear;
             animation: gearRotateLeft 2s infinite linear;
-            // animation-play-state: paused;
         }
         &.left {
+            -webkit-animation: gearRotateRight 2s infinite linear;
             animation: gearRotateRight 2s infinite linear;
-            // animation-play-state: paused;
         }
         &::before {
             content:"";
@@ -127,6 +127,14 @@ $secondFont: 'Righteous';
         pointer-events: none;
     }
 }
+@-webkit-keyframes gearRotateLeft {
+  from { 
+    transform: rotateZ(30deg);
+  }
+  to { 
+    transform: rotateZ(390deg); 
+  }
+}
 @keyframes gearRotateLeft {
   from { 
     transform: rotateZ(30deg);
@@ -136,6 +144,22 @@ $secondFont: 'Righteous';
   }
 }
 @keyframes gearRotateRight {
+  from { 
+    transform: rotateZ(0deg);
+  }
+  to { 
+    transform: rotateZ(-360deg); 
+  }
+}
+@keyframes gearRotateRight {
+  from { 
+    transform: rotateZ(0deg);
+  }
+  to { 
+    transform: rotateZ(-360deg); 
+  }
+}
+@-webkit-keyframes gearRotateRight {
   from { 
     transform: rotateZ(0deg);
   }

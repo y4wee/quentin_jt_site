@@ -104,7 +104,7 @@ $secondFont: 'Righteous';
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-family: 'Ultra';
+    font-family: $mainFont;
     margin: 0 0 0 5%;
     user-select: none;
     font-size: 10vw;
@@ -122,7 +122,7 @@ $secondFont: 'Righteous';
     }
     &Bis {
       position: relative;
-      font-family: 'Righteous';
+      font-family: $secondFont;
       font-size: 12vw;
       color: rgba(242, 116, 5, 0.7);
       transform:  translate(22%, -50%);

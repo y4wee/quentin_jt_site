@@ -60,6 +60,7 @@ $testColorGray: rgb(61, 61, 61);
         height: 50px;
         background: $gearColor;
         border-radius: 50%;
+        -webkit-animation: gearRotate 2s infinite linear;
         animation: gearRotate 2s infinite linear;
         &::before {
             content:"";
@@ -99,6 +100,14 @@ $testColorGray: rgb(61, 61, 61);
     .buttonBack {
         right: 20%;
     }
+}
+@-webkit-keyframes gearRotate {
+  from { 
+    transform: rotateZ(0deg);
+  }
+  to { 
+    transform: rotateZ(-360deg); 
+  }
 }
 @keyframes gearRotate {
   from { 
