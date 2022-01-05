@@ -215,6 +215,7 @@ a {
             width: 14px;
             transform-origin: center;
             background-color: $mainColor;
+            z-index: 5 !important;
         }
         // & .center {
         //     position: absolute;
@@ -232,7 +233,7 @@ a {
         font-size: 2rem;
         color: $mainColor;
         border-radius: 50%;
-        z-index: 10;
+        z-index: 10 !important;
     }
 }
 .flickity {
