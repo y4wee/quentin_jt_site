@@ -5,13 +5,6 @@
             <div class="carousel-cell" v-for="(link, index) in links" :key="link">
                 <div class="carouselNavContainer">
                     <div :class="'link link'+ index">
-                        <div 
-                        :class="'linkText '+ link.hash" 
-                        :style="{
-                            height: height - 15 + 'px',
-                            width: height - 15 + 'px',
-                            backgroundColor: link.color
-                        }"> {{ link.text }} </div>
                         <div class="linkBackground" :style="{ height: height + 'px', width: height + 'px' }">
                             
                             <div class="gear" 
@@ -28,7 +21,14 @@
                             }"></div> -->
 
                         </div>
-                        
+
+                        <div 
+                        :class="'linkText '+ link.hash" 
+                        :style="{
+                            height: height - 15 + 'px',
+                            width: height - 15 + 'px',
+                            backgroundColor: link.color
+                        }"> {{ link.text }} </div>
                     </div>
                 </div>
             </div>
@@ -225,12 +225,12 @@ a {
         display: flex;
         justify-content: center;
         align-items: center;
-        transform: rotateZ(45deg);
+        transform: rotateZ(45deg) translateZ(1000px);
         font-family: $mainFont;
         font-size: 2rem;
         color: $mainColor;
         border-radius: 50%;
-        bottom: 20%;
+        // bottom: 20%;
     }
 }
 .flickity {
