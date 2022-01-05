@@ -125,6 +125,7 @@ footer {
   left: 0;
   display: flex;
   mix-blend-mode: difference;
+  z-index: 20;
 }
 @media all and (min-width: 701px) and (max-width: 1024px) {
   header {
