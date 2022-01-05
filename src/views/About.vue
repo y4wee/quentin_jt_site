@@ -20,12 +20,12 @@
                 </div>
 
                 <div class="aboutMainPresentationText">
-                    Hey ! <br /> 
-                    je suis Quentin, un développeur web français et junior dans ce domaine. <br />
+                    Hey ! <br />
+                    C'est Quentin, un développeur web français et junior dans ce domaine. <br />
                     Je me suis plongé dans ce magnifique monde qu'est la programmation il y a peu, et j'ai découvert une véritable passion.<br />
-                    Je suis une personne logique et j'aime donc résoudre des problèmes et trouver les solutions les plus adaptées,<br />
-                    je suis minutieux et rigoureux dans mon travail, un code propre et maintenable est un bon code pour moi !<br />
-                    Je suis donc à la recherche d'expérience dans ce milieu, 
+                    Etant une personne logique, j'aime donc résoudre des problèmes et trouver les solutions les plus adaptées.<br />
+                    Je suis minutieux et rigoureux dans mon travail, un code propre et maintenable est selon moi, un bon code !<br />
+                    Vivement à la recherche d'expériences dans ce milieu,
                     développeur full-stack avec une préférence pour le côté Front-end et une appétence pour l'UX/UI design.<br />
                     Je suis Adaptable et j'aime découvrir et apprendre de nouvelles technologies !
                 </div>
