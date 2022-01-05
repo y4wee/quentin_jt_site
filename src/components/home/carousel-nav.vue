@@ -214,7 +214,7 @@ a {
         // }
     }
     &Text {
-        position: absolute;
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -223,7 +223,7 @@ a {
         font-size: 2rem;
         color: $mainColor;
         border-radius: 50%;
-        z-index: 6;
+        z-index: 10;
     }
 }
 .flickity {
