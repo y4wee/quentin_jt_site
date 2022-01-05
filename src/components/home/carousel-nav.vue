@@ -5,8 +5,8 @@
             <div class="carousel-cell" v-for="(link, index) in links" :key="link">
                 <div class="carouselNavContainer">
                     <div :class="'link link'+ index">
+
                         <div class="linkBackground" :style="{ height: height + 'px', width: height + 'px' }">
-                            
                             <div class="gear" 
                             v-for="gear in gears" 
                             :key="gear" 
@@ -14,12 +14,6 @@
                                 height: height + 15 + 'px',
                                 transform: `rotateZ(${gearAngle * gear}deg)`
                             }"></div>
-
-                            <!-- <div class="center" :style="{
-                                height: height - 15 + 'px',
-                                width: height - 15 + 'px',
-                            }"></div> -->
-
                         </div>
 
                         <div 
@@ -29,6 +23,7 @@
                             width: height - 15 + 'px',
                             backgroundColor: link.color
                         }"> {{ link.text }} </div>
+                        
                     </div>
                 </div>
             </div>
@@ -55,9 +50,8 @@ export default {
                 prevNextButtons: false,
                 wrapAround: true,
                 on: {
-                    change: this.flickityChange,
                     ready: this.flickityReady,
-                    settle: this.flickitySettle,
+                    select: this.flickitySelect,
                     dragStart: this.flickityDragStart,
                     staticClick: this.clickEvent,
                 }
@@ -127,15 +121,6 @@ export default {
             this.key++;
             this.flickityOptions.initialIndex = this.$store.state.carouselIndex;
         },
-        flickityChange: function() {
-            // gsap.to(`.link${this.$store.state.carouselIndex}`, {
-            //     scale: 0.4,
-            //     duration: 0,
-            // });
-            gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
-                animationPlayState: 'paused'
-            });
-        },
         flickityReady: function() {
             // gsap.to(`.link${this.$store.state.carouselIndex}`, {
             //     scale: 1,
@@ -145,15 +130,18 @@ export default {
                 animationPlayState: 'running'
             });
         },
-        flickitySettle: function(index) {
-            this.$store.commit('activeIndex', index);
+        flickitySelect: function(index) {
             // gsap.to(`.link${index}`, {
             //     scale: 1,
             //     duration: 0.2,
             //     ease: 'power2.out'
             // });
+            gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
+                animationPlayState: 'paused'
+            });
             gsap.to(`.link${index} .linkBackground`, {
-                animationPlayState: 'running'
+                animationPlayState: 'running',
+                onComplete: this.$store.commit('activeIndex', index),
             });
         },
         flickityDragStart: function() {
