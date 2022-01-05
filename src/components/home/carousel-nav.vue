@@ -180,7 +180,6 @@ a {
     text-decoration: none;
 }
 .carouselNavContainer {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,7 +198,6 @@ a {
     height: 360px;
     width: 360px;
     border-radius: 50%;
-    z-index: 5;
     &Background {
         position: absolute;
         display: flex;
@@ -209,13 +207,11 @@ a {
         // -webkit-animation: rotate360 14s infinite linear;
         // animation: rotate360 14s infinite linear;
         background-color: $mainColor;
-        z-index: 5;
         & .gear {
             position: absolute;
             width: 14px;
             transform-origin: center;
             background-color: $mainColor;
-            z-index: 5 !important;
         }
         // & .center {
         //     position: absolute;
@@ -224,7 +220,7 @@ a {
         // }
     }
     &Text {
-        position: relative;
+        position: absolute;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -233,7 +229,7 @@ a {
         font-size: 2rem;
         color: $mainColor;
         border-radius: 50%;
-        z-index: 10 !important;
+        bottom: 20%;
     }
 }
 .flickity {
