@@ -128,40 +128,40 @@ export default {
             this.flickityOptions.initialIndex = this.$store.state.carouselIndex;
         },
         flickityChange: function() {
-            gsap.to(`.link${this.$store.state.carouselIndex}`, {
-                scale: 0.4,
-                duration: 0,
-            });
+            // gsap.to(`.link${this.$store.state.carouselIndex}`, {
+            //     scale: 0.4,
+            //     duration: 0,
+            // });
             gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
                 animationPlayState: 'paused'
             });
         },
         flickityReady: function() {
-            gsap.to(`.link${this.$store.state.carouselIndex}`, {
-                scale: 1,
-                duration: 0,
-            });
+            // gsap.to(`.link${this.$store.state.carouselIndex}`, {
+            //     scale: 1,
+            //     duration: 0,
+            // });
             gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
                 animationPlayState: 'running'
             });
         },
         flickitySettle: function(index) {
             this.$store.commit('activeIndex', index);
-            gsap.to(`.link${index}`, {
-                scale: 1,
-                duration: 0.2,
-                ease: 'power2.out'
-            });
+            // gsap.to(`.link${index}`, {
+            //     scale: 1,
+            //     duration: 0.2,
+            //     ease: 'power2.out'
+            // });
             gsap.to(`.link${index} .linkBackground`, {
                 animationPlayState: 'running'
             });
         },
         flickityDragStart: function() {
-            gsap.to(`.link${this.$store.state.carouselIndex}`, {
-                scale: 0.4,
-                duration: 0.2,
-                ease: 'power2.out'
-            });
+            // gsap.to(`.link${this.$store.state.carouselIndex}`, {
+            //     scale: 0.4,
+            //     duration: 0.2,
+            //     ease: 'power2.out'
+            // });
             gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
                 animationPlayState: 'paused'
             });
@@ -207,7 +207,7 @@ a {
     justify-content: center;
     align-items: center;
     transform-origin: center;
-    transform: scale(0.4);
+    // transform: scale(0.4);
     height: 360px;
     width: 360px;
     border-radius: 50%;
