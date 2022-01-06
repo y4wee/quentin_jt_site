@@ -181,4 +181,12 @@ $secondFont: 'Righteous';
     }
   }
 }
+@media all and (min-width: 1500px) {
+  .homeWords {
+    font-size: 7vw;
+    &Bis {
+      font-size: 8.3vw;
+    }
+  }
+}
 </style>
