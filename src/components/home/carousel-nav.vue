@@ -84,16 +84,6 @@ export default {
         window.addEventListener('resize', () => {
             this.reloadSize();
         });
-        // gsap.utils.toArray('.linkBackground').forEach((link) => {
-        //     gsap.fromTo(link, {
-        //         rotateZ: '0deg'
-        //     }, {
-        //         rotateZ: '360deg',
-        //         duration: 14,
-        //         ease: 'none',
-        //         repeat: -1
-        //     })
-        // });
     },
     methods: {
         clickEvent: function( event, pointer, cellElement, cellIndex ) {

@@ -49,6 +49,7 @@ $secondFont: "Righteous";
         border: solid 3px $mainColor;
         border-radius: 10px;
         background-size: auto 100%;
+        background-repeat: no-repeat;
     }
     &Text {
         display: flex;
@@ -65,4 +66,19 @@ $secondFont: "Righteous";
         background-position: 63% 50%;
     }
 }
+.cardSkill {
+    & .cardImage {
+        background-size: 50% 50%;
+        background-position: 50% 75%;
+        // animation: levitation 6s infinite ease-in-out;
+    }
+}
+// @keyframes levitation {
+//     0%, 100% {
+//         background-position: 50% 75%;
+//     }
+//     50% {
+//         background-position: 50% 50%;
+//     }
+// }
 </style>

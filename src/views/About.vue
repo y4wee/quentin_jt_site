@@ -32,6 +32,7 @@
 
                 <div class="aboutMainPresentationSkill">
                     <CarouselCard />
+                    <div class="aboutMainPresentationSkillOverlay"></div>
                 </div>
 
             </div>
@@ -188,13 +189,21 @@ $secondFont: 'Righteous';
                 line-height: 170%;
             }
             &Skill {
+                position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 width: 100%;
                 height: 100%;
                 background-color: rgba(242, 116, 5, 0.8);
-                // border: 5px solid $thirdColor;
+                border: 5px solid $secondColor;
+                border-bottom: none;
+                &Overlay {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.1);
+                }
             }
         }
     }
