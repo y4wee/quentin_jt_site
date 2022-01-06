@@ -23,7 +23,7 @@
                             width: height - 15 + 'px',
                             backgroundColor: link.color
                         }"> {{ link.text }} </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -52,7 +52,6 @@ export default {
                 on: {
                     ready: this.flickityReady,
                     select: this.flickitySelect,
-                    dragStart: this.flickityDragStart,
                     staticClick: this.clickEvent,
                 }
             },
@@ -122,36 +121,17 @@ export default {
             this.flickityOptions.initialIndex = this.$store.state.carouselIndex;
         },
         flickityReady: function() {
-            // gsap.to(`.link${this.$store.state.carouselIndex}`, {
-            //     scale: 1,
-            //     duration: 0,
-            // });
             gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
                 animationPlayState: 'running'
             });
         },
         flickitySelect: function(index) {
-            // gsap.to(`.link${index}`, {
-            //     scale: 1,
-            //     duration: 0.2,
-            //     ease: 'power2.out'
-            // });
             gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
                 animationPlayState: 'paused'
             });
             gsap.to(`.link${index} .linkBackground`, {
                 animationPlayState: 'running',
                 onComplete: this.$store.commit('activeIndex', index),
-            });
-        },
-        flickityDragStart: function() {
-            // gsap.to(`.link${this.$store.state.carouselIndex}`, {
-            //     scale: 0.4,
-            //     duration: 0.2,
-            //     ease: 'power2.out'
-            // });
-            gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
-                animationPlayState: 'paused'
             });
         },
     },
@@ -215,11 +195,6 @@ a {
             transform-origin: center;
             background-color: $mainColor;
         }
-        // & .center {
-        //     position: absolute;
-        //     border-radius: 50%;
-        //     background-color: $secondColor;
-        // }
     }
     &Text {
         position: absolute;
@@ -231,14 +206,13 @@ a {
         font-size: 2rem;
         color: $mainColor;
         border-radius: 50%;
-        // bottom: 20%;
     }
 }
 .flickity {
     transform: rotateZ(-90deg);
     height: 35vw;
     min-height: 350px;
-    width: 120vh;
+    width: 140vh;
 }
 
 .carousel-cell {

@@ -59,7 +59,7 @@ export default {
             color: 'rgba(86, 245 , 105, 1)',
             bio: {
                 name: 'Ruler',
-                path: require('../assets/images/buste0.png'),
+                path: require('../assets/images/buste2.png'),
                 alt: 'image cartoon de quentin jt',
                 genre: 'Bio'
             },
@@ -176,7 +176,6 @@ $secondFont: 'Righteous';
                 align-items: center;
                 min-height: 100%;
                 width: 100%;
-                // border-bottom: 5px solid $thirdColor;
             }
             &Text {
                 min-height: 100%;
