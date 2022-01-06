@@ -160,14 +160,14 @@ export default {
         justify-content: center;
         height: 100%;
         // transform: scale(0.8);
-        &.is-selected .cardSkill{
-            transform: scale(1);
-            transition: transform 0.5s ease-out;
-        }
+        // &.is-selected .cardSkill{
+            // transform: scale(1);
+            // transition: transform 0.5s ease-out;
+        // }
     }
     .cardSkill {
         transform: scale(0.8);
-        transition: transform 0.5s ease-out;
+        // transition: transform 0.5s ease-out;
     }
 
 </style>
