@@ -47,12 +47,9 @@ export default {
   },
   methods: {
     changeTitle: function() {
-      console.log('interval')
       if(document.title === this.title1) {
-        console.log("title2")
         document.title = this.title2;
       } else {
-        console.log("title1")
         document.title = this.title1;
       }
     },

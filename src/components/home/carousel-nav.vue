@@ -24,6 +24,11 @@
                             backgroundColor: link.color
                         }"> {{ link.text }} </div>
 
+                        <div :class="'linkArrow linkArrow' + index">
+                            <i class="fas fa-chevron-left linkArrowLeft"></i>
+                            <i class="fas fa-chevron-right linkArrowRight"></i>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -53,6 +58,8 @@ export default {
                     ready: this.flickityReady,
                     select: this.flickitySelect,
                     staticClick: this.clickEvent,
+                    settle: this.flickitySettle,
+                    dragStart: this.flickityDragStart,
                 }
             },
             links: [
@@ -114,6 +121,10 @@ export default {
             gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
                 animationPlayState: 'running'
             });
+            gsap.to(`.linkArrow${this.$store.state.carouselIndex}`, {
+                opacity: 1,
+                duration: 0,
+            });
         },
         flickitySelect: function(index) {
             gsap.to(`.link${this.$store.state.carouselIndex} .linkBackground`, {
@@ -122,6 +133,22 @@ export default {
             gsap.to(`.link${index} .linkBackground`, {
                 animationPlayState: 'running',
                 onComplete: this.$store.commit('activeIndex', index),
+            });
+        },
+        flickitySettle: function(index) {
+            gsap.to(`.linkArrow${index}`, {
+                opacity: 1,
+                duration: 1,
+                ease: "power1.in"
+            });
+        },
+        flickityDragStart: function() {
+            console.log(this.$store.state.carouselIndex)
+            gsap.killTweensOf(`.linkArrow${this.$store.state.carouselIndex}`)
+            gsap.to(`.linkArrow${this.$store.state.carouselIndex}`, {
+                opacity: 0,
+                duration: 0.2,
+                ease: "power1.out"
             });
         },
     },
@@ -197,6 +224,26 @@ a {
         color: $mainColor;
         border-radius: 50%;
     }
+    &Arrow {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 130%;
+        transform: rotateZ(45deg);
+        pointer-events: none;
+        opacity: 0;
+        & .fas {
+            font-size: 2.5rem;
+            color: $mainColor;
+        }
+        &Left {
+            animation: pulseLeft 0.8s infinite alternate ease-in-out;
+        }
+        &Right {
+            animation: pulseRight 0.8s infinite alternate ease-in-out;
+        }
+    }
 }
 .flickity {
     transform: rotateZ(-90deg);
@@ -212,6 +259,41 @@ a {
     align-items: center;
     justify-content: center;
 }
+//animation pulse arrowLeft
+@keyframes pulseLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+@-webkit-keyframes pulseLeft {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+//animation pulse arrowRight
+@keyframes pulseRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(50%);
+    }
+}
+@-webkit-keyframes pulseRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(50%);
+    }
+}
+// animation rotation gears 
 @-webkit-keyframes rotate360 {
     from {
         transform: rotateZ(0deg);
