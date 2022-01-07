@@ -2,12 +2,12 @@
 
     <div class="carouselCard">
         <flickity class="flickity" ref="flickity" :options="flickityOptions" :key="key">
-            <div class="carousel-cell" v-for="(skill, index) in skills" :key="skill">
+            <div class="carousel-cell" v-for="skill in skills" :key="skill">
                 <Card 
                 :name="skill.name"
                 :path="skill.path"
-                :alt="skill.alt"
-                :genre="skill.genre + ' card' + index"
+                :className="skill.className"
+                :genre="skill.genre"
                 />
             </div>
         </flickity>
@@ -44,53 +44,52 @@ export default {
                 {
                     name: 'HTML',
                     path: require('../../assets/images/html.svg'),
-                    alt: 'image logo HTML',
+                    className: 'cardHtml',
                     genre: 'Skill',
                 },
                 {
                     name: 'CSS',
                     path: require('../../assets/images/css.svg'),
-                    alt: 'image logo CSS',
+                    className: 'cardCss',
                     genre: 'Skill',
                 },
                 {
                     name: 'Javascript',
                     path: require('../../assets/images/javascript.svg'),
-                    alt: 'image logo Javascript',
+                    className: 'cardJavascript',
                     genre: 'Skill',
                 },
                 {
                     name: 'Vuejs',
                     path: require('../../assets/images/vuejs.svg'),
-                    alt: 'image logo Vuejs',
+                    className: 'cardVue',
                     genre: 'Skill',
                 },
                 {
                     name: 'nodejs',
                     path: require('../../assets/images/nodejs.svg'),
-                    alt: 'image logo Nodejs',
+                    className: 'cardNode',
                     genre: 'Skill',
                 },
                 {
                     name: 'NPM',
                     path: require('../../assets/images/npm.svg'),
-                    alt: 'image logo NPM',
+                    className: 'cardNpm',
                     genre: 'Skill',
                 },
                 {
                     name: 'MySQL',
                     path: require('../../assets/images/mysql.svg'),
-                    alt: 'image logo MySQL',
+                    className: 'cardSql',
                     genre: 'Skill',
                 },
                 {
                     name: 'MongoDB',
                     path: require('../../assets/images/mongodb.svg'),
-                    alt: 'image logo MongoDB',
+                    className: 'cardMongo',
                     genre: 'Skill',
                 },
             ],
-            index: 0,
             key: 0,
         }
     },

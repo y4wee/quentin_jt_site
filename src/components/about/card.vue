@@ -1,5 +1,5 @@
 <template>
-    <div :class="'card card' + genre + ' card' + name">
+    <div :class="'card card' + genre + ' ' + className">
         <div class="cardImage"
         :style="{
             backgroundImage: `url(${path})`
@@ -13,7 +13,7 @@
 <script>
 export default {
     name: "Card",
-    props: ["name", "path", "alt", "genre"],
+    props: ["name", "path", "className", "genre"],
 };
 </script>
 

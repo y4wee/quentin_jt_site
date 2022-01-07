@@ -12,7 +12,7 @@
             <Card 
             :name="cardWork.name"
             :path="cardWork.path"
-            :alt="cardWork.alt"
+            :className="cardWork.className"
             :genre="cardWork.genre"
             />
         </div>
@@ -38,7 +38,7 @@ export default {
             cardWork: {
                 name: '...',
                 path: require('../assets/images/work1.png'),
-                alt: 'image logo HTML',
+                className: 'cardTempo',
                 genre: 'Work',
             },
         }

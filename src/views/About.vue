@@ -9,7 +9,7 @@
                     <Card
                         :name="bio.name"
                         :path="bio.path"
-                        :alt="bio.alt"
+                        :className="bio.className"
                         :genre="bio.genre"
                     />
                 </div>
@@ -62,61 +62,11 @@ export default {
             name: "about",
             color: "rgba(86, 245 , 105, 1)",
             bio: {
-                name: "Ruler",
+                name: "Quentin",
                 path: require("../assets/images/buste2.png"),
-                alt: "image cartoon de quentin jt",
-                genre: "Bio",
+                className: "cardQuentin",
+                genre: "Ruler",
             },
-            skills: [
-                {
-                    name: "HTML",
-                    path: require("../assets/images/html.svg"),
-                    alt: "image logo HTML",
-                    genre: "Skill",
-                },
-                {
-                    name: "CSS",
-                    path: require("../assets/images/css.svg"),
-                    alt: "image logo CSS",
-                    genre: "Skill",
-                },
-                {
-                    name: "Javascript",
-                    path: require("../assets/images/javascript.svg"),
-                    alt: "image logo Javascript",
-                    genre: "Skill",
-                },
-                {
-                    name: "Vuejs",
-                    path: require("../assets/images/vuejs.svg"),
-                    alt: "image logo Vuejs",
-                    genre: "Skill",
-                },
-                {
-                    name: "nodejs",
-                    path: require("../assets/images/nodejs.svg"),
-                    alt: "image logo Nodejs",
-                    genre: "Skill",
-                },
-                {
-                    name: "NPM",
-                    path: require("../assets/images/npm.svg"),
-                    alt: "image logo NPM",
-                    genre: "Skill",
-                },
-                {
-                    name: "MySQL",
-                    path: require("../assets/images/mysql.svg"),
-                    alt: "image logo MySQL",
-                    genre: "Skill",
-                },
-                {
-                    name: "MongoDB",
-                    path: require("../assets/images/mongodb.svg"),
-                    alt: "image logo MongoDB",
-                    genre: "Skill",
-                },
-            ],
         };
     },
     mounted: function () {
