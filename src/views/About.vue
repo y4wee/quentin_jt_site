@@ -182,7 +182,7 @@ $secondFont: "Righteous";
         height: 65px;
         font-size: 2.2rem;
         color: $purpleColor;
-        animation: float 1.5s infinite ease-in-out;
+        animation: float 1.4s infinite ease-in-out;
     }
     &Main {
         width: 90%;

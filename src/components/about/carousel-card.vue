@@ -34,20 +34,11 @@ export default {
                 initialIndex: 0,
                 prevNextButtons: false,
                 pageDots: false,
-                // freeScroll: true,
                 draggable: false,
                 autoPlay: 1400,
                 selectedAttraction: 0.005,
                 friction: 0.15,
                 pauseAutoPlayOnHover: false,
-                // freeScrollFriction: 1,
-                on: {
-                    // change: this.flickityChange,
-                    // ready: this.flickityReady,
-                    // settle: this.flickitySettle,
-                    // dragStart: this.flickityDragStart,
-                //     staticClick: this.clickEvent,
-                }
             },
             skills: [
                 {
@@ -112,31 +103,6 @@ export default {
         reloadSize: function() {
             this.key++;
         },
-        // flickitySettle: function(index) {
-        //     gsap.to(`.cardSkill.card${index}`, {
-        //         scale: 1,
-        //         duration: 0.2,
-        //     });
-        //     this.index = index;
-        // },
-        // flickityChange: function() {
-        //     gsap.to(`.cardSkill.card${this.index}`, {
-        //         scale: 0.8,
-        //         duration: 0,
-        //     });
-        // },
-        // flickityReady: function() {
-        //     gsap.to(`.cardSkill.card${this.index}`, {
-        //         scale: 1,
-        //         duration: 0,
-        //     });
-        // },
-        // flickityDragStart: function() {
-        //     gsap.to(`.cardSkill.card${this.index}`, {
-        //         scale: 0.8,
-        //         duration: 0.2,
-        //     })
-        // },
     },
 }
 </script>
