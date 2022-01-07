@@ -1,45 +1,37 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Work from '../views/Work.vue'
-import Contact from '../views/Contact.vue'
+// import Home from '../views/Home.vue'
+// import About from '../views/About.vue'
+// import Work from '../views/Work.vue'
+// import Contact from '../views/Contact.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
-    meta: {
-      enterClass:'animate__animated animate__fadeIn',
-      leaveClass:'animate__animated animate__slideOutLeft'
-    }
+    component: () => {
+      import("../views/Home.vue")
+    },
   },
   {
     path: '/about',
     name: 'About',
-    component: About,
-    meta: {
-      enterClass:'animate__animated animate__slideInLeft',
-      leaveClass:'animate__animated animate__fadeOutRight'
-    }
+    component: () => {
+      import("../views/About.vue")
+    },
   },
   {
     path: '/work',
     name: 'Work',
-    component: Work,
-    meta: {
-      enterClass:'animate__animated',
-      leaveClass:'animate__animated'
-    }
+    component: () => {
+      import("../views/Work.vue")
+    },
   },
   {
     path: '/contact',
     name: 'Contact',
-    component: Contact,
-    meta: {
-      enterClass:'animate__animated',
-      leaveClass:'animate__animated'
-    }
+    component: () => {
+      import("../views/Contact.vue")
+    },
   },
 ]
 
