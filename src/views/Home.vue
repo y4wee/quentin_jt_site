@@ -8,7 +8,7 @@
       :text="word.text"
       :animation="word.animation"
       /> -->
-      <div class="homeWords1">Développeur</div>
+      <div class="homeWords1">Developer</div>
       <div class="homeWords2">Web</div>
       <div class="homeWords3">Full-stack</div>
       <div class="homeWordsBis">Junior</div>
@@ -142,6 +142,7 @@ $secondFont: 'Righteous';
     transform-origin: bottom right;
     transform: rotateZ(45deg) translateY(53%);
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7), -5px 0 10px 0 rgba(0, 0, 0, 0.7);
+    border: 5px solid $thirdColor;
     &Hover {
       position: absolute;
       z-index: 50;

@@ -38,7 +38,7 @@ $secondFont: "Righteous";
     background-color: $thirdColor;
     border: solid 5px $thirdColor;
     border-radius: 10px;
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.8);
     &Image {
         position: relative;
         display: flex;
@@ -73,12 +73,9 @@ $secondFont: "Righteous";
         // animation: levitation 6s infinite ease-in-out;
     }
 }
-// @keyframes levitation {
-//     0%, 100% {
-//         background-position: 50% 75%;
-//     }
-//     50% {
-//         background-position: 50% 50%;
-//     }
-// }
+.cardWork {
+    & .cardImage {
+        background-position: 30% 50%;
+    }
+}
 </style>
