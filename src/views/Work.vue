@@ -102,7 +102,7 @@ $secondFont: "Righteous";
     // font-weight: bold;
     color: $mainColor;
     background-color: $secondColor;
-    border-radius: 30px;
+    border-radius: 10px;
     margin-bottom: 7vh;
 }
 .cardWork {
