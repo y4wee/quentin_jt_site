@@ -36,7 +36,7 @@ export default {
                 pageDots: false,
                 // freeScroll: true,
                 draggable: false,
-                autoPlay: 1500,
+                autoPlay: 1400,
                 selectedAttraction: 0.005,
                 friction: 0.15,
                 pauseAutoPlayOnHover: false,
