@@ -1,137 +1,156 @@
 <template>
-
     <div class="about">
-        <div class="aboutBack" >
-            <ButtonBack
-            :name="name"
-            :color="color"
-            />
+        <div class="aboutBack">
+            <ButtonBack :name="name" :color="color" />
         </div>
         <div class="aboutMain">
             <div class="aboutMainPresentation">
-
                 <div class="aboutMainPresentationPicture">
                     <Card
-                    :name="bio.name"
-                    :path="bio.path"
-                    :alt="bio.alt"
-                    :genre="bio.genre"
+                        :name="bio.name"
+                        :path="bio.path"
+                        :alt="bio.alt"
+                        :genre="bio.genre"
                     />
                 </div>
 
                 <div class="aboutMainPresentationText">
                     Hey ! <br />
-                    C'est Quentin, un développeur web français et junior dans ce domaine. <br />
-                    Je me suis plongé dans ce magnifique monde qu'est la programmation il y a peu, et j'ai découvert une véritable passion.<br />
-                    Etant une personne logique, j'aime donc résoudre des problèmes et trouver les solutions les plus adaptées.<br />
-                    Je suis minutieux et rigoureux dans mon travail, un code propre et maintenable est selon moi, un bon code !<br />
+                    C'est Quentin, un développeur web français et junior dans ce
+                    domaine. <br />
+                    Je me suis plongé dans ce magnifique monde qu'est la
+                    programmation il y a peu, et j'ai découvert une véritable
+                    passion.<br />
+                    Etant une personne logique, j'aime donc résoudre des
+                    problèmes et trouver les solutions les plus adaptées.<br />
+                    Je suis minutieux et rigoureux dans mon travail, un code
+                    propre et maintenable est selon moi, un bon code !<br />
                     Vivement à la recherche d'expériences dans ce milieu,
-                    développeur full-stack avec une préférence pour le côté Front-end et une appétence pour l'UX/UI design.<br />
-                    Je suis Adaptable et j'aime découvrir et apprendre de nouvelles technologies !
+                    développeur full-stack avec une préférence pour le côté
+                    Front-end et une appétence pour l'UX/UI design.<br />
+                    Je suis Adaptable et j'aime découvrir et apprendre de
+                    nouvelles technologies !
                 </div>
 
                 <div class="aboutMainPresentationSkill">
                     <CarouselCard />
                     <div class="aboutMainPresentationSkillOverlay"></div>
                 </div>
-
             </div>
         </div>
+        <div class="aboutArrow">
+            <i class="fas fa-chevron-down"></i>
+        </div>
     </div>
-
 </template>
 
 <script>
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
-import Card from '../components/about/card.vue';
-import CarouselCard from '../components/about/carousel-card.vue';
+import Card from "../components/about/card.vue";
+import CarouselCard from "../components/about/carousel-card.vue";
 
 export default {
-    name: 'About',
+    name: "About",
     components: {
         ButtonBack,
         Card,
-        CarouselCard
+        CarouselCard,
     },
     data() {
         return {
-            name: 'about',
-            color: 'rgba(86, 245 , 105, 1)',
+            name: "about",
+            color: "rgba(86, 245 , 105, 1)",
             bio: {
-                name: 'Ruler',
-                path: require('../assets/images/buste2.png'),
-                alt: 'image cartoon de quentin jt',
-                genre: 'Bio'
+                name: "Ruler",
+                path: require("../assets/images/buste2.png"),
+                alt: "image cartoon de quentin jt",
+                genre: "Bio",
             },
             skills: [
                 {
-                    name: 'HTML',
-                    path: require('../assets/images/html.svg'),
-                    alt: 'image logo HTML',
-                    genre: 'Skill',
+                    name: "HTML",
+                    path: require("../assets/images/html.svg"),
+                    alt: "image logo HTML",
+                    genre: "Skill",
                 },
                 {
-                    name: 'CSS',
-                    path: require('../assets/images/css.svg'),
-                    alt: 'image logo CSS',
-                    genre: 'Skill',
+                    name: "CSS",
+                    path: require("../assets/images/css.svg"),
+                    alt: "image logo CSS",
+                    genre: "Skill",
                 },
                 {
-                    name: 'Javascript',
-                    path: require('../assets/images/javascript.svg'),
-                    alt: 'image logo Javascript',
-                    genre: 'Skill',
+                    name: "Javascript",
+                    path: require("../assets/images/javascript.svg"),
+                    alt: "image logo Javascript",
+                    genre: "Skill",
                 },
                 {
-                    name: 'Vuejs',
-                    path: require('../assets/images/vuejs.svg'),
-                    alt: 'image logo Vuejs',
-                    genre: 'Skill',
+                    name: "Vuejs",
+                    path: require("../assets/images/vuejs.svg"),
+                    alt: "image logo Vuejs",
+                    genre: "Skill",
                 },
                 {
-                    name: 'nodejs',
-                    path: require('../assets/images/nodejs.svg'),
-                    alt: 'image logo Nodejs',
-                    genre: 'Skill',
+                    name: "nodejs",
+                    path: require("../assets/images/nodejs.svg"),
+                    alt: "image logo Nodejs",
+                    genre: "Skill",
                 },
                 {
-                    name: 'NPM',
-                    path: require('../assets/images/npm.svg'),
-                    alt: 'image logo NPM',
-                    genre: 'Skill',
+                    name: "NPM",
+                    path: require("../assets/images/npm.svg"),
+                    alt: "image logo NPM",
+                    genre: "Skill",
                 },
                 {
-                    name: 'MySQL',
-                    path: require('../assets/images/mysql.svg'),
-                    alt: 'image logo MySQL',
-                    genre: 'Skill',
+                    name: "MySQL",
+                    path: require("../assets/images/mysql.svg"),
+                    alt: "image logo MySQL",
+                    genre: "Skill",
                 },
                 {
-                    name: 'MongoDB',
-                    path: require('../assets/images/mongodb.svg'),
-                    alt: 'image logo MongoDB',
-                    genre: 'Skill',
+                    name: "MongoDB",
+                    path: require("../assets/images/mongodb.svg"),
+                    alt: "image logo MongoDB",
+                    genre: "Skill",
                 },
-            ]
-        }
+            ],
+        };
     },
-    mounted: function() {
-        this.arriveTransition()
+    mounted: function () {
+        this.arriveTransition();
     },
     methods: {
-        arriveTransition: function() {
-            let tl = gsap.timeline()
+        arriveTransition: function () {
+            let tl = gsap.timeline();
 
-            tl.delay(0.25)
+            tl.delay(0.25);
 
-            tl.from('.about', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
-            tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
-            tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
-            tl.from('.aboutBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
+            tl.from(".about", {
+                yPercent: 100,
+                duration: 0.4,
+                ease: "power4.out",
+            });
+            tl.to(
+                "header",
+                { xPercent: -50, duration: 0.5, ease: "power4.out" },
+                "-=0.1"
+            );
+            tl.to(
+                ".logo",
+                { xPercent: 50, duration: 0.5, ease: "power4.out" },
+                "-=0.5"
+            );
+            tl.from(
+                ".aboutBack",
+                { opacity: 0, duration: 0.5, ease: "power1.in" },
+                "-=0.45"
+            );
         },
     },
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -139,12 +158,12 @@ export default {
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
 $thirdColor: rgb(227, 223, 223);
-$greenColor: rgb(86, 245 , 105);
+$greenColor: rgb(86, 245, 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
-$mainFont: 'Ultra';
-$secondFont: 'Righteous';
+$mainFont: "Ultra";
+$secondFont: "Righteous";
 .about {
     position: relative;
     height: 100%;
@@ -152,6 +171,19 @@ $secondFont: 'Righteous';
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    &Arrow {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 4%;
+        right: 5%;
+        width: 65px;
+        height: 65px;
+        font-size: 2.2rem;
+        color: $purpleColor;
+        animation: float 1.5s infinite ease-in-out;
+    }
     &Main {
         width: 90%;
         height: calc(100% - 75px);
@@ -171,7 +203,6 @@ $secondFont: 'Righteous';
                 display: none;
             }
             &Picture {
-                position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -202,23 +233,26 @@ $secondFont: 'Righteous';
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background: rgba(0,0,0,0.1);
+                    background: rgba(242, 116, 5, 0.1);
                 }
             }
         }
     }
 }
 @media all and (max-height: 500px) {
-  .aboutMainPresentation {
-      height: calc(100% - 10px);
-      &Text {
-          width: 60%;
-      }
-  }
+    .aboutMainPresentation {
+        height: calc(100% - 10px);
+        &Text {
+            width: 60%;
+        }
+    }
 }
 @media all and (min-width: 701px) and (max-width: 1024px) {
     .aboutMain {
         width: 75%;
+    }
+    .aboutArrow {
+        right: 12.5%;
     }
 }
 @media all and (min-width: 1025px) {
@@ -229,19 +263,19 @@ $secondFont: 'Righteous';
             line-height: 170%;
         }
     }
+    .aboutArrow {
+        right: 20%;
+    }
 }
 @keyframes float {
-	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: translateY(0%);
-	}
-	50% {
-		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
-		transform: translateY(-3%);
-	}
-	100% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
-		transform: translateY(0%);
-	}
+    0% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(30%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
 }
 </style>
