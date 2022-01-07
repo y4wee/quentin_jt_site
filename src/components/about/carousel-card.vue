@@ -17,7 +17,6 @@
 
 <script>
 import Card from './card.vue';
-// import { gsap } from "gsap";
 import Flickity from 'vue-flickity'
 
 export default {

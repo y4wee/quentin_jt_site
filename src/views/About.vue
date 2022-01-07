@@ -46,6 +46,7 @@
 
 <script>
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonBack from "../components/app/button-back.vue";
 import Card from "../components/about/card.vue";
 import CarouselCard from "../components/about/carousel-card.vue";
@@ -70,7 +71,22 @@ export default {
         };
     },
     mounted: function () {
+        // animation en arrivant sur la page
         this.arriveTransition();
+        gsap.registerPlugin(ScrollTrigger);
+
+        //animation opacité overlay en scroll
+        gsap.to(".aboutMainPresentationSkillOverlay", {
+            scrollTrigger: {
+                scroller: ".aboutMainPresentation",
+                trigger: ".aboutMainPresentationSkill",
+                // markers: true,
+                start: "top center",
+                end: "center center",
+                scrub: 1,
+            },
+            opacity: 0,
+        })
     },
     methods: {
         arriveTransition: function () {
@@ -183,7 +199,8 @@ $secondFont: "Righteous";
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background: rgba(242, 116, 5, 0.1);
+                    background-color: $orangeColor;
+                    opacity: 1;
                 }
             }
         }
