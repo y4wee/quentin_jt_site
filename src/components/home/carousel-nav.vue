@@ -235,7 +235,7 @@ a {
         opacity: 0;
         & .fas {
             font-size: 2.5rem;
-            color: $mainColor;
+            color: #162141;
         }
         &Left {
             animation: pulseLeft 0.8s infinite alternate ease-in-out;
