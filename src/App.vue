@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import Cursor from './components/app/cursor.vue';
@@ -33,20 +33,36 @@ export default {
     // Cursor,
     SocialLink
 },
-  // data() {
-  //   return {
-  //     transitionFrom: 'fromHome'
-  //   }
-  // },
+  data() {
+    return {
+      title1: "Quentin-jt",
+      title2: "LF Job",
+    }
+  },
   mounted: function() {
     // gsap.registerPlugin(ScrollTrigger);
+    document.title = this.title1;
+    // fonction changement de title toutes les 5s
+    setInterval(this.changeTitle, 5000);
   },
-  computed: {
-      ...mapState({
-          headerHover: 'headerHover',
-          header: 'header'
-      }),
+  methods: {
+    changeTitle: function() {
+      console.log('interval')
+      if(document.title === this.title1) {
+        console.log("title2")
+        document.title = this.title2;
+      } else {
+        console.log("title1")
+        document.title = this.title1;
+      }
+    },
   },
+  // computed: {
+  //     ...mapState({
+  //         headerHover: 'headerHover',
+  //         header: 'header'
+  //     }),
+  // },
 }
 </script>
 
@@ -137,7 +153,7 @@ footer {
     width: 60%;
   }
 }
-//animation background effect
+//animation background noise effect
 @-webkit-keyframes noiseTranslation {
   0% {
     background-position: 0 0;
