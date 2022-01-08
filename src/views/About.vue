@@ -63,9 +63,9 @@ export default {
             name: "about",
             color: "rgba(86, 245 , 105, 1)",
             bio: {
-                name: "Quentin",
+                name: "Y4wee",
                 path: require("../assets/images/buste2.png"),
-                className: "cardQuentin",
+                className: "cardY4wee",
                 genre: "Ruler",
             },
         };
@@ -76,7 +76,7 @@ export default {
         gsap.registerPlugin(ScrollTrigger);
 
         //animation opacité overlay en scroll
-        gsap.to(".aboutMainPresentationSkillOverlay", {
+        gsap.to(".aboutMainPresentationSkillOverlay, .aboutArrow", {
             scrollTrigger: {
                 scroller: ".aboutMainPresentation",
                 trigger: ".aboutMainPresentationSkill",

@@ -143,7 +143,6 @@ export default {
             });
         },
         flickityDragStart: function() {
-            console.log(this.$store.state.carouselIndex)
             gsap.killTweensOf(`.linkArrow${this.$store.state.carouselIndex}`)
             gsap.to(`.linkArrow${this.$store.state.carouselIndex}`, {
                 opacity: 0,

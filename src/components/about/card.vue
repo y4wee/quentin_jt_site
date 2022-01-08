@@ -58,7 +58,7 @@ $secondFont: "Righteous";
         height: 12%;
         font-family: $secondFont;
         font-size: 4vh;
-        color: $orangeColor;
+        color: $mainColor;
     }
 }
 .cardRuler {
@@ -68,7 +68,7 @@ $secondFont: "Righteous";
 }
 .cardSkill {
     & .cardImage {
-        background-size: 50% 50%;
+        // background-size: 50% 50%;
         background-position: 50% 75%;
         // animation: levitation 6s infinite ease-in-out;
     }
