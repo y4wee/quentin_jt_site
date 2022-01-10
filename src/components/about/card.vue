@@ -1,19 +1,30 @@
 <template>
-    <div :class="'card card' + genre + ' ' + className">
+    <div :class="'card card' + genre + ' ' + className"
+    :style="{
+        height: `${height}vh`,
+        width: `${height * 3 / 5}vh`
+    }">
+
         <div class="cardImage"
         :style="{
-            backgroundImage: `url(${path})`
+            backgroundImage: `url(${path})`,
         }"
         >
         </div>
-        <div class="cardText">{{ name }}</div>
+
+        <div class="cardText"
+        :style="{
+            fontSize: `${height / 10}vh`,
+        }"
+        >{{ name }}</div>
+
     </div>
 </template>
 
 <script>
 export default {
     name: "Card",
-    props: ["name", "path", "className", "genre"],
+    props: ["name", "path", "className", "genre", "height"],
 };
 </script>
 
@@ -33,8 +44,8 @@ $secondFont: "Righteous";
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    width: 30vh;
-    height: 50vh;
+    // width: 30vh;
+    // height: 50vh;
     background-color: $thirdColor;
     border: solid 5px $thirdColor;
     border-radius: 10px;
@@ -57,7 +68,7 @@ $secondFont: "Righteous";
         align-items: flex-end;
         height: 12%;
         font-family: $secondFont;
-        font-size: 4vh;
+        // font-size: 4vh;
         color: $mainColor;
     }
 }

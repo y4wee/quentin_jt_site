@@ -11,30 +11,40 @@
                         :path="bio.path"
                         :className="bio.className"
                         :genre="bio.genre"
+                        :height="bioHeight"
                     />
                 </div>
 
                 <div class="aboutMainPresentationText">
                     Hey ! <br />
-                    C'est Quentin, un développeur web français et junior dans ce
-                    domaine. <br />
-                    Je me suis plongé dans ce magnifique monde qu'est la
-                    programmation il y a peu, et j'ai découvert une véritable
-                    passion.<br />
-                    Etant une personne logique, j'aime donc résoudre des
-                    problèmes et trouver les solutions les plus adaptées.<br />
-                    Je suis minutieux et rigoureux dans mon travail, un code
-                    propre et maintenable est selon moi, un bon code !<br />
-                    Vivement à la recherche d'expériences dans ce milieu,
-                    développeur full-stack avec une préférence pour le côté
-                    Front-end et une appétence pour l'UX/UI design.<br />
-                    Je suis Adaptable et j'aime découvrir et apprendre de
-                    nouvelles technologies !
+                    C'est Quentin,<br />
+                    un développeur web français et junior situé en région bordelaise. <br />
+                    Je suis un rêveur, un joueur, curieux et optimiste de nature, 
+                    à l’écoute des autres et n’oublions pas que j’aime les chats !<br />
+                    Après plusieurs années de recherche sur moi-même,<br />
+                    Je me suis plongé dans ce vaste monde qu'est la programmation en 2021, 
+                    depuis je ne cesse d’accroître mes compétences dans ce milieu,<br />
+                    Un milieu qui est une passion,<br />
+                    Une passion que j’aime cultiver et développer.<br />
+                    Je vous laisse donc découvrir les cartes que j’ai en ma possession.
                 </div>
 
                 <div class="aboutMainPresentationSkill">
                     <CarouselCard />
                     <div class="aboutMainPresentationSkillOverlay"></div>
+                </div>
+
+                <div class="aboutMainPresentationText">
+                    Vivement à la recherche d’un premier emploi dans ce milieu,<br />
+                    je suis un développeur <br />full-stack avec une préférence pour 
+                    le côté Front-end et une appétence pour l'UX/UI design.
+
+                    Etant une personne logique et minutieuse,
+                    j'aime résoudre des problèmes et en trouver les solutions 
+                    les plus adaptées tout en adoptant un code propre et maintenable.<br />
+
+                    Je suis Adaptable et j'aime découvrir et apprendre de nouvelles technologies, <br />
+                    alors si vous êtes intéressé par mon profil, je vous invite à suivre ce lien…
                 </div>
             </div>
         </div>
@@ -68,6 +78,7 @@ export default {
                 className: "cardY4wee",
                 genre: "Ruler",
             },
+            bioHeight: 50,
         };
     },
     mounted: function () {
@@ -76,16 +87,16 @@ export default {
         gsap.registerPlugin(ScrollTrigger);
 
         //animation opacité overlay en scroll
-        gsap.to(".aboutMainPresentationSkillOverlay, .aboutArrow", {
+        gsap.to(".aboutMainPresentationSkill, .carouselCard", {
             scrollTrigger: {
                 scroller: ".aboutMainPresentation",
                 trigger: ".aboutMainPresentationSkill",
                 // markers: true,
-                start: "top center",
-                end: "center center",
-                scrub: 1,
+                start: "80% 70%",
+                end: "bottom 45%",
+                scrub: 1.3,
             },
-            opacity: 0,
+            transform: "translateY(0)",
         })
     },
     methods: {
@@ -179,7 +190,6 @@ $secondFont: "Righteous";
                 min-height: 100%;
                 max-width: 600px;
                 padding: 20px 0;
-                // border-bottom: 5px solid $thirdColor;
                 font-family: $mainFont;
                 font-size: 1.3rem;
                 color: $thirdColor;
@@ -191,16 +201,16 @@ $secondFont: "Righteous";
                 justify-content: center;
                 align-items: center;
                 width: 100%;
-                height: 100%;
-                background-color: rgba(242, 116, 5, 0.8);
-                border: 5px solid $secondColor;
-                border-bottom: none;
+                height: 50%;
+                max-width: 800px;
+                // background-color: $thirdColor;
+                border-bottom: 5px solid $thirdColor;
+                overflow: hidden;
+                transform: translateY(-50%);
                 &Overlay {
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    background-color: $orangeColor;
-                    opacity: 1;
                 }
             }
         }
@@ -211,6 +221,9 @@ $secondFont: "Righteous";
         height: calc(100% - 10px);
         &Text {
             width: 60%;
+        }
+        &Skill {
+            width: 80%;
         }
     }
 }

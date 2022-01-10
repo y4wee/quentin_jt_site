@@ -8,6 +8,7 @@
                 :path="skill.path"
                 :className="skill.className"
                 :genre="skill.genre"
+                :height="skillHeight"
                 />
             </div>
         </flickity>
@@ -83,6 +84,7 @@ export default {
                     genre: 'Skill',
                 },
             ],
+            skillHeight: 30,
             key: 0,
         }
     },
@@ -101,12 +103,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$mainColor: rgb(28, 32, 32);
+$secondColor: rgb(233, 222, 190);
+$thirdColor: rgb(227, 223, 223);
+$greenColor: rgb(86, 245, 105);
+$purpleColor: rgb(245, 86, 226);
+$orangeColor: rgb(242, 116, 5);
+$testColorGray: rgb(61, 61, 61);
+$mainFont: "Ultra";
+$secondFont: "Righteous";
     .carouselCard {
         width: 100%;
-        height: 100%;
+        height: calc(100% - 5px);
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: $secondColor;
+        border: 5px solid $thirdColor;
+        border-bottom: none;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        transform: translateY(100%);
     }
     .flickity {
         width: 100%;
