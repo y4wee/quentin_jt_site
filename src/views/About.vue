@@ -15,13 +15,27 @@
                     />
                 </div>
 
-                <div class="aboutMainPresentationText">
+                <div class="aboutMainPresentationText" v-if="language === 'Eng'">
+                    Hey ! <br />
+                    I am Quentin,<br />
+                    a French and junior web developer located in the Bordeaux region. <br />
+                    I am a dreamer, a gamer, curious and optimistic by nature, 
+                    listen to others and let's not forget that<br />
+                    I love cats !<br />
+                    After a few years of researching myself,<br />
+                    I immersed myself in the vast world of programming in 2021,
+                    since then I have continued to increase my skills in this environment,<br />
+                    An environment which is a passion,<br />
+                    A passion that I love to cultivate and develop.<br />
+                    So I'll let you discover the cards I have in my possession.
+                </div>
+                <div class="aboutMainPresentationText" v-else>
                     Hey ! <br />
                     C'est Quentin,<br />
                     un développeur web français et junior situé en région bordelaise. <br />
                     Je suis un rêveur, un joueur, curieux et optimiste de nature, 
                     à l’écoute des autres et n’oublions pas que j’aime les chats !<br />
-                    Après plusieurs années de recherche sur moi-même,<br />
+                    Après quelques années de recherche sur moi-même,<br />
                     Je me suis plongé dans ce vaste monde qu'est la programmation en 2021,
                     depuis je ne cesse d’accroître mes compétences dans ce milieu,<br />
                     Un milieu qui est une passion,<br />
@@ -34,15 +48,23 @@
                     <div class="aboutMainPresentationSkillOverlay"></div>
                 </div>
 
-                <div class="aboutMainPresentationText">
+                <div class="aboutMainPresentationText" v-if="language === 'Eng'">
+                    Strongly looking for a first job in this environment,<br />
+                    I am a full-stack <br /> developer with a preference for
+                    the Front-end side and an appetite for UX / UI design.
+                    Being a logical and careful person,
+                    I like to solve problems and find solutions
+                    most suitable while adopting a clean and maintainable code.<br />
+                    I am Adaptable and I like to discover and learn new technologies, <br />
+                    so if you are interested in my profile, I invite you to follow this link ...
+                </div>
+                <div class="aboutMainPresentationText" v-else>
                     Vivement à la recherche d’un premier emploi dans ce milieu,<br />
                     je suis un développeur <br />full-stack avec une préférence pour 
                     le côté Front-end et une appétence pour l'UX/UI design.
-
                     Etant une personne logique et minutieuse,
                     j'aime résoudre des problèmes et en trouver les solutions 
                     les plus adaptées tout en adoptant un code propre et maintenable.<br />
-
                     Je suis Adaptable et j'aime découvrir et apprendre de nouvelles technologies, <br />
                     alors si vous êtes intéressé par mon profil, je vous invite à suivre ce lien…
                 </div>

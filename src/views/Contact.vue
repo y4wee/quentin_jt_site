@@ -10,7 +10,7 @@
         <div class="contactMain">
             <div class="contactMainText" v-if="language === 'Eng'">
                 Hey ! <br/>
-                Do not hesitate to contact me, <br/>
+                Don't hesitate to contact me, <br/>
                 by sending me an @mail,<br/> 
                 or with social networks whose links are <br/>
                 located at the bottom left of your screen, <br/>
