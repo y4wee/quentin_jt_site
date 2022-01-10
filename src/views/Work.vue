@@ -8,12 +8,14 @@
             />
         </div>
         <div class="workMain">
-            <div class="inProgress"> Looking <br/> for <br/> work... </div>
+            <div class="inProgress" v-if="language === 'Eng'"> Looking <br/> for <br/> work... </div>
+            <div class="inProgress" v-else> En <br/> recherche <br/> d'emploi... </div>
             <Card 
             :name="cardWork.name"
             :path="cardWork.path"
             :className="cardWork.className"
             :genre="cardWork.genre"
+            :height="cardHeight"
             />
         </div>
     </div>
@@ -21,6 +23,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
 import Card from "../components/about/card.vue";
@@ -35,6 +38,7 @@ export default {
         return {
             name: 'work',
             color: 'rgba(242, 116, 5, 1)',
+            cardHeight: 50,
             cardWork: {
                 name: '...',
                 path: require('../assets/images/work1.png'),
@@ -59,6 +63,11 @@ export default {
             tl.from('.cardWork', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.5')
         },
     },
+    computed: {
+        ...mapState({
+            language: 'language',
+        }),
+    }
 }
 </script>
 

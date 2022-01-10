@@ -22,7 +22,7 @@
                             height: height - 15 + 'px',
                             width: height - 15 + 'px',
                             backgroundColor: link.color
-                        }"> {{ link.text }} </div>
+                        }"> {{ language === "Eng" ? link.text[0] : link.text[1] }} </div>
 
                         <div :class="'linkArrow linkArrow' + index">
                             <i class="fas fa-chevron-left linkArrowLeft"></i>
@@ -64,17 +64,17 @@ export default {
             },
             links: [
                 {
-                    text: 'About me',
+                    text: ['About me', 'Me connaître'],
                     hash: 'about',
                     color: 'rgba(86, 245 , 105, 1)',
                 },
                 {
-                    text: 'My work',
+                    text: ['My work', 'Mon travail'],
                     hash: 'work',
                     color: 'rgba(242, 116, 5, 1)',
                 },
                 {
-                    text: 'Contact me',
+                    text: ['Contact me', 'Contactez moi'],
                     hash: 'contact',
                     color: 'rgba(245, 86, 226, 1)',
                 }
@@ -154,11 +154,13 @@ export default {
     computed: {
         ...mapState({
             carouselIndex: 'carouselIndex',
+            language: 'language',
         }),
         gearAngle(){
             return 180 / this.gears
         }
     }
+
 }
 </script>
 

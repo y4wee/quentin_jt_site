@@ -1,14 +1,20 @@
 <template>
   <div class="home">
 
-    <div class="homeWords">
-      <!-- <HomeWord 
-      v-for="(word, index) in words" :key="word"
-      :className="'homeWords' + index"
-      :text="word.text"
-      :animation="word.animation"
-      /> -->
+    <div class="homeLanguage" @click="changeLanguage()">
+      {{ language }}
+      <!-- <span class="homeLanguage">Eng</span> -->
+      <!-- <span class="homeLanguageFr">Fr</span> -->
+    </div>
+
+    <div class="homeWords" v-if="language === 'Eng'">
       <div class="homeWords1">Developer</div>
+      <div class="homeWords2">Web</div>
+      <div class="homeWords3">Full-stack</div>
+      <div class="homeWordsBis">Junior</div>
+    </div>
+    <div class="homeWords" v-else>
+      <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
       <div class="homeWords3">Full-stack</div>
       <div class="homeWordsBis">Junior</div>
@@ -25,13 +31,11 @@
 import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import CarouselNav from "../components/home/carousel-nav.vue";
-// import HomeWord from "../components/home/home-word.vue";
 
 export default {
   name: "Home",
   components: {
   CarouselNav,
-  // HomeWord
   },
   data() {
     return {
@@ -52,8 +56,7 @@ export default {
     }
   },
   mounted: function() {
-        
-    if(this.$store.state.buttonBack) {
+    if(this.buttonBack) {
       this.animationBack();
     } else {
       return;
@@ -62,16 +65,25 @@ export default {
   },
   methods: {
     animationBack: function() {
+      this.$store.commit("buttonBackState", false)
       let tl = gsap.timeline();
         
       tl.from('.home', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
       tl.from('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.out'}, '-=0.4')
       tl.from('.homeWords', {scale: 0.75, duration: 0.3}, '-=0.15')
     },
+    changeLanguage: function() {
+      if(this.language === "Eng") {
+        this.$store.commit("languageSwitch", "Fr")
+      } else {
+        this.$store.commit("languageSwitch", "Eng")
+      }
+    },
   },
   computed: {
     ...mapState({
-        buttonBack: 'buttonBack',
+      language: 'language',
+      buttonBack: 'buttonBack',
     }),
     gearAngle(){
         return 180 / this.gears
@@ -97,6 +109,20 @@ $secondFont: 'Righteous';
   align-items: center;
   height: 100%;
   width: 100%;
+  &Language {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+    left: 5px;
+    font-family: $secondFont;
+    font-size: 1.5rem;
+    color: $purpleColor;
+    border-bottom: solid 3px $purpleColor;
+    cursor: pointer;
+    user-select: none;
+  }
   &Words {
     height: 100%;
     width: 100%;

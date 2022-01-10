@@ -8,7 +8,15 @@
             />
         </div>
         <div class="contactMain">
-            <div class="contactMainText">
+            <div class="contactMainText" v-if="language === 'Eng'">
+                Hey ! <br/>
+                Do not hesitate to contact me, <br/>
+                by sending me an @mail,<br/> 
+                or with social networks whose links are <br/>
+                located at the bottom left of your screen, <br/>
+                see you soon.
+            </div>
+            <div class="contactMainText" v-else>
                 Hey ! <br/>
                 N'hésitez pas à me contacter, <br/>
                 en m'envoyant un @mail,<br/> ou alors via les réseaux sociaux <br/>
@@ -26,6 +34,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
 
@@ -56,6 +65,11 @@ export default {
             tl.from('.contactMainText', {opacity: 0, xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
             tl.from('.contactMainEmail', {opacity: 0, xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
         },
+    },
+    computed: {
+        ...mapState({
+            language: 'language',
+        }),
     },
 }
 </script>

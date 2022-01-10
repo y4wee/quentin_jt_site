@@ -22,7 +22,7 @@
                     Je suis un rêveur, un joueur, curieux et optimiste de nature, 
                     à l’écoute des autres et n’oublions pas que j’aime les chats !<br />
                     Après plusieurs années de recherche sur moi-même,<br />
-                    Je me suis plongé dans ce vaste monde qu'est la programmation en 2021, 
+                    Je me suis plongé dans ce vaste monde qu'est la programmation en 2021,
                     depuis je ne cesse d’accroître mes compétences dans ce milieu,<br />
                     Un milieu qui est une passion,<br />
                     Une passion que j’aime cultiver et développer.<br />
@@ -55,6 +55,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonBack from "../components/app/button-back.vue";
@@ -126,6 +127,11 @@ export default {
                 "-=0.45"
             );
         },
+    },
+    computed: {
+        ...mapState({
+            language: 'language',
+        }),
     },
 };
 </script>
