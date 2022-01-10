@@ -148,6 +148,7 @@ $secondFont: "Righteous";
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    user-select: none;
     &Arrow {
         position: absolute;
         display: flex;
