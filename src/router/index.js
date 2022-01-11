@@ -9,37 +9,21 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: {
-      enterClass:'animate__animated animate__fadeIn',
-      leaveClass:'animate__animated animate__slideOutLeft'
-    }
   },
   {
     path: '/about',
     name: 'About',
     component: About,
-    meta: {
-      enterClass:'animate__animated animate__slideInLeft',
-      leaveClass:'animate__animated animate__fadeOutRight'
-    }
   },
   {
     path: '/work',
     name: 'Work',
     component: Work,
-    meta: {
-      enterClass:'animate__animated',
-      leaveClass:'animate__animated'
-    }
   },
   {
     path: '/contact',
     name: 'Contact',
     component: Contact,
-    meta: {
-      enterClass:'animate__animated',
-      leaveClass:'animate__animated'
-    }
   },
 ]
 

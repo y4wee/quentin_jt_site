@@ -48,13 +48,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+$gearColor: white;
 $mainColor: rgb(28, 32, 32);
 $secondColor: rgb(233, 222, 190);
-$gearColor: white;
+$thirdColor: rgb(227, 223, 223);
 $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 .social {
     display: flex;
 }
@@ -86,12 +89,12 @@ $testColorGray: rgb(61, 61, 61);
         background: $gearColor;
         border-radius: 50%;
         &.right {
+            -webkit-animation: gearRotateLeft 2s infinite linear;
             animation: gearRotateLeft 2s infinite linear;
-            // animation-play-state: paused;
         }
         &.left {
+            -webkit-animation: gearRotateRight 2s infinite linear;
             animation: gearRotateRight 2s infinite linear;
-            // animation-play-state: paused;
         }
         &::before {
             content:"";
@@ -124,6 +127,14 @@ $testColorGray: rgb(61, 61, 61);
         pointer-events: none;
     }
 }
+@-webkit-keyframes gearRotateLeft {
+  from { 
+    transform: rotateZ(30deg);
+  }
+  to { 
+    transform: rotateZ(390deg); 
+  }
+}
 @keyframes gearRotateLeft {
   from { 
     transform: rotateZ(30deg);
@@ -133,6 +144,22 @@ $testColorGray: rgb(61, 61, 61);
   }
 }
 @keyframes gearRotateRight {
+  from { 
+    transform: rotateZ(0deg);
+  }
+  to { 
+    transform: rotateZ(-360deg); 
+  }
+}
+@keyframes gearRotateRight {
+  from { 
+    transform: rotateZ(0deg);
+  }
+  to { 
+    transform: rotateZ(-360deg); 
+  }
+}
+@-webkit-keyframes gearRotateRight {
   from { 
     transform: rotateZ(0deg);
   }

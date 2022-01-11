@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
 // import { gsap } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 // import Cursor from './components/app/cursor.vue';
@@ -33,20 +33,33 @@ export default {
     // Cursor,
     SocialLink
 },
-  // data() {
-  //   return {
-  //     transitionFrom: 'fromHome'
-  //   }
-  // },
+  data() {
+    return {
+      title1: "Quentin-jt",
+      title2: "LF Job",
+    }
+  },
   mounted: function() {
     // gsap.registerPlugin(ScrollTrigger);
+    document.title = this.title1;
+    // fonction changement de title toutes les 5s
+    setInterval(this.changeTitle, 5000);
   },
-  computed: {
-      ...mapState({
-          headerHover: 'headerHover',
-          header: 'header'
-      }),
+  methods: {
+    changeTitle: function() {
+      if(document.title === this.title1) {
+        document.title = this.title2;
+      } else {
+        document.title = this.title1;
+      }
+    },
   },
+  // computed: {
+  //     ...mapState({
+  //         headerHover: 'headerHover',
+  //         header: 'header'
+  //     }),
+  // },
 }
 </script>
 
@@ -54,12 +67,13 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Ultra&display=swap');
 
 // variables sass
-$mainColor: rgb(28, 32, 32);
-$secondColor: rgb(233, 222, 190);
-$thirdColor: rgb(227, 223, 223);
-$greenColor: rgb(86, 245 , 105);
-$purpleColor: rgb(245, 86, 226);
-$orangeColor: rgb(242, 116, 5);
+$mainColor: rgb(28, 32, 32); // 1c2020
+$secondColor: rgb(233, 222, 190); // e9debe
+$thirdColor: rgb(227, 223, 223); // e3dfdf
+$greenColor: rgb(86, 245 , 105); // 56f569
+$purpleColor: rgb(245, 86, 226); // f556e2
+$orangeColor: rgb(242, 116, 5); // f27405
+$blueColor: rgb(22, 33, 65); // 162141
 $testColorGray: rgb(61, 61, 61);
 $mainFont: 'Ultra';
 $secondFont: 'Righteous';
@@ -73,6 +87,7 @@ $secondFont: 'Righteous';
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: inherit;
 }
 body {
   position: fixed;
@@ -87,6 +102,7 @@ body {
   background-repeat: repeat;
   background-position: 0 0;
   animation: noiseTranslation 1s linear infinite;
+  -webkit-animation: noiseTranslation 1s linear infinite;
   overflow: hidden;
 }
 header {
@@ -123,6 +139,7 @@ footer {
   left: 0;
   display: flex;
   mix-blend-mode: difference;
+  z-index: 20;
 }
 @media all and (min-width: 701px) and (max-width: 1024px) {
   header {
@@ -134,7 +151,42 @@ footer {
     width: 60%;
   }
 }
-//animation background effect 
+//animation background noise effect
+@-webkit-keyframes noiseTranslation {
+  0% {
+    background-position: 0 0;
+  }
+  10% {
+      background-position: 20% -10%;
+  }
+  20% {
+      background-position: -10% 20%;
+  }
+  30% {
+      background-position: 20% -10%;
+  }
+  40% {
+      background-position: -10% 20%;
+  }
+  50% {
+      background-position: 20% -10%;
+  }
+  60% {
+      background-position: -10% 20%;
+  }
+  70% {
+      background-position: 20% -10%;
+  }
+  80% {
+      background-position: -10% 20%;
+  }
+  90% {
+      background-position: 20% -10%;
+  }
+  100% {
+      background-position: 0 0;
+  }
+} 
 @keyframes noiseTranslation {
   0% {
     background-position: 0 0;

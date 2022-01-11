@@ -1,33 +1,30 @@
 import { createStore } from 'vuex'
 
-export default createStore({
-  state: {
+let stateDefault = {
+    language: "Eng",
     carouselIndex: 0,
-    cursorHover: {
-      state: false,
-      type: ''
-    },
-    timelineLogo: false,
-    header: false,
-    headerHover: false,
-    sectionAccueil: false,
-  },
+    buttonBack: false,
+  };
+
+  let state = JSON.parse(sessionStorage.getItem("state"));
+  if(!state) {
+    state = stateDefault;
+  }
+
+export default createStore({
+  state: state,
 
   mutations: {
+    languageSwitch: function(state, data) {
+      state.language = data;
+      sessionStorage.setItem("state", JSON.stringify(state))
+    },
     activeIndex: function(state, data) {
       state.carouselIndex = data;
+      sessionStorage.setItem("state", JSON.stringify(state))
     },
-    cursorHoverState: function(state, data) {
-      state.cursorHover = data;
-    },
-    headerOn: function(state, data) {
-      state.header = data;
-    },
-    headerHoverState: function(state, data) {
-      state.headerHover = data;
-    },
-    sectionAccueilOn: function(state, data) {
-      state.sectionAccueil = data;
+    buttonBackState: function(state, data) {
+      state.buttonBack = data;
     },
   },
 

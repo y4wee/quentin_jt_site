@@ -1,13 +1,19 @@
 <template>
   <div class="home">
 
-    <div class="homeWords">
-      <!-- <HomeWord 
-      v-for="(word, index) in words" :key="word"
-      :className="'homeWords' + index"
-      :text="word.text"
-      :animation="word.animation"
-      /> -->
+    <div class="homeLanguage" @click="changeLanguage()">
+      {{ language }}
+      <!-- <span class="homeLanguage">Eng</span> -->
+      <!-- <span class="homeLanguageFr">Fr</span> -->
+    </div>
+
+    <div class="homeWords" v-if="language === 'Eng'">
+      <div class="homeWords1">Developer</div>
+      <div class="homeWords2">Web</div>
+      <div class="homeWords3">Full-stack</div>
+      <div class="homeWordsBis">Junior</div>
+    </div>
+    <div class="homeWords" v-else>
       <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
       <div class="homeWords3">Full-stack</div>
@@ -22,87 +28,108 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import CarouselNav from "../components/home/carousel-nav.vue";
-// import HomeWord from "../components/home/home-word.vue";
 
 export default {
-    name: "Home",
-    components: {
-    CarouselNav,
-    // HomeWord
-},
-data() {
-  return {
-    words: [
-      {
-        text: "Développeur",
-        animation: false
-      },
-      {
-        text: "Web",
-        animation: false
-      },
-      {
-        text: "Junior",
-        animation: false
-      },
-    ]
-  }
-},
-    mounted: function() {
+  name: "Home",
+  components: {
+  CarouselNav,
+  },
+  data() {
+    return {
+      words: [
+        {
+          text: "Développeur",
+          animation: false
+        },
+        {
+          text: "Web",
+          animation: false
+        },
+        {
+          text: "Junior",
+          animation: false
+        },
+      ]
+    }
+  },
+  mounted: function() {
+    if(this.buttonBack) {
+      this.animationBack();
+    } else {
+      return;
+    }
+
+  },
+  methods: {
+    animationBack: function() {
+      this.$store.commit("buttonBackState", false)
       let tl = gsap.timeline();
         
       tl.from('.home', {yPercent: 100, duration: 0.5, ease: 'power4.out'})
       tl.from('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.out'}, '-=0.4')
       tl.from('.homeWords', {scale: 0.75, duration: 0.3}, '-=0.15')
-
-      this.initViewport();
-      window.addEventListener('resize', () => {
-            this.initViewport();
-        })
     },
-    methods: {
-      // hover state when resize window
-      initViewport: function() {
-        let viewport = document.querySelector('.flickity-viewport')
-        viewport.addEventListener('mouseenter', this.cursorHoverState)
-        viewport.addEventListener('mouseleave', this.cursorHoverState)
-      },
-      // hover state on nav
-      cursorHoverState: function(e) {
-        if (e.type === 'mouseenter') {
-          this.$store.commit('cursorHoverState', { state: true, type: 'Grab' });
-        } else {
-          this.$store.commit('cursorHoverState', { state: false, type: '' });
-        }
+    changeLanguage: function() {
+      if(this.language === "Eng") {
+        this.$store.commit("languageSwitch", "Fr")
+      } else {
+        this.$store.commit("languageSwitch", "Eng")
       }
+    },
+  },
+  computed: {
+    ...mapState({
+      language: 'language',
+      buttonBack: 'buttonBack',
+    }),
+    gearAngle(){
+        return 180 / this.gears
     }
+  }
 }
 </script>
 
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
-$secondColor: rgb(233, 222, 190); //e9debe
-$thirdColor: rgb(227, 223, 223); //e3e9e9
-$greenColor: rgb(86, 245 , 105); //56f569
-$purpleColor: rgb(245, 86, 226); //f556e2
-$orangeColor: rgb(242, 116, 5); //f27405
+$secondColor: rgb(233, 222, 190);
+$thirdColor: rgb(227, 223, 223);
+$greenColor: rgb(86, 245 , 105);
+$purpleColor: rgb(245, 86, 226);
+$orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 
 .home {
   position: relative;
   display: flex;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  &Language {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 5px;
+    left: 5px;
+    font-family: $secondFont;
+    font-size: 1.5rem;
+    color: $purpleColor;
+    border-bottom: solid 3px $purpleColor;
+    cursor: pointer;
+    user-select: none;
+  }
   &Words {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-family: 'Ultra';
+    font-family: $mainFont;
     margin: 0 0 0 5%;
     user-select: none;
     font-size: 10vw;
@@ -120,7 +147,7 @@ $testColorGray: rgb(61, 61, 61);
     }
     &Bis {
       position: relative;
-      font-family: 'Righteous';
+      font-family: $secondFont;
       font-size: 12vw;
       color: rgba(242, 116, 5, 0.7);
       transform:  translate(22%, -50%);
@@ -141,6 +168,7 @@ $testColorGray: rgb(61, 61, 61);
     transform-origin: bottom right;
     transform: rotateZ(45deg) translateY(53%);
     box-shadow: 5px 0 10px 0 rgba(0, 0, 0, 0.7), -5px 0 10px 0 rgba(0, 0, 0, 0.7);
+    border: 5px solid $thirdColor;
     &Hover {
       position: absolute;
       z-index: 50;
@@ -177,6 +205,14 @@ $testColorGray: rgb(61, 61, 61);
     font-size: 7.9vw;
     &Bis {
       font-size: 9.4vw;
+    }
+  }
+}
+@media all and (min-width: 1500px) {
+  .homeWords {
+    font-size: 7vw;
+    &Bis {
+      font-size: 8.3vw;
     }
   }
 }

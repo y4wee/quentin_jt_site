@@ -8,7 +8,15 @@
             />
         </div>
         <div class="contactMain">
-            <div class="contactMainText">
+            <div class="contactMainText" v-if="language === 'Eng'">
+                Hey ! <br/>
+                Don't hesitate to contact me, <br/>
+                by sending me an @mail,<br/> 
+                or with social networks whose links are <br/>
+                located at the bottom left of your screen, <br/>
+                see you soon.
+            </div>
+            <div class="contactMainText" v-else>
                 Hey ! <br/>
                 N'hésitez pas à me contacter, <br/>
                 en m'envoyant un @mail,<br/> ou alors via les réseaux sociaux <br/>
@@ -20,12 +28,13 @@
                 <span>quentin.jt.dev@gmail.com</span>
             </div>
         </div>
-        <img class="contactMainImage" src="../assets/images/contact0.png" alt="portrait">
+        <img class="contactMainImage" src="../assets/images/contact0.png" alt="portrait" loading="eager" >
     </div>
 
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
 
@@ -47,6 +56,8 @@ export default {
         arriveTransition: function() {
             let tl = gsap.timeline()
 
+            tl.delay(0.25)
+
             tl.from('.contact', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
             tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
             tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
@@ -54,6 +65,11 @@ export default {
             tl.from('.contactMainText', {opacity: 0, xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
             tl.from('.contactMainEmail', {opacity: 0, xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
         },
+    },
+    computed: {
+        ...mapState({
+            language: 'language',
+        }),
     },
 }
 </script>
@@ -67,10 +83,12 @@ $greenColor: rgb(86, 245 , 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$mainFont: 'Ultra';
+$secondFont: 'Righteous';
 .contact {
     position: relative;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -81,15 +99,14 @@ $testColorGray: rgb(61, 61, 61);
         align-items: center;
         width: 90%;
         height: calc(100% - 75px);
-        // overflow-y: scroll;
         &Text {
             z-index: 2;
             background-color: $secondColor;
             color: $mainColor;
             margin-top: 2%;
             border-radius: 10px;
-            font-family: 'Ultra';
-            font-size: 1.1rem;
+            font-family: $mainFont;
+            font-size: 2.2vh;
             padding: 5px;
             user-select: none;
         }
@@ -102,7 +119,7 @@ $testColorGray: rgb(61, 61, 61);
             margin-top: 2%;
             color: $thirdColor;
             border-radius: 10px;
-            font-family: 'Righteous';
+            font-family: $secondFont;
             font-size: 1.2rem;
             & .fas {
                 font-size: 2rem;
@@ -114,9 +131,11 @@ $testColorGray: rgb(61, 61, 61);
             position: absolute;
             bottom: 0;
             height: 50%;
-            
         }
     }
+}
+@media all and (max-height: 550px) {
+    
 }
 @media all and (min-width: 701px) and (max-width: 1024px) {
     .contactMain {
