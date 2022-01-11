@@ -175,6 +175,10 @@ export default {
             gsap.to(".aboutMainPresentationContactGearBump", {
                 animationPlayState: "running",
             })
+            gsap.to(".aboutArrow", {
+                opacity: 0,
+                duration: 0.4,
+            })
         },
         gearEnterBack: function () {
             gsap.to(".aboutMainPresentationContactGear", {
@@ -183,6 +187,10 @@ export default {
             })
             gsap.to(".aboutMainPresentationContactGearBump", {
                 animationPlayState: "paused",
+            })
+            gsap.to(".aboutArrow", {
+                opacity: 1,
+                duration: 0.4,
             })
         },
         goToContact: function () {
