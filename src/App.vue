@@ -73,6 +73,7 @@ $thirdColor: rgb(227, 223, 223); // e3dfdf
 $greenColor: rgb(86, 245 , 105); // 56f569
 $purpleColor: rgb(245, 86, 226); // f556e2
 $orangeColor: rgb(242, 116, 5); // f27405
+$blueColor: rgb(22, 33, 65); // 162141
 $testColorGray: rgb(61, 61, 61);
 $mainFont: 'Ultra';
 $secondFont: 'Righteous';

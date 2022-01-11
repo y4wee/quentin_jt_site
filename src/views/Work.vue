@@ -26,7 +26,7 @@
 import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
-import Card from "../components/about/card.vue";
+import Card from "../components/app/card.vue";
 
 export default {
     name: 'Work',

@@ -69,7 +69,7 @@ $secondFont: "Righteous";
         height: 12%;
         font-family: $secondFont;
         // font-size: 4vh;
-        color: $mainColor;
+        color: rgb(22, 33, 65);
     }
 }
 .cardRuler {

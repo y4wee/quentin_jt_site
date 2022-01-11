@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Card from './card.vue';
+import Card from '../app/card.vue';
 import Flickity from 'vue-flickity'
 
 export default {

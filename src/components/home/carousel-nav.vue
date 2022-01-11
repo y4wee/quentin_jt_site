@@ -236,7 +236,7 @@ a {
         opacity: 0;
         & .fas {
             font-size: 2.5rem;
-            color: #162141;
+            color: rgb(22, 33, 65);
         }
         &Left {
             animation: pulseLeft 0.8s infinite alternate ease-in-out;
