@@ -68,6 +68,13 @@
                     Je suis Adaptable et j'aime découvrir et apprendre de nouvelles technologies, <br />
                     alors si vous êtes intéressé par mon profil, je vous invite à suivre ce lien…
                 </div>
+
+                <div class="aboutMainPresentationContact">
+                    <div class="aboutMainPresentationContactGear" @click="goToContact()">
+                        <div class="aboutMainPresentationContactGearBump"></div>
+                        <div class="aboutMainPresentationContactGearCenter">Contact</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="aboutArrow">
@@ -81,7 +88,7 @@ import { mapState } from 'vuex';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonBack from "../components/app/button-back.vue";
-import Card from "../components/about/card.vue";
+import Card from "../components/app/card.vue";
 import CarouselCard from "../components/about/carousel-card.vue";
 
 export default {
@@ -95,9 +102,10 @@ export default {
         return {
             name: "about",
             color: "rgba(86, 245 , 105, 1)",
+            // props pour composant Card
             bio: {
                 name: "Y4wee",
-                path: require("../assets/images/buste2.png"),
+                path: require("../assets/images/buste3.png"),
                 className: "cardY4wee",
                 genre: "Ruler",
             },
@@ -105,11 +113,11 @@ export default {
         };
     },
     mounted: function () {
+        gsap.registerPlugin(ScrollTrigger);
         // animation en arrivant sur la page
         this.arriveTransition();
-        gsap.registerPlugin(ScrollTrigger);
 
-        //animation opacité overlay en scroll
+        // animation du carousel cardskill on scroll
         gsap.to(".aboutMainPresentationSkill, .carouselCard", {
             scrollTrigger: {
                 scroller: ".aboutMainPresentation",
@@ -117,9 +125,19 @@ export default {
                 // markers: true,
                 start: "80% 70%",
                 end: "bottom 45%",
-                scrub: 1.3,
+                scrub: 1,
             },
             transform: "translateY(0)",
+        })
+        // animation bouton contact on scroll
+        ScrollTrigger.create({
+            scroller: ".aboutMainPresentation",
+            trigger: ".aboutMainPresentationContact",
+            // markers: true,
+            start: "15% 50%",
+            end: "15% 50%",
+            onEnter: this.gearEnter,
+            onEnterBack: this.gearEnterBack,
         })
     },
     methods: {
@@ -149,6 +167,36 @@ export default {
                 "-=0.45"
             );
         },
+        gearEnter: function () {
+            gsap.to(".aboutMainPresentationContactGear", {
+                transform: "scale(0.9) translateY(0) rotateZ(0deg)",
+                duration: 0.4,
+            })
+            gsap.to(".aboutMainPresentationContactGearBump", {
+                animationPlayState: "running",
+            })
+        },
+        gearEnterBack: function () {
+            gsap.to(".aboutMainPresentationContactGear", {
+                transform: "scale(0.7) translateY(50%) rotateZ(-30deg)",
+                duration: 0.4,
+            })
+            gsap.to(".aboutMainPresentationContactGearBump", {
+                animationPlayState: "paused",
+            })
+        },
+        goToContact: function () {
+            let tl = gsap.timeline()
+
+            tl.to(".aboutBack", {opacity: 0, duration: 0.5, ease: 'power1.out'})
+            tl.to(".logo", {xPercent: 0, duration: 0.5, ease: 'power3.in'}, '-=0.45')
+            tl.to("header", {xPercent: 0, duration: 0.5, ease: 'power3.in'}, '-=0.5')
+            tl.to(".about", {yPercent: 100, duration: 0.4, ease: 'power4.in'}, '-=0.1')
+
+            tl.then(() => {
+                this.$router.push('/contact')
+            })
+        }
     },
     computed: {
         ...mapState({
@@ -167,6 +215,7 @@ $greenColor: rgb(86, 245, 105);
 $purpleColor: rgb(245, 86, 226);
 $orangeColor: rgb(242, 116, 5);
 $testColorGray: rgb(61, 61, 61);
+$gearColor: rgb(227, 223, 223);
 $mainFont: "Ultra";
 $secondFont: "Righteous";
 .about {
@@ -242,6 +291,61 @@ $secondFont: "Righteous";
                     height: 100%;
                 }
             }
+            &Contact {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 70%;
+                overflow: hidden;
+                &Gear {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 30vh;
+                    height: 30vh;
+
+                    transform: scale(0.7) translateY(50%) rotateZ(-30deg);
+                    &Bump {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(0deg,transparent 39%,$gearColor 39%,$gearColor 61%, transparent 61%),
+                        linear-gradient(60deg,transparent 42%,$gearColor 42%,$gearColor 58%, transparent 58%),
+                        linear-gradient(120deg,transparent 42%,$gearColor 42%,$gearColor 58%, transparent 58%);
+                        border-radius: 50%;
+                        -webkit-animation: gearRotateLeft 2s infinite linear;
+                        animation: gearRotateLeft 2s infinite linear;
+                        animation-play-state: paused;
+                        &::before {
+                            content: '';
+                            // position: absolute;
+                            width: 80%;
+                            height: 80%;
+                            border-radius: 50%;
+                            background-color: $gearColor;
+                        }
+                    }
+                    &Center {
+                        position: absolute;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 70%;
+                        height: 70%;
+                        background: $mainColor;
+                        border-radius: 50%;
+                        color: $purpleColor;
+                        font-family: $mainFont;
+                        font-size: 1.5rem;
+                    }
+                }
+                
+            }
         }
     }
 }
@@ -286,5 +390,21 @@ $secondFont: "Righteous";
     100% {
         transform: translateY(0%);
     }
+}
+@-webkit-keyframes gearRotateLeft {
+  from { 
+    transform: rotateZ(0deg);
+  }
+  to { 
+    transform: rotateZ(360deg); 
+  }
+}
+@keyframes gearRotateLeft {
+  from { 
+    transform: rotateZ(0deg);
+  }
+  to { 
+    transform: rotateZ(360deg); 
+  }
 }
 </style>
