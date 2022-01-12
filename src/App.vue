@@ -102,7 +102,7 @@ body {
   background-repeat: repeat;
   background-position: 0 0;
   animation: noiseTranslation 1s linear infinite;
-  -webkit-animation: noiseTranslation 1s linear infinite;
+  -webkit-animation: noiseTranslation 1s linear infinite; 
   overflow: hidden;
 }
 header {

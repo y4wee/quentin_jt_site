@@ -40,8 +40,8 @@ export default {
             color: 'rgba(242, 116, 5, 1)',
             cardHeight: 50,
             cardWork: {
-                name: '...',
-                path: require('../assets/images/work1.png'),
+                name: "Miaou...",
+                path: require('../assets/images/work32.png'),
                 className: 'cardTempo',
                 genre: 'Work',
             },

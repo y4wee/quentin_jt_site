@@ -170,7 +170,7 @@ export default {
         gearEnter: function () {
             gsap.to(".aboutMainPresentationContactGear", {
                 transform: "scale(0.9) translateY(0) rotateZ(0deg)",
-                duration: 0.4,
+                duration: 0.5,
             })
             gsap.to(".aboutMainPresentationContactGearBump", {
                 animationPlayState: "running",
@@ -183,7 +183,7 @@ export default {
         gearEnterBack: function () {
             gsap.to(".aboutMainPresentationContactGear", {
                 transform: "scale(0.7) translateY(50%) rotateZ(-30deg)",
-                duration: 0.4,
+                duration: 0.5,
             })
             gsap.to(".aboutMainPresentationContactGearBump", {
                 animationPlayState: "paused",
