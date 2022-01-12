@@ -313,7 +313,7 @@ $secondFont: "Righteous";
                     align-items: center;
                     width: 30vh;
                     height: 30vh;
-
+                    cursor: pointer;
                     transform: scale(0.7) translateY(50%) rotateZ(-30deg);
                     &Bump {
                         position: absolute;
