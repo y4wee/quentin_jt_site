@@ -25,7 +25,7 @@
             </div>
             <div class="contactMainEmail">
                 <i class="fas fa-envelope"></i>
-                <span>quentin.jt.dev@gmail.com</span>
+                <span>quentin.jambert@gmail.com</span>
             </div>
         </div>
         <img class="contactMainImage" src="../assets/images/contact0.png" alt="portrait" loading="eager" >
