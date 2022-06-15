@@ -2,9 +2,9 @@
 
     <div class="work">
         <div class="workBack" >
-            <ButtonBack 
+            <ButtonBack
             :name="name"
-            :color="color" 
+            :color="color"
             />
         </div>
         <div class="workMain">
@@ -16,6 +16,7 @@
             :className="cardWork.className"
             :genre="cardWork.genre"
             :height="cardHeight"
+            :link="cardWork.link"
             />
         </div>
     </div>
@@ -40,10 +41,11 @@ export default {
             color: 'rgba(242, 116, 5, 1)',
             cardHeight: 50,
             cardWork: {
-                name: "Miaou...",
-                path: require('../assets/images/work32.png'),
-                className: 'cardTempo',
+                name: "L'Orée",
+                path: require('../assets/images/screenlansot.jpg'),
+                className: 'cardLink',
                 genre: 'Work',
+                link: 'https://loreedelansot.com/',
             },
         }
     },
@@ -114,9 +116,9 @@ $secondFont: "Righteous";
     border-radius: 10px;
     margin-bottom: 7vh;
 }
-.cardWork {
-    animation: float 6s ease-in-out infinite;
-}
+// .cardWork {
+    // animation: float 6s ease-in-out infinite;
+// }
 @media all and (min-width: 701px) and (max-width: 1024px) {
     .workMain {
         width: 75%;

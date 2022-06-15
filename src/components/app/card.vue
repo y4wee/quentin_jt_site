@@ -1,5 +1,6 @@
 <template>
-    <div :class="'card card' + genre + ' ' + className"
+    <div :class="'card card' + genre + ' ' + className" 
+    @click="link.length > 0 ? linkTo() : false"
     :style="{
         height: `${height}vh`,
         width: `${height * 3 / 5}vh`
@@ -24,7 +25,12 @@
 <script>
 export default {
     name: "Card",
-    props: ["name", "path", "className", "genre", "height"],
+    props: ["name", "path", "className", "genre", "height", "link"],
+    methods: {
+        linkTo: function() {
+            window.open(this.link)
+        }
+    },
 };
 </script>
 
@@ -44,12 +50,11 @@ $secondFont: "Righteous";
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    // width: 30vh;
-    // height: 50vh;
     background-color: $thirdColor;
     border: solid 5px $thirdColor;
     border-radius: 10px;
     box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.8);
+    // will-change: transform;
     &Image {
         position: relative;
         display: flex;
@@ -85,8 +90,10 @@ $secondFont: "Righteous";
     }
 }
 .cardWork {
+    cursor: pointer;
     & .cardImage {
-        background-position: 30% 50%;
+        background-position: center;
+        background-size: cover;
     }
 }
 </style>

@@ -86,7 +86,7 @@ export default {
       buttonBack: 'buttonBack',
     }),
     gearAngle(){
-        return 180 / this.gears
+      return 180 / this.gears
     }
   }
 }
