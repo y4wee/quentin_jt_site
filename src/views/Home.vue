@@ -10,14 +10,14 @@
     <div class="homeWords" v-if="language === 'Eng'">
       <div class="homeWords1">Developer</div>
       <div class="homeWords2">Web</div>
-      <div class="homeWords3">Full-stack</div>
-      <div class="homeWordsBis">Junior</div>
+      <div class="homeWords3">JavaScript</div>
+      <!-- <div class="homeWordsBis">Junior</div> -->
     </div>
     <div class="homeWords" v-else>
       <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
-      <div class="homeWords3">Full-stack</div>
-      <div class="homeWordsBis">Junior</div>
+      <div class="homeWords3">JavaScript</div>
+      <!-- <div class="homeWordsBis">Junior</div> -->
     </div>
 
     <div class="homeNav">
@@ -136,6 +136,7 @@ $secondFont: 'Righteous';
     color: $thirdColor;
     &1 {
       margin-top: 120px;
+      margin-left: 5px;
       z-index: 2;
     }
     &2 {
@@ -144,6 +145,7 @@ $secondFont: 'Righteous';
     }
     &3 {
       z-index: 2;
+      color: rgba(242, 116, 5, 0.7);
     }
     &Bis {
       position: relative;
