@@ -10,13 +10,13 @@
     <div class="homeWords" v-if="language === 'Eng'">
       <div class="homeWords1">Developer</div>
       <div class="homeWords2">Web</div>
-      <div class="homeWords3">JavaScript</div>
+      <div class="homeWords3">Frontend</div>
       <!-- <div class="homeWordsBis">Junior</div> -->
     </div>
     <div class="homeWords" v-else>
       <div class="homeWords1">Développeur</div>
       <div class="homeWords2">Web</div>
-      <div class="homeWords3">JavaScript</div>
+      <div class="homeWords3">Frontend</div>
       <!-- <div class="homeWordsBis">Junior</div> -->
     </div>
 
