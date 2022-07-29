@@ -1,76 +1,99 @@
 <template>
-
     <div class="work">
-        <div class="workBack" >
-            <ButtonBack
-            :name="name"
-            :color="color"
-            />
+        <div class="workBack">
+            <ButtonBack :name="name" :color="color" />
         </div>
         <div class="workMain">
-            <div class="inProgress" v-if="language === 'Eng'"> Looking <br/> for <br/> work... </div>
-            <div class="inProgress" v-else> En <br/> recherche <br/> d'emploi... </div>
-            <Card 
-            :name="cardWork.name"
-            :path="cardWork.path"
-            :className="cardWork.className"
-            :genre="cardWork.genre"
-            :height="cardHeight"
-            :link="cardWork.link"
+            <div class="inProgress" v-if="language === 'Eng'">
+                Looking <br />
+                for <br />
+                work...
+            </div>
+            <div class="inProgress" v-else>
+                En <br />
+                recherche <br />
+                d'emploi...
+            </div>
+            <Card
+                :name="cardWork.name"
+                :path="cardWork.path"
+                :className="cardWork.className"
+                :genre="cardWork.genre"
+                :height="cardHeight"
+                :link="cardWork.link"
             />
         </div>
     </div>
-
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 import { gsap } from "gsap";
 import ButtonBack from "../components/app/button-back.vue";
 import Card from "../components/app/card.vue";
 
 export default {
-    name: 'Work',
+    name: "Work",
     components: {
-    ButtonBack,
-    Card
-},
+        ButtonBack,
+        Card,
+    },
     data() {
         return {
-            name: 'work',
-            color: 'rgba(242, 116, 5, 1)',
+            name: "work",
+            color: "rgba(242, 116, 5, 1)",
             cardHeight: 50,
             cardWork: {
                 name: "L'Orée",
-                path: require('../assets/images/screenlansot.jpg'),
-                className: 'cardLink',
-                genre: 'Work',
-                link: 'https://loreedelansot.com/',
+                path: require("../assets/images/screenlansot.jpg"),
+                className: "cardLink",
+                genre: "Work",
+                link: "https://loreedelansot.com/",
             },
-        }
+        };
     },
-    mounted: function() {
-        this.arriveTransition()  
+    mounted: function () {
+        this.arriveTransition();
     },
     methods: {
-        arriveTransition: function() {
-            let tl = gsap.timeline()
+        arriveTransition: function () {
+            let tl = gsap.timeline();
 
-            tl.delay(0.25)
+            tl.delay(0.25);
 
-            tl.from('.work', {yPercent: 100, duration: 0.4, ease: 'power4.out'})
-            tl.to('header', {xPercent: -50, duration: 0.5, ease: 'power4.out'}, '-=0.1')
-            tl.to('.logo', {xPercent: 50, duration: 0.5, ease: 'power4.out'}, '-=0.5')
-            tl.from('.workBack', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.45')
-            tl.from('.cardWork', {opacity: 0, duration: 0.5, ease: 'power1.in'}, '-=0.5')
+            tl.from(".work", {
+                yPercent: 100,
+                duration: 0.4,
+                ease: "power4.out",
+            });
+            tl.to(
+                "header",
+                { xPercent: -50, duration: 0.5, ease: "power4.out" },
+                "-=0.1"
+            );
+            tl.to(
+                ".logo",
+                { xPercent: 50, duration: 0.5, ease: "power4.out" },
+                "-=0.5"
+            );
+            tl.from(
+                ".workBack",
+                { opacity: 0, duration: 0.5, ease: "power1.in" },
+                "-=0.45"
+            );
+            tl.from(
+                ".cardWork",
+                { opacity: 0, duration: 0.5, ease: "power1.in" },
+                "-=0.5"
+            );
         },
     },
     computed: {
         ...mapState({
-            language: 'language',
+            language: "language",
         }),
-    }
-}
+    },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -117,7 +140,7 @@ $secondFont: "Righteous";
     margin-bottom: 7vh;
 }
 // .cardWork {
-    // animation: float 6s ease-in-out infinite;
+// animation: float 6s ease-in-out infinite;
 // }
 @media all and (min-width: 701px) and (max-width: 1024px) {
     .workMain {
@@ -131,17 +154,17 @@ $secondFont: "Righteous";
 }
 // keyframes animation
 @keyframes float {
-	0% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.8);
-		transform: translateY(0);
-	}
-	50% {
-		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.4);
-		transform: translateY(-5vh);
-	}
-	100% {
-		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.8);
-		transform: translateY(0);
-	}
+    0% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.8);
+        transform: translateY(0);
+    }
+    50% {
+        box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.4);
+        transform: translateY(-5vh);
+    }
+    100% {
+        box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.8);
+        transform: translateY(0);
+    }
 }
 </style>
