@@ -9,27 +9,43 @@
                     class="workNavButton workNavButtonLeft"
                     @click="clickButton(-360)"
                 >
-                    <i class="fas fa-arrow-left" :style="{ color: color }"></i>
+                    <i class="fas fa-caret-left" :style="{ color: color }"></i>
                 </div>
                 <div class="workNavDetail">{{ work[nameIndex].name }}</div>
                 <div
                     class="workNavButton workNavButtonRight"
                     @click="clickButton(360)"
                 >
-                    <i class="fas fa-arrow-right" :style="{ color: color }"></i>
+                    <i class="fas fa-caret-right" :style="{ color: color }"></i>
                 </div>
+            </div>
+
+            <div class="workInfo">
+                {{ work[nameIndex].detail }}
             </div>
 
             <div class="workContainer">
                 <div class="workContainerCard">
                     <div class="workContainerCardGear"></div>
                     <div class="workContainerCardDetail">
-                        <img
-                            :src="work[workActive].path"
-                            :alt="'image de ' + work[workActive].name"
-                            width="270"
-                        />
-                        <div class="workContainerCardButton">Visiter</div>
+                        <div class="workContainerCardDetailImage">
+                            <img
+                                :src="work[workActive].path"
+                                :alt="'image de ' + work[workActive].name"
+                                :style="{
+                                    objectPosition:
+                                        work[workActive].imgPosition,
+                                }"
+                                width="270"
+                            />
+                        </div>
+                        <a
+                            :href="work[workActive].link"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            class="workContainerCardButton"
+                            >{{ language === "Eng" ? "Visit" : "Visiter" }}</a
+                        >
                     </div>
                 </div>
             </div>
@@ -58,22 +74,22 @@ export default {
                 {
                     name: "L'Orée de Lansot",
                     path: require("../assets/images/screenlansot.jpg"),
-                    detail: "Site vitrine de chambres dhôtes",
+                    detail: "Site vitrine de chambres dhôtes en Nuxtjs",
                     link: "https://loreedelansot.com/",
-                    imgPosition: "objectPosition: center top",
+                    imgPosition: "0 -25px",
                 },
                 {
                     name: "WZstats",
                     path: require("../assets/images/screenwzstats.jpg"),
-                    detail: "Site stats warzone avec API",
+                    detail: "Site en Reactjs utilisant une API",
                     link: "https://warzone-stats-pi.vercel.app/",
-                    imgPosition: "objectPosition: center top",
+                    imgPosition: "center",
                 },
             ],
             colorActive: "rgba(242, 116, 5, 1)",
             nameIndex: 0,
             workActive: 0,
-            currentRotate: 45,
+            currentRotate: 0,
         };
     },
     mounted: function () {
@@ -119,7 +135,7 @@ export default {
             tl.to(
                 ".workContainerCardGear",
                 {
-                    rotateZ: this.currentRotate - 45,
+                    rotateZ: this.currentRotate,
                     duration: 1,
                     ease: "power1.out",
                 },
@@ -136,11 +152,15 @@ export default {
                 },
                 "<"
             );
-            tl.to(".workContainerCardDetail", {
-                opacity: 1,
-                duration: 0.3,
-                ease: "power1.inOut",
-            });
+            tl.to(
+                ".workContainerCardDetail",
+                {
+                    opacity: 1,
+                    duration: 0.2,
+                    ease: "power1.inOut",
+                },
+                "-=0.2s"
+            );
         },
         changeWorkName: function (way) {
             let indexMax = this.work.length - 1;
@@ -186,7 +206,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 $mainColor: rgb(28, 32, 32);
-$gearColor: rgb(227, 223, 223);
+$gearColor: rgb(233, 222, 190);
 $secondColor: rgb(233, 222, 190);
 $thirdColor: rgb(227, 223, 223);
 $greenColor: rgb(86, 245, 105);
@@ -203,27 +223,67 @@ $secondFont: "Righteous";
     justify-content: center;
     align-items: flex-end;
     &Main {
+        position: relative;
         display: flex;
         align-items: center;
         flex-direction: column;
         width: 100%;
         height: calc(100% - 75px);
-        border-top-left-radius: 30px;
-        border-top-right-radius: 30px;
         overflow: hidden;
     }
     &Nav {
         display: flex;
         justify-content: space-between;
         width: 300px;
+        // margin-top: 5vh;
+        &Detail {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 156px;
+            background: $thirdColor;
+            color: $mainColor;
+            font-family: $mainFont;
+            font-size: 1.3rem;
+        }
+        &Button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            width: 70px;
+            background: $thirdColor;
+            font-size: 2.5rem;
+            cursor: pointer;
+            &Left {
+                border-top-left-radius: 15px;
+                border-bottom-left-radius: 15px;
+            }
+            &Right {
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+            }
+        }
+    }
+    &Info {
+        min-height: 100%;
+        width: 90%;
+        max-width: 600px;
+        padding: 20px 0;
+        font-family: $mainFont;
+        font-size: 1.3rem;
+        color: $thirdColor;
+        line-height: 170%;
     }
     &Container {
-        position: relative;
-        top: 50%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        bottom: -500px;
         width: 900px;
         min-height: 900px;
         transform-origin: center;
-        transform: rotateZ(45deg);
         &Card {
             position: relative;
             display: flex;
@@ -232,9 +292,8 @@ $secondFont: "Righteous";
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            transform: rotateZ(-45deg);
             &Detail {
-                position: absolute;
+                position: relative;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -243,21 +302,36 @@ $secondFont: "Righteous";
                 border-radius: 50%;
                 color: white;
                 overflow: hidden;
-                & img {
-                    object-fit: cover;
-                    object-position: center 80%;
-                }
-                &::after {
-                    content: "";
-                    position: absolute;
-                    width: 260px;
-                    height: 260px;
-                    border-radius: 50%;
-                    background-color: rgba(0, 0, 0, 0.5);
+                &Image {
+                    position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 260px;
+                        height: 260px;
+                        border-radius: 50%;
+                        background-color: rgba(0, 0, 0, 0.5);
+                        pointer-events: none;
+                    }
                 }
             }
             &Button {
                 position: absolute;
+                left: 0;
+                bottom: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                background: $orangeColor;
+                text-decoration: none;
+                color: $thirdColor;
+                font-family: $mainFont;
+                font-size: 1.3rem;
             }
             &Gear {
                 position: absolute;
@@ -268,13 +342,11 @@ $secondFont: "Righteous";
                 height: 280px;
                 background: $gearColor;
                 border-radius: 50%;
-                // -webkit-animation: gearRotateRight 20s infinite linear;
-                // animation: gearRotateRight 20s infinite linear;
                 &::before {
                     content: "";
                     position: absolute;
-                    width: 330px;
-                    height: 330px;
+                    width: 320px;
+                    height: 320px;
                     background: linear-gradient(
                             0deg,
                             transparent 39%,
@@ -323,19 +395,6 @@ $secondFont: "Righteous";
     background-color: $secondColor;
     border-radius: 10px;
     margin-bottom: 7vh;
-}
-// .cardWork {
-// animation: float 6s ease-in-out infinite;
-// }
-@media all and (min-width: 701px) and (max-width: 1024px) {
-    .workMain {
-        width: 75%;
-    }
-}
-@media all and (min-width: 1025px) {
-    .workMain {
-        width: 60%;
-    }
 }
 // keyframes animation
 @keyframes float {
