@@ -74,7 +74,7 @@ export default {
                 {
                     name: "L'Orée de Lansot",
                     path: require("../assets/images/screenlansot.jpg"),
-                    detail: "Site vitrine de chambres dhôtes en Nuxtjs",
+                    detail: "Site vitrine de chambres d'hôtes en Nuxtjs",
                     link: "https://loreedelansot.com/",
                     imgPosition: "0 -25px",
                 },
