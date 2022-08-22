@@ -127,6 +127,8 @@ export default {
             this.changeWorkName(way);
             let tl = gsap.timeline();
 
+            tl.clear();
+
             tl.to(".workContainerCardDetail", {
                 opacity: 0,
                 duration: 0.3,

@@ -118,7 +118,7 @@ $secondFont: "Righteous";
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: $secondColor;
+        background-color: black;
         border: 5px solid $thirdColor;
         border-bottom: none;
         border-top-right-radius: 10px;
@@ -134,15 +134,9 @@ $secondFont: "Righteous";
         align-items: center;
         justify-content: center;
         height: 100%;
-        // transform: scale(0.8);
-        // &.is-selected .cardSkill{
-            // transform: scale(1);
-            // transition: transform 0.5s ease-out;
-        // }
     }
     .cardSkill {
         transform: scale(0.8);
-        // transition: transform 0.5s ease-out;
     }
 
 </style>
