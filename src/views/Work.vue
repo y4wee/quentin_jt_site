@@ -125,14 +125,17 @@ export default {
         clickButton: function (way) {
             this.currentRotate += way;
             this.changeWorkName(way);
+
             let tl = gsap.timeline();
 
             tl.clear();
 
             tl.to(".workContainerCardDetail", {
                 opacity: 0,
-                duration: 0.3,
+                duration: 0.2,
                 ease: "power1.in",
+                onComplete: this.changeWorkIndex,
+                onCompleteParams: [way],
             });
             tl.to(
                 ".workContainerCardGear",
@@ -149,20 +152,20 @@ export default {
                     rotateZ: this.currentRotate,
                     duration: 0.6,
                     ease: "power1.inOut",
-                    onComplete: this.changeWorkIndex,
-                    onCompleteParams: [way],
+                    onComplete: this.cardFading,
                 },
                 "<"
             );
-            tl.to(
-                ".workContainerCardDetail",
-                {
+        },
+        cardFading: function () {
+            if (!gsap.isTweening(".workContainer")) {
+                console.log("not active");
+                gsap.to(".workContainerCardDetail", {
                     opacity: 1,
                     duration: 0.2,
                     ease: "power1.inOut",
-                },
-                "-=0.2s"
-            );
+                });
+            }
         },
         changeWorkName: function (way) {
             let indexMax = this.work.length - 1;
