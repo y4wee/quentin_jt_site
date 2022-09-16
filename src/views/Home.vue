@@ -50,28 +50,26 @@ export default {
         };
     },
     mounted: function () {
-        if (this.buttonBack) {
-            this.animationBack();
-        } else {
-            return;
-        }
+        this.animationBack();
     },
     methods: {
         animationBack: function () {
-            this.$store.commit("buttonBackState", false);
-            let tl = gsap.timeline();
+            if (this.buttonBack) {
+                this.$store.commit("buttonBackState", false);
+                let tl = gsap.timeline();
 
-            tl.from(".home", {
-                yPercent: 100,
-                duration: 0.5,
-                ease: "power4.out",
-            });
-            tl.from(
-                ".homeWords",
-                { yPercent: 100, duration: 0.5, ease: "power4.out" },
-                "-=0.4"
-            );
-            tl.from(".homeWords", { scale: 0.75, duration: 0.3 }, "-=0.15");
+                tl.from(".home", {
+                    yPercent: 100,
+                    duration: 0.5,
+                    ease: "power4.out",
+                });
+                tl.from(
+                    ".homeWords",
+                    { yPercent: 100, duration: 0.5, ease: "power4.out" },
+                    "-=0.4"
+                );
+                tl.from(".homeWords", { scale: 0.75, duration: 0.3 }, "-=0.15");
+            }
         },
         changeLanguage: function () {
             if (this.language === "Eng") {
