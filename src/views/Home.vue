@@ -63,12 +63,12 @@ export default {
                 duration: 0.5,
                 ease: "power4.out",
             });
+            tl.from(".homeWords", { scale: 0.75, duration: 0.3, delay: 0.4 }, "-=0.4");
             tl.from(
                 ".homeWords",
-                { translateY: 100, duration: 0.5, ease: "power4.out" },
-                "-=0.4"
+                { yPercent: 100, duration: 0.5, ease: "power4.out" },
+                "-=0.55"
             );
-            tl.from(".homeWords", { scale: 0.75, duration: 0.3 }, "-=0.15");
         },
         changeLanguage: function () {
             if (this.language === "Eng") {
