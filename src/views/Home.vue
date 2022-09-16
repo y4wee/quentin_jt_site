@@ -51,7 +51,6 @@ export default {
     },
     mounted: function () {
         this.animationBack();
-        console.log("mounted");
     },
     methods: {
         animationBack: function () {
