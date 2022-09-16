@@ -51,26 +51,24 @@ export default {
     },
     mounted: function () {
         this.animationBack();
+        console.log("mounted");
     },
     methods: {
         animationBack: function () {
-            if (this.buttonBack) {
-                console.log("animation go")
-                this.$store.commit("buttonBackState", false);
-                let tl = gsap.timeline();
+            this.$store.commit("buttonBackState", false);
+            let tl = gsap.timeline();
 
-                tl.from(".home", {
-                    yPercent: 100,
-                    duration: 0.5,
-                    ease: "power4.out",
-                });
-                tl.to(
-                    ".homeWords",
-                    { translateY: 0, duration: 0.5, ease: "power4.out" },
-                    "-=0.4"
-                );
-                tl.to(".homeWords", { scale: 1, duration: 0.3 }, "-=0.15");
-            }
+            tl.from(".home", {
+                yPercent: 100,
+                duration: 0.5,
+                ease: "power4.out",
+            });
+            tl.from(
+                ".homeWords",
+                { translateY: 100, duration: 0.5, ease: "power4.out" },
+                "-=0.4"
+            );
+            tl.from(".homeWords", { scale: 0.75, duration: 0.3 }, "-=0.15");
         },
         changeLanguage: function () {
             if (this.language === "Eng") {
@@ -134,7 +132,7 @@ $secondFont: "Righteous";
         user-select: none;
         font-size: 10vw;
         color: $thirdColor;
-        transform: translateY(100%) scale(0.75);
+        // transform: translateY(100%) scale(0.75);
         &1 {
             margin-top: 120px;
             margin-left: 5px;
