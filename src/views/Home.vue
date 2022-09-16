@@ -64,12 +64,12 @@ export default {
                     duration: 0.5,
                     ease: "power4.out",
                 });
-                tl.from(
+                tl.to(
                     ".homeWords",
-                    { yPercent: 100, duration: 0.5, ease: "power4.out" },
+                    { translateY: 0, duration: 0.5, ease: "power4.out" },
                     "-=0.4"
                 );
-                tl.from(".homeWords", { scale: 0.75, duration: 0.3 }, "-=0.15");
+                tl.to(".homeWords", { scale: 1, duration: 0.3 }, "-=0.15");
             }
         },
         changeLanguage: function () {
@@ -134,6 +134,7 @@ $secondFont: "Righteous";
         user-select: none;
         font-size: 10vw;
         color: $thirdColor;
+        transform: translateY(100%) scale(0.75);
         &1 {
             margin-top: 120px;
             margin-left: 5px;
