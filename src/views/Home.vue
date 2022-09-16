@@ -55,6 +55,7 @@ export default {
     methods: {
         animationBack: function () {
             if (this.buttonBack) {
+                console.log("animation go")
                 this.$store.commit("buttonBackState", false);
                 let tl = gsap.timeline();
 
