@@ -103,7 +103,7 @@ export default {
                 let tl = gsap.timeline();
 
                 tl.to('.homeWords', {scale: 0.75, duration: 0.3})
-                tl.to('.homeWords', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.15')
+                tl.to('.homeWordsBlockSlide', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.15')
                 tl.to('.home', {yPercent: 100, duration: 0.5, ease: 'power4.in'}, '-=0.4')
 
                 tl.then(() => {

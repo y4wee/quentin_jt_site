@@ -3,16 +3,17 @@
         <div class="homeLanguage" @click="changeLanguage()">
             {{ language }}
         </div>
-
-        <div class="homeWords" v-if="language === 'Eng'">
-            <div class="homeWords1">Developer</div>
-            <div class="homeWords2">Web</div>
-            <div class="homeWords3">Fron-tend</div>
-        </div>
-        <div class="homeWords" v-else>
-            <div class="homeWords1">Développeur</div>
-            <div class="homeWords2">Web</div>
-            <div class="homeWords3">Fron-tend</div>
+        <div class="homeWordsBlockSlide">
+            <div class="homeWords" v-if="language === 'Eng'">
+                <div class="homeWords1">Developer</div>
+                <div class="homeWords2">Web</div>
+                <div class="homeWords3">Fron-tend</div>
+            </div>
+            <div class="homeWords" v-else>
+                <div class="homeWords1">Développeur</div>
+                <div class="homeWords2">Web</div>
+                <div class="homeWords3">Fron-tend</div>
+            </div>
         </div>
 
         <div class="homeNav">
@@ -62,12 +63,12 @@ export default {
                 duration: 0.5,
                 ease: "power4.out",
             });
-            tl.from(".homeWords", { scale: 0.75, duration: 0.3, delay: 0.4 }, "-=0.4");
             tl.from(
-                ".homeWords",
+                ".homeWordsBlockSlide",
                 { yPercent: 100, duration: 0.5, ease: "power4.out" },
-                "-=0.55"
+                "-=0.4"
             );
+            tl.from(".homeWords", { scale: 0.75, duration: 0.3 }, "-=0.15");
         },
         changeLanguage: function () {
             if (this.language === "Eng") {
@@ -120,6 +121,10 @@ $secondFont: "Righteous";
         cursor: pointer;
         user-select: none;
     }
+    &WordsBlockSlide {
+        height: 100%;
+        width: 100%;
+    }
     &Words {
         height: 100%;
         width: 100%;
@@ -131,7 +136,6 @@ $secondFont: "Righteous";
         user-select: none;
         font-size: 10vw;
         color: $thirdColor;
-        // transform: translateY(100%) scale(0.75);
         &1 {
             margin-top: 120px;
             margin-left: 5px;
