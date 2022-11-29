@@ -80,7 +80,7 @@ export default {
                 },
                 {
                     name: "Front Laboratory",
-                    path: require("../assets/images/screenlaboratory.jpg"),
+                    path: require("../assets/images/screenfrontlaboratory.png"),
                     detail: "Site regroupant des front-challenges, créations et autres... codé avec Nuxtjs",
                     link: "https://front-laboratory.vercel.app/",
                     imgPosition: "center 20px",
