@@ -108,6 +108,7 @@ $secondFont: "Righteous";
     height: 100%;
     width: 100%;
     &Language {
+        z-index: 5;
         position: absolute;
         display: flex;
         justify-content: center;
